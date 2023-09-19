@@ -27,3 +27,9 @@ background: #ccc;
 ::-webkit-scrollbar-thumb:hover {
 background: #999;  
 }
+
+.bottomRightText {
+  position: absolute; 
+  bottom: 0; 
+  right: 0;
+}
