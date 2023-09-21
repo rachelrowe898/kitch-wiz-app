@@ -24,25 +24,30 @@ function switchTab(evt, tabName) {
 
 
 // Choices tab display options when button clicked
-function displayOptions() {
-  // Get selected radio button value
-  var selectedRadio = document.querySelector('input[name="choice"]:checked');
+function displayPreferences() {
+  // Get the selected cuisine
+  const selectedCuisine = document.querySelector('input[name="cuisine"]:checked');
 
-  // Get selected dropdown value
-  var selectedDropdown = document.getElementById("dropdown").value;
+  // Get the selected dietary preference
+  const selectedDietaryPreference = document.getElementById('dietary-preference').value;
 
-  // Display selected options
-  var selectedOptionsDiv = document.getElementById("selected-options");
-  selectedOptionsDiv.innerHTML = "<h3>Selected Options:</h3>";
+  // Display the selected preferences
+  const userPreferences = document.getElementById('user-preferences');
+  userPreferences.innerHTML = '';
 
-  if (selectedRadio) {
-    selectedOptionsDiv.innerHTML += "<p>Radio Option: " + selectedRadio.value + "</p>";
+  if (selectedCuisine) {
+    const cuisineText = document.createElement('p');
+    cuisineText.textContent = `Preferred Cuisine: ${selectedCuisine.value}`;
+    userPreferences.appendChild(cuisineText);
   }
 
-  if (selectedDropdown !== "Select") {
-    selectedOptionsDiv.innerHTML += "<p>Dropdown Option: " + selectedDropdown + "</p>";
+  if (selectedDietaryPreference !== 'None') {
+    const dietaryPreferenceText = document.createElement('p');
+    dietaryPreferenceText.textContent = `Dietary Preference: ${selectedDietaryPreference}`;
+    userPreferences.appendChild(dietaryPreferenceText);
   }
 }
+
 
 // Function to display the to-do list
 var todoItems = [];

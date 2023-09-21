@@ -30,35 +30,35 @@
 
           <!-- Choices Tab -->
           <div id="choices-tab" class="tabcontent">
-            <h1>Choices</h1>
-            <form id="choices-form">
-              <div class="choice">
-                <label for="choice1">Option 1:</label>
-                <input type="radio" id="choice1" name="choice" value="Option 1">
-              </div>
-              <div class="choice">
-                <label for="choice2">Option 2:</label>
-                <input type="radio" id="choice2" name="choice" value="Option 2">
-              </div>
-              <div class="choice">
-                <label for="choice3">Option 3:</label>
-                <input type="radio" id="choice3" name="choice" value="Option 3">
+            <h1>Cusine Preferences</h1>
+            <div class="choices-container">
+              <div class="radio-choices">
+                <label class="radio-label">Select Your Preferred Cuisine:</label>
+                <div class="radio-options">
+                  <input type="radio" id="cuisine-italian" name="cuisine" value="Italian">
+                  <label for="cuisine-italian">Italian</label>
+                  <input type="radio" id="cuisine-mexican" name="cuisine" value="Mexican">
+                  <label for="cuisine-mexican">Mexican</label>
+                  <input type="radio" id="cuisine-asian" name="cuisine" value="Asian">
+                  <label for="cuisine-asian">Asian</label>
+                </div>
               </div>
               <div class="dropdown-choice">
-                <label for="dropdown">Select an option:</label>
-                <select id="dropdown" name="dropdown">
-                  <option value="Select">Select</option>
-                  <option value="Dropdown Option 1">Dropdown 1</option>
-                  <option value="Dropdown Option 2">Dropdown 2</option>
-                  <option value="Dropdown Option 3">Dropdown 3</option>
+                <label class="dropdown-label" for="dietary-preference">Select Dietary Preference:</label>
+                <select id="dietary-preference" name="dietary-preference">
+                  <option value="None">None</option>
+                  <option value="Vegan">Vegan</option>
+                  <option value="Vegetarian">Vegetarian</option>
+                  <option value="Gluten-free">Gluten-free</option>
                 </select>
               </div>
-              <button type="button" onclick="displayOptions()">Display Options</button>
-            </form>
-            <div id="selected-options">
-              <!-- Display selected options here -->
+              <button class="cool-button" onclick="displayPreferences()">Apply Preferences</button>
+            </div>
+            <div id="user-preferences">
+              <!-- Display selected preferences here -->
             </div>
           </div>
+          
           
           <!-- TO DO Tab -->
           <div id="todo-tab" class="tabcontent">

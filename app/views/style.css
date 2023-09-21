@@ -67,7 +67,69 @@ background: #999;
   bottom: 0; 
 }
 
-/* Updated CSS styles for more variation */
+/* Choices Tab */
+/* CSS styles for the "Choices" tab in KitchWiz */
+.choices-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.radio-label,
+.dropdown-label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
+  color: #3498db; /* Blue color for labels */
+}
+
+.radio-options label,
+.radio-options input[type="radio"] {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown-choice select {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ecf0f1; /* Light gray background for dropdown */
+  color: #333; /* Dark gray text color */
+}
+
+.cool-button {
+  background-color: #3498db; /* Blue button color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cool-button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+#user-preferences {
+  margin-top: 20px;
+}
+
+.selected-preference {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #27ae60; /* Green text color for selected preferences */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+/* TO-DO Tab*/
 .todo-container {
   max-width: 400px;
   margin: 0 auto;
