@@ -21,3 +21,23 @@ function switchTab(evt, tabName) {
 
   console.log(evt.currentTarget.className)
 }
+
+function displayOptions() {
+  // Get selected radio button value
+  var selectedRadio = document.querySelector('input[name="choice"]:checked');
+
+  // Get selected dropdown value
+  var selectedDropdown = document.getElementById("dropdown").value;
+
+  // Display selected options
+  var selectedOptionsDiv = document.getElementById("selected-options");
+  selectedOptionsDiv.innerHTML = "<h3>Selected Options:</h3>";
+
+  if (selectedRadio) {
+    selectedOptionsDiv.innerHTML += "<p>Radio Option: " + selectedRadio.value + "</p>";
+  }
+
+  if (selectedDropdown !== "Select") {
+    selectedOptionsDiv.innerHTML += "<p>Dropdown Option: " + selectedDropdown + "</p>";
+  }
+}

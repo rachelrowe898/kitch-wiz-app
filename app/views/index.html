@@ -12,6 +12,7 @@
           <h1>KitchWiz</h1>
           <div class="tab">
             <button class="tablinks" onclick="switchTab(event, 'text-tab')">Text</button>
+            <button class="tablinks" onclick="switchTab(event, 'choices-tab')">Choices</button>
             <button class="tablinks" onclick="switchTab(event, 'lower-right-tab')">Lower Right</button>
           </div>
           <!-- put tabs here -->
@@ -23,6 +24,38 @@
               Nunc vel risus commodo viverra maecenas. Sagittis vitae et leo duis ut. Cum sociis natoque penatibus et magnis dis. Tincidunt vitae semper quis lectus. Sagittis id consectetur purus ut faucibus pulvinar. Nibh sed pulvinar proin gravida. Facilisi nullam vehicula ipsum a. Sagittis purus sit amet volutpat consequat mauris nunc congue nisi. Amet facilisis magna etiam tempor orci eu lobortis elementum. Augue neque gravida in fermentum. Risus commodo viverra maecenas accumsan lacus vel facilisis. A arcu cursus vitae congue. Mauris ultrices eros in cursus turpis. Enim nec dui nunc mattis enim ut tellus elementum sagittis. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan.
             </p>
           </div>
+
+          <div id="choices-tab" class="tabcontent">
+            <h1>Choices</h1>
+            <form id="choices-form">
+              <div class="choice">
+                <label for="choice1">Option 1:</label>
+                <input type="radio" id="choice1" name="choice" value="Option 1">
+              </div>
+              <div class="choice">
+                <label for="choice2">Option 2:</label>
+                <input type="radio" id="choice2" name="choice" value="Option 2">
+              </div>
+              <div class="choice">
+                <label for="choice3">Option 3:</label>
+                <input type="radio" id="choice3" name="choice" value="Option 3">
+              </div>
+              <div class="dropdown-choice">
+                <label for="dropdown">Select an option:</label>
+                <select id="dropdown" name="dropdown">
+                  <option value="Select">Select</option>
+                  <option value="Dropdown Option 1">Dropdown 1</option>
+                  <option value="Dropdown Option 2">Dropdown 2</option>
+                  <option value="Dropdown Option 3">Dropdown 3</option>
+                </select>
+              </div>
+              <button type="button" onclick="displayOptions()">Display Options</button>
+            </form>
+            <div id="selected-options">
+              <!-- Display selected options here -->
+            </div>
+          </div>
+          
 
           <div id="lower-right-tab" class="tabcontent">
             <h1>Lower Right</h1>
