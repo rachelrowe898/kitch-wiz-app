@@ -1,19 +1,47 @@
-/* Force scrollbars onto browser window */
 body {
 margin-bottom: 200%;
 }
 
-/* Box styles */
-.myBox {
-border: none;
+.appBox {
+position:relative;
+border: 1px solid blue;
 padding: 5px;
 font: 24px/36px sans-serif;
-width: 400px;
-height: 400px;
+width: 480px;
+height: 700px;
 overflow: scroll;
 }
 
-/* Scrollbar styles */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #5f90e0;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
 ::-webkit-scrollbar {
 width: 12px;
 height: 12px;
@@ -32,4 +60,9 @@ background: #999;
   position: absolute; 
   bottom: 0; 
   right: 0;
+}
+
+.footerText {
+  position: absolute; 
+  bottom: 0; 
 }
