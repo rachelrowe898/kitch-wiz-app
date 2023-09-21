@@ -13,10 +13,12 @@
           <div class="tab">
             <button class="tablinks" onclick="switchTab(event, 'text-tab')">Text</button>
             <button class="tablinks" onclick="switchTab(event, 'choices-tab')">Choices</button>
-            <button class="tablinks" onclick="switchTab(event, 'lower-right-tab')">Lower Right</button>
             <button class="tablinks" onclick="switchTab(event, 'todo-tab')">ToDo</button>
+            <button class="tablinks" onclick="switchTab(event, 'colors-tab')">Colors</button>
+            <button class="tablinks" onclick="switchTab(event, 'lower-right-tab')">Lower Right</button>
           </div>
-          <!-- put tabs here -->
+          
+          <!-- Text Tab -->
           <div id="text-tab" class="tabcontent">
             <h1>Text</h1>
             <p>
@@ -26,6 +28,7 @@
             </p>
           </div>
 
+          <!-- Choices Tab -->
           <div id="choices-tab" class="tabcontent">
             <h1>Choices</h1>
             <form id="choices-form">
@@ -57,6 +60,7 @@
             </div>
           </div>
           
+          <!-- TO DO Tab -->
           <div id="todo-tab" class="tabcontent">
             <h1>To Do</h1>
             <div class="todo-container">
@@ -70,6 +74,16 @@
             </div>
           </div>          
 
+          <!-- Colors Tab -->
+          <div id="colors-tab" class="tabcontent">
+            <h1>Colors</h1>
+            <div class="color-text">
+              <p class="color-line1">I love KitchWiz</p>
+              <p class="color-line2">KitchWiz is the BEST</p>
+            </div>
+          </div>
+        
+          <!-- Lower Right Tab -->
           <div id="lower-right-tab" class="tabcontent">
             <h1>Lower Right</h1>
               <p class="lowerRightText">

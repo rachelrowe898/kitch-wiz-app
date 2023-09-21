@@ -145,3 +145,30 @@ background: #999;
 .delete-button:hover {
   background-color: #c0392b;
 }
+
+/* Colors Tab */
+/* CSS styles for the "Colors" tab */
+.color-text {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.color-line1 {
+  color: yellow;
+  background-color: black;
+  font-size: 24px;
+  padding: 10px;
+  margin: 0;
+}
+
+.color-line2 {
+  color: purple;
+  background-color: yellow;
+  font-size: 24px;
+  padding: 10px;
+  margin: 0;
+}
