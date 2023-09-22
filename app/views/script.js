@@ -83,7 +83,7 @@ function displayTodoList() {
   for (var i = 0; i < todoItems.length; i++) {
     var item = todoItems[i];
     var listItem = document.createElement("li");
-    listItem.style.backgroundColor = item.color; // Apply a random background color
+    listItem.style.backgroundColor = "gray"; // Apply a random background color
     listItem.innerHTML = '<div class="todo-item">'
       + '<input type="checkbox" onclick="toggleComplete(' + i + ')"' + (item.completed ? ' checked' : '') + '>'
       + '<span class="todo-text' + (item.completed ? ' completed' : '') + '">' + item.text + '</span>'
