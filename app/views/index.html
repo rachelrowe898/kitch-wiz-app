@@ -12,9 +12,14 @@
           <h1>KitchWiz</h1>
           <div class="tab">
             <button class="tablinks" onclick="switchTab(event, 'text-tab')">Text</button>
+            <button class="tablinks" onclick="switchTab(event, 'choices-tab')">Choices</button>
+            <button class="tablinks" onclick="switchTab(event, 'todo-tab')">ToDo</button>
+            <button class="tablinks" onclick="switchTab(event, 'profile-tab')">Profile</button>
+            <button class="tablinks" onclick="switchTab(event, 'colors-tab')">Colors</button>
             <button class="tablinks" onclick="switchTab(event, 'lower-right-tab')">Lower Right</button>
           </div>
-          <!-- put tabs here -->
+          
+          <!-- Text Tab -->
           <div id="text-tab" class="tabcontent">
             <h1>Text</h1>
             <p>
@@ -24,6 +29,77 @@
             </p>
           </div>
 
+          <!-- Choices Tab -->
+          <div id="choices-tab" class="tabcontent">
+            <h1>Cusine Preferences</h1>
+            <div class="choices-container">
+              <div class="radio-choices">
+                <label class="radio-label">Select Preferred Cuisine:</label>
+                <div class="radio-options">
+                  <input type="radio" id="cuisine-italian" name="cuisine" value="Italian">
+                  <label for="cuisine-italian">Italian</label>
+                  <input type="radio" id="cuisine-mexican" name="cuisine" value="Mexican">
+                  <label for="cuisine-mexican">Mexican</label>
+                  <input type="radio" id="cuisine-asian" name="cuisine" value="Asian">
+                  <label for="cuisine-asian">Asian</label>
+                </div>
+              </div>
+              <div class="dropdown-choice">
+                <label class="dropdown-label" for="dietary-preference">Select Dietary Preference:</label>
+                <select id="dietary-preference" name="dietary-preference">
+                  <option value="None">None</option>
+                  <option value="Vegan">Vegan</option>
+                  <option value="Vegetarian">Vegetarian</option>
+                  <option value="Gluten-free">Gluten-free</option>
+                </select>
+              </div>
+              <button class="cool-button" onclick="displayPreferences()">Apply Preferences</button>
+            </div>
+            <div id="user-preferences">
+              <!-- Display selected preferences here -->
+            </div>
+          </div>
+          
+          
+          <!-- TO DO Tab -->
+          <div id="todo-tab" class="tabcontent">
+            <h1>To Do</h1>
+            <div class="todo-container">
+              <div class="todo-input">
+                <input type="text" id="todo-item" placeholder="Add a new task">
+                <button onclick="addItem()">Add</button>
+              </div>
+              <ul id="todo-list">
+                <!-- To-do list items will be added here -->
+              </ul>
+            </div>
+          </div>          
+
+          <div id="profile-tab" class="tabcontent">
+            <h1>Profile</h1>
+            <div class="center">
+              <img src="ostrich.jpg" onclick="openPopup()" alt="Ostrich pillow">
+              <div class="overlay" id="alert" onclick="closePopup()">
+                <div class="popup">
+                    <span class="close" onclick="closePopup()">&times;</span>
+                      <p>This cost $100.</p>
+                </div>
+            </div>
+              <p class>This is an ostrich pillow.</p>
+            </div>
+
+          </div>
+
+          <!-- Colors Tab -->
+          <div id="colors-tab" class="tabcontent">
+            <h1>Colors</h1>
+            <div class="color-text">
+              <p class="color-line1">I love KitchWiz</p>
+              <p class="color-line2">KitchWiz is the BEST</p>
+            </div>
+          </div>
+        
+          <!-- Lower Right Tab -->
           <div id="lower-right-tab" class="tabcontent">
             <h1>Lower Right</h1>
               <p class="lowerRightText">
