@@ -104,3 +104,12 @@ function deleteItem(index) {
   todoItems.splice(index, 1);
   displayTodoList();
 }
+
+// Function to handle the popup
+function openPopup() {
+  document.getElementById('alert').style.display = 'block';
+}
+
+function closePopup() {
+  document.getElementById('alert').style.display = 'none';
+}

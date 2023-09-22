@@ -12,6 +12,31 @@ height: 960px;
 overflow: scroll;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Styles for the popup */
+.popup {
+  position: fixed;
+  top: 65%;
+  left: 15%;
+  background-color: red;
+  padding: 10px;
+}
+
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
