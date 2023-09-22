@@ -6,17 +6,19 @@
     <title>KitchWiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="wrapper">
     <main>
         <div class="appBox">
-          <h1>KitchWiz</h1>
-          <div class="tab">
-            <button class="tablinks" onclick="switchTab(event, 'text-tab')">Text</button>
-            <button class="tablinks" onclick="switchTab(event, 'choices-tab')">Choices</button>
-            <button class="tablinks" onclick="switchTab(event, 'todo-tab')">ToDo</button>
-            <button class="tablinks" onclick="switchTab(event, 'profile-tab')">Profile</button>
-            <button class="tablinks" onclick="switchTab(event, 'colors-tab')">Colors</button>
-            <button class="tablinks" onclick="switchTab(event, 'lower-right-tab')">Lower Right</button>
+          <div class="app-heading">
+            <h1>KitchWiz</h1>
+            <div class="tab">
+              <button class="tablinks" onclick="switchTab(event, 'text-tab')">Text</button>
+              <button class="tablinks" onclick="switchTab(event, 'choices-tab')">Choices</button>
+              <button class="tablinks" onclick="switchTab(event, 'todo-tab')">To Do</button>
+              <button class="tablinks" onclick="switchTab(event, 'profile-tab')">Profile</button>
+              <button class="tablinks" onclick="switchTab(event, 'colors-tab')">Colors</button>
+              <button class="tablinks" onclick="switchTab(event, 'lower-right-tab')">Lower Right</button>
+            </div>
           </div>
           
           <!-- Text Tab -->
@@ -31,7 +33,7 @@
 
           <!-- Choices Tab -->
           <div id="choices-tab" class="tabcontent">
-            <h1>Cusine Preferences</h1>
+            <h1>Choices</h1>
             <div class="choices-container">
               <div class="radio-choices">
                 <label class="radio-label">Select Preferred Cuisine:</label>

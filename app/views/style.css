@@ -2,10 +2,13 @@ body {
 margin-bottom: 200%;
 }
 
+.wrapper {
+  position: absolute;
+}
+
 .appBox {
-position:relative;
-border: 1px solid blue;
-padding: 5px;
+position: absolute;
+border: 2px solid blue;
 font: 24px/36px sans-serif;
 width: 640px;
 height: 960px;
@@ -32,9 +35,16 @@ overflow: scroll;
 .popup {
   position: fixed;
   top: 65%;
-  left: 15%;
+  left: 35%;
   background-color: red;
   padding: 10px;
+}
+
+.app-heading{
+  position: fixed;
+  padding-top: 0px;
+  background-color: white;
+  width: 640px;
 }
 
 .tab {
@@ -63,7 +73,7 @@ overflow: scroll;
 
 .tabcontent {
   display: none;
-  padding: 6px 12px;
+  padding: 150px 12px;
   border-top: none;
 }
 
