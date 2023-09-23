@@ -1,5 +1,5 @@
 body {
-margin-bottom: 200%;
+  margin-bottom: 200%;
 }
 
 .wrapper {
@@ -7,12 +7,12 @@ margin-bottom: 200%;
 }
 
 .appBox {
-position: fixed;
-border: 2px solid black;
-font: 24px/36px sans-serif;
-width: 640px;
-height: 960px;
-overflow: scroll;
+  position: fixed;
+  border: 2px solid black;
+  font: 24px/36px sans-serif;
+  width: 640px;
+  height: 960px;
+  overflow: scroll;
 }
 
 .center {
