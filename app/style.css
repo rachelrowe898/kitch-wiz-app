@@ -1,0 +1,225 @@
+body {
+  margin-bottom: 200%;
+}
+  
+.wrapper {
+  position: absolute;
+}
+  
+.appBox {
+  position: fixed;
+  border: 2px solid black;
+  font: 24px/36px;
+  font-family: Helvetica;
+  width: 640px;
+  height: 960px;
+  display: flex;
+  justify-content: center;
+}
+
+.main-section {
+  overflow-x: scroll;
+}
+
+.app-heading{
+  overflow: hidden;
+  position: fixed;
+  padding-top: 0px;
+  background-color: white;
+  width: 640px;
+  text-align: center;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #FDB833;
+}
+
+.tabcontent {
+  display: none;
+  padding: 150px 12px;
+  border-top: none;
+}
+
+::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #ccc;  
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #635C70;  
+}
+
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #635C70;
+  position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #menuLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 50px;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  color: white;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #2C3C4B;
+  height: 80px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+
+.recipe-heading-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.recipe-heading-text {
+  display: flex;
+  flex: 0 0 65%;
+  padding: 5px 5px;
+  flex-direction: column;
+  font-size: 40px; 
+  color: #635C70; 
+  text-shadow: 1px 1px #635C70; 
+  margin-left: 15px;
+}
+
+#filter-icon {
+  display: flex;
+  flex: 0 0 10%;
+  flex-direction: column;
+  font-size: 40px;
+  color: #208AAE; 
+}
+
+#sort-icon {
+  display: flex;
+  flex: 0 0 10%;
+  flex-direction: column;
+  font-size: 40px;
+  color: #208AAE; 
+}
+
+#add-icon {
+  display: flex;
+  flex: 0 0 10%;
+  flex-direction: column;
+  font-size: 40px;
+  color: #208AAE; 
+}
+
+#recipe-section {
+  margin: 150px 10px;
+  display: flex;
+  justify-content: auto;
+  flex-direction: column;
+}
+
+.recipe-square {
+  height: 150px;
+  width: 550px;
+  padding: 10px 10px;
+  border: 3px solid black;
+  margin: 30px 10px;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 5px 10px 8px #888888; 
+}
+
+.dish-pic {
+  display: flex;
+  flex: 0 0 25%;
+  padding: 5px 5px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 5px;
+  height: 125px;
+  width: 125px;
+  margin: 5px 20px
+}
+
+.recipe-text-column {
+  display: flex;
+  flex: 0 0 75%;
+  padding: 5px 5px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recipe-text-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.recipe-title {
+  font-size: 30px;
+  font-weight: bold;
+  /* margin: 10px 0px; */
+  color: #635C70;
+}
+
+#clock-icon {
+  font-size: 30px;
+  color: #208AAE;
+  margin: 20px 10px;
+}
+
+.prep-time {
+  /* margin: 100px 10px 0px 210px;
+  position: absolute; */
+  font-size: 25px;
+  color:#635C70;
+}

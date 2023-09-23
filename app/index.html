@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchWiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="wrapper">
+    <main>
+        <div class="appBox">
+          <div class="app-heading">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+              <!-- Top Navigation Menu -->
+              <div class="topnav">
+                <a href="#home" class="active">KitchWiz</a>
+                <!-- Navigation links (hidden by default) -->
+                <div id="menuLinks">
+                  <a href="#news">Home</a>
+                  <a href="#about">Profile</a>
+                  <a href="#news">Recipes</a>
+                  <a href="#contact">Grocery</a>
+                </div>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+          </div>
+          
+          <div class="main-section">
+            <div id="recipe-section">
+              <div class="recipe-heading-section">
+                <h1 class="recipe-heading-text">My Recipes</h1>
+                <i id="filter-icon" class="fa fa-filter" aria-hidden="true"></i>
+                <i id="sort-icon" class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+                <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+              <div class="recipe-square">
+                <img class="dish-pic" src="https://thefoodcharlatan.com/wp-content/uploads/2023/04/Spaghetti-Sauce-Recipe-6.jpg" alt="spaghetti-pic">
+                <div class="recipe-text-column">
+                  <div class="recipe-text-row">
+                    <h1 class="recipe-title">Spaghetti and Meatballs</h1>
+                  </div>
+                  <div class="recipe-text-row">
+                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                    <h2 class="prep-time">40 min</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="recipe-square">
+                <img class="dish-pic" src="https://gourmandelle.com/wp-content/uploads/2018/02/falafel-wrap-recipe-falafel-la-lipie.jpg" alt="falafel-pic">
+                <div class="recipe-text-column">
+                  <div class="recipe-text-row">
+                    <h1 class="recipe-title">Falafel Wrap</h1>
+                  </div>
+                  <div class="recipe-text-row">
+                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                    <h2 class="prep-time">50 min</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="recipe-square">
+                <img class="dish-pic" src="https://www.onceuponachef.com/images/2018/05/Kung-Pao-Chicken-16-scaled.jpg" alt="kungpao-pic">
+                <div class="recipe-text-column">
+                  <div class="recipe-text-row">
+                    <h1 class="recipe-title">Kung Pao Chicken</h1>
+                  </div>
+                  <div class="recipe-text-row">
+                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                    <h2 class="prep-time">30 min</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="recipe-square">
+                <img class="dish-pic" src="https://saltandbaker.com/wp-content/uploads/2019/12/Indian-Butter-Chicken-Recipe-featured.jpg" alt="butterchicken-pic">
+                <div class="recipe-text-column">
+                  <div class="recipe-text-row">
+                    <h1 class="recipe-title">Butter Chicken</h1>
+                  </div>
+                  <div class="recipe-text-row">
+                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                    <h2 class="prep-time">1 hr 15 min</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="recipe-square">
+                <img class="dish-pic" src="https://i0.wp.com/dashofsavory.com/wp-content/uploads/2018/10/IMG_04991.jpg?fit=3800%2C2560&ssl=1" alt="garlicknots-pic">
+                <div class="recipe-text-column">
+                  <div class="recipe-text-row">
+                    <h1 class="recipe-title">Garlic Knots</h1>
+                  </div>
+                  <div class="recipe-text-row">
+                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                    <h2 class="prep-time">35 min</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
