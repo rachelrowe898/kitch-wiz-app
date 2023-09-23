@@ -27,14 +27,12 @@ body {
 .overlay {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 55%;
 }
 
 /* Styles for the popup */
 .popup {
-  position: fixed;
-  top: 65%;
+  position: relative;
   left: 35%;
   background-color: red;
   padding: 10px;
