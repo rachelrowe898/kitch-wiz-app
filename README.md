@@ -1,5 +1,4 @@
 # kitch-whiz-app
 
 
-Hi guys
-howdy
+Kitchen companion app
