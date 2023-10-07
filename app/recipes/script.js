@@ -10,6 +10,176 @@ function openNav() {
   }
 }
 
+function openAdd() {
+  console.log("open add");
+  var x = document.getElementById("addRecipe");
+  var addIcon = document.getElementById("add-icon");
+  var recipeListing = document.getElementById("recipe-listing");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+    addIcon.style.color = "#208AAE";
+    // recipeListing.style.display = "block";
+  } else {
+    x.style.display = "block";
+    addIcon.style.color = "#fdb833";
+    // recipeListing.style.display = "none";
+  }
+}
+
+// function addRecipeSquare(recipeName, imageUrl) {
+//   console.log("adding recipe square");
+
+//   const newRecipeSquare = document.createElement("div");
+//   newRecipeSquare.className = "recipe-square";
+
+//   // Create the necessary elements
+//   const img = document.createElement("img");
+//   img.className = "dish-pic";
+//   img.src = imageUrl;
+//   img.alt = recipeName;
+
+//   const recipeTextColumn = document.createElement("div");
+//   recipeTextColumn.className = "recipe-text-column";
+
+//   const recipeTextRow = document.createElement("div");
+//   recipeTextRow.className = "recipe-text-row";
+
+//   const recipeTitle = document.createElement("h1");
+//   recipeTitle.className = "recipe-title";
+//   recipeTitle.textContent = recipeName;
+
+//   // Assemble the elements
+//   recipeTextRow.appendChild(recipeTitle);
+//   recipeTextColumn.appendChild(recipeTextRow);
+//   newRecipeSquare.appendChild(img);
+//   newRecipeSquare.appendChild(recipeTextColumn);
+
+//   // Add the new recipe square to the page
+//   const recipeListing = document.getElementById("recipe-listing");
+//   recipeListing.appendChild(newRecipeSquare);
+// }
+
+// function saveRecipe() {
+//   console.log("saving recipe");
+//   // Get form input values
+//   const recipeName = document.querySelector('input[type="text"]').value;
+//   const ingredients = document.querySelector('textarea:nth-child(2)').value;
+//   const instructions = document.querySelector('textarea:nth-child(3)').value;
+//   const imageFile = document.getElementById('image').files[0];
+
+//   // Create an object to store the data
+//   const recipeData = {
+//       name: recipeName,
+//       ingredients: ingredients,
+//       instructions: instructions,
+//       image: imageFile
+//   };
+
+//   // call the function to add the recipe square
+//   addRecipeSquare(recipeName, imageFile.src);
+
+//   // // Optionally, you can reset the form after submission
+//   // document.getElementById("recipeForm").reset();
+// }
+
+function addRecipeSquare(recipeName, imageUrl, prepTime) {
+  console.log("adding recipe square");
+
+  const newRecipeSquare = document.createElement("div");
+  newRecipeSquare.className = "recipe-square";
+
+  // Create the elements
+  const img = document.createElement("img");
+  img.className = "dish-pic";
+  img.src = imageUrl; // Set the image URL directly
+
+  img.alt = recipeName;
+
+  const recipeTextColumn = document.createElement("div");
+  recipeTextColumn.className = "recipe-text-column";
+
+  // const recipeTextRow = document.createElement("div");
+  // recipeTextRow.className = "recipe-text-row";
+
+  const leftRecipeTextRow = document.createElement("div"); 
+  leftRecipeTextRow.className = "recipe-text-row";
+
+  const rightRecipeTextRow = document.createElement("div"); 
+  rightRecipeTextRow.className = "recipe-text-row";
+  clockIcon = document.getElementById("clock-icon").cloneNode(true);
+  const prepTimeH2 = document.createElement("h2");
+  prepTimeH2.className = "prep-time";
+  prepTimeH2.textContent = prepTime + " min";
+
+  const recipeTitle = document.createElement("h1");
+  recipeTitle.className = "recipe-title";
+  recipeTitle.textContent = recipeName;
+
+  // Assemble the elements
+  leftRecipeTextRow.appendChild(recipeTitle);
+  rightRecipeTextRow.appendChild(clockIcon);
+  rightRecipeTextRow.appendChild(prepTimeH2);
+  recipeTextColumn.appendChild(leftRecipeTextRow);
+  recipeTextColumn.appendChild(rightRecipeTextRow);
+  newRecipeSquare.appendChild(img);
+  newRecipeSquare.appendChild(recipeTextColumn);
+
+  // Add the new recipe square to the page
+  const recipeListing = document.getElementById("recipe-listing");
+  recipeListing.appendChild(newRecipeSquare);
+}
+
+function saveRecipe() {
+  try {
+    console.log("saving recipe");
+
+    const recipeName = document.getElementById("form-recipe-name").value;
+    const ingredients = document.getElementById("form-ingredients").value;
+    const instructions = document.getElementById("form-instructions").value;
+    const prepTime = document.getElementById("form-prep-time").value;
+    const imageUrl = document.getElementById("form-recipe-pic").value;
+
+    addRecipeSquare(recipeName, imageUrl, prepTime);
+
+    // // Check if an image file is selected
+    // if (imageFile) {
+    //     // Create a temporary URL for the selected image file
+    //     const imageUrl = URL.createObjectURL(imageFile);
+
+    //     // Call the function to add the recipe square with the temporary URL
+    //     addRecipeSquare(recipeName, imageUrl);
+    // } else {
+    //     // Handle the case where no image is selected
+    //     alert("Please select an image file.");
+    // }
+  } catch (e) {
+   console.log(e);
+  }
+
+  // Get form input values
+  // const recipeName = document.querySelector('input[type="text"]').value;
+  // const ingredients = document.querySelector('textarea:nth-child(2)').value;
+  // const instructions = document.querySelector('textarea:nth-child(3)').value;
+  // const imageFile = document.getElementById('image').files[0];
+
+  // addRecipeSquare(recipeName, imageFile.src);
+
+  // Check if an image file is selected
+  // if (imageFile) {
+  //     // Create a temporary URL for the selected image file
+  //     const imageUrl = URL.createObjectURL(imageFile);
+
+  //     // Call the function to add the recipe square with the temporary URL
+  //     addRecipeSquare(recipeName, imageUrl);
+  // } else {
+  //     // Handle the case where no image is selected
+  //     alert("Please select an image file.");
+  // }
+
+  // Optionally, you can reset the form after submission
+  // document.getElementById("recipeForm").reset();
+}
+
 function switchTab(evt, tabName) {
   // Declare all variables
   var i, tabcontent, tablinks;

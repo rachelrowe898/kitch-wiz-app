@@ -19,6 +19,7 @@ body {
 
 .main-section {
   overflow-x: scroll;
+  width: 100%;
 }
 
 .app-heading{
@@ -130,14 +131,14 @@ height: 12px;
   flex-direction: column;
   font-size: 40px; 
   color: #635C70; 
-  text-shadow: 1px 1px #635C70; 
+  /* text-shadow: 1px 1px #635C70;  */
   margin-left: 15px;
 }
 
 .recipe-name-text {
   font-size: 30px; 
   color: #635C70; 
-  text-shadow: 1px 1px #635C70; 
+  /* text-shadow: 1px 1px #635C70;  */
   margin-left: 15px;
 }
 
@@ -179,6 +180,28 @@ height: 12px;
   align-items: center;
 }
 
+.recipe-page-ingredients {
+  color: #635C70;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-left: 40px;
+  margin-right: 40px;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: left; */
+}
+
+.recipe-page-instructions {
+  color: #635C70;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-left: 40px;
+  margin-right: 40px;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: left; */
+}
+
 .recipe-square {
   height: 150px;
   width: 550px;
@@ -210,6 +233,11 @@ height: 12px;
   justify-content: center;
   height: 200px;
   width: 200px;
+}
+
+.recipe-page-prep-time {
+  display: flex;
+  flex-direction: row;
 }
 
 .recipe-text-column {
@@ -252,4 +280,80 @@ a.fill-div {
   height: 100%;
   width: 100%;
   text-decoration: none;
+}
+
+#addRecipe {
+  display: none;
+  background-color: #208AAE;
+  height: 850px;
+  margin-left: 15px;
+  margin-right: 15px;
+  color: white;
+  justify-content: left;
+  padding: 10px 10px;
+}
+
+/* form styles for add recipe */
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Helvetica;
+}
+
+input[type="number"],
+textarea {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: Helvetica;
+  margin-right:15px;
+}
+
+input[type="url"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: Helvetica;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: Helvetica;
+}
+
+input[type="file"] {
+  font-size: 20px;
+  cursor: pointer;
+  font-family: Helvetica;
+}
+
+input[type="submit"] {
+  background-color: white;
+  color: #635C70;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: gray;
+  font-size: 20px;
 }

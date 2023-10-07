@@ -19,7 +19,7 @@
                 <div id="menuLinks">
                   <a href="#news">Home</a>
                   <a href="#about">Profile</a>
-                  <a href="#news">Recipes</a>
+                  <a href="#news" onclick="location.href='recipelist.html';">Recipes</a>
                   <a href="#contact">Grocery</a>
                 </div>
                 <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
@@ -35,65 +35,88 @@
                 <h1 class="recipe-heading-text">My Recipes</h1>
                 <i id="filter-icon" class="fa fa-filter" aria-hidden="true"></i>
                 <i id="sort-icon" class="fa fa-sort-amount-asc" aria-hidden="true"></i>
-                <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true"></i>
+                <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true" href="javascript:void(0);" onclick="openAdd()"></i>
               </div>
-              <div class="recipe-square" onclick="location.href='spaghetti.html';">
-                <img class="dish-pic" src="https://thefoodcharlatan.com/wp-content/uploads/2023/04/Spaghetti-Sauce-Recipe-6.jpg" alt="spaghetti-pic">
-                <div class="recipe-text-column">
-                  <div class="recipe-text-row">
-                    <h1 class="recipe-title">Spaghetti and Meatballs</h1>
+              
+              <!-- Add Recipe (hidden by default) -->
+              <div id="addRecipe">
+                <h1 style="padding: 20px; margin: 0 auto;">Add New Recipe</h1>
+                <form>
+                  <input id="form-recipe-name" type="text" placeholder="Recipe name" required><br>
+                  <textarea id="form-ingredients" placeholder="Ingredients (one ingredient per line)" style="height:200px" required></textarea><br>
+                  <textarea id="form-instructions" placeholder="Instructions" style="height:200px" required></textarea><br>
+                  <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Prep time:</label> <br> -->
+                  <div class="form-prep-time-bundle" style="display: flex; flex-direction: row; justify-content: space-between;">
+                    <input id="form-prep-time" type="number" placeholder="Prep time" required>
+                    <p style="font-size:20px; font-family: Helvetica;">minutes</p>
+                    <br>
                   </div>
-                  <div class="recipe-text-row">
-                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                    <h2 class="prep-time">40 min</h2>
+                  <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Image URL:</label> <br> -->
+                  <input id="form-recipe-pic" type="url" placeholder="Image URL" required><br>
+                  <!-- <input id="form-recipe-pic" type="file" name="image" accept="image/png, image/jpeg" required/><br> -->
+                  <input id="form-submit" type="submit" value="Submit" onclick="saveRecipe(); return false;">
+                </form>
+              </div>
+
+              <div id="recipe-listing">
+                <div class="recipe-square" onclick="location.href='spaghetti.html';" style="cursor:pointer;">
+                  <img class="dish-pic" src="https://thefoodcharlatan.com/wp-content/uploads/2023/04/Spaghetti-Sauce-Recipe-6.jpg" alt="spaghetti-pic">
+                  <div class="recipe-text-column">
+                    <div class="recipe-text-row">
+                      <h1 class="recipe-title">Spaghetti and Meatballs</h1>
+                    </div>
+                    <div class="recipe-text-row">
+                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                      <h2 class="prep-time">40 min</h2>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="recipe-square">
-                <img class="dish-pic" src="https://gourmandelle.com/wp-content/uploads/2018/02/falafel-wrap-recipe-falafel-la-lipie.jpg" alt="falafel-pic">
-                <div class="recipe-text-column">
-                  <div class="recipe-text-row">
-                    <h1 class="recipe-title">Falafel Wrap</h1>
-                  </div>
-                  <div class="recipe-text-row">
-                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                    <h2 class="prep-time">50 min</h2>
-                  </div>
-                </div>
-              </div>
-              <div class="recipe-square">
-                <img class="dish-pic" src="https://www.onceuponachef.com/images/2018/05/Kung-Pao-Chicken-16-scaled.jpg" alt="kungpao-pic">
-                <div class="recipe-text-column">
-                  <div class="recipe-text-row">
-                    <h1 class="recipe-title">Kung Pao Chicken</h1>
-                  </div>
-                  <div class="recipe-text-row">
-                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                    <h2 class="prep-time">30 min</h2>
+                <div class="recipe-square">
+                  <img class="dish-pic" src="https://gourmandelle.com/wp-content/uploads/2018/02/falafel-wrap-recipe-falafel-la-lipie.jpg" alt="falafel-pic">
+                  <div class="recipe-text-column">
+                    <div class="recipe-text-row">
+                      <h1 class="recipe-title">Falafel Wrap</h1>
+                    </div>
+                    <div class="recipe-text-row">
+                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                      <h2 class="prep-time">50 min</h2>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="recipe-square">
-                <img class="dish-pic" src="https://saltandbaker.com/wp-content/uploads/2019/12/Indian-Butter-Chicken-Recipe-featured.jpg" alt="butterchicken-pic">
-                <div class="recipe-text-column">
-                  <div class="recipe-text-row">
-                    <h1 class="recipe-title">Butter Chicken</h1>
-                  </div>
-                  <div class="recipe-text-row">
-                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                    <h2 class="prep-time">1 hr 15 min</h2>
+                <div class="recipe-square">
+                  <img class="dish-pic" src="https://www.onceuponachef.com/images/2018/05/Kung-Pao-Chicken-16-scaled.jpg" alt="kungpao-pic">
+                  <div class="recipe-text-column">
+                    <div class="recipe-text-row">
+                      <h1 class="recipe-title">Kung Pao Chicken</h1>
+                    </div>
+                    <div class="recipe-text-row">
+                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                      <h2 class="prep-time">30 min</h2>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="recipe-square">
-                <img class="dish-pic" src="https://i0.wp.com/dashofsavory.com/wp-content/uploads/2018/10/IMG_04991.jpg?fit=3800%2C2560&ssl=1" alt="garlicknots-pic">
-                <div class="recipe-text-column">
-                  <div class="recipe-text-row">
-                    <h1 class="recipe-title">Garlic Knots</h1>
+                <div class="recipe-square">
+                  <img class="dish-pic" src="https://saltandbaker.com/wp-content/uploads/2019/12/Indian-Butter-Chicken-Recipe-featured.jpg" alt="butterchicken-pic">
+                  <div class="recipe-text-column">
+                    <div class="recipe-text-row">
+                      <h1 class="recipe-title">Butter Chicken</h1>
+                    </div>
+                    <div class="recipe-text-row">
+                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                      <h2 class="prep-time">1 hr 15 min</h2>
+                    </div>
                   </div>
-                  <div class="recipe-text-row">
-                    <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                    <h2 class="prep-time">35 min</h2>
+                </div>
+                <div class="recipe-square">
+                  <img class="dish-pic" src="https://i0.wp.com/dashofsavory.com/wp-content/uploads/2018/10/IMG_04991.jpg?fit=3800%2C2560&ssl=1" alt="garlicknots-pic">
+                  <div class="recipe-text-column">
+                    <div class="recipe-text-row">
+                      <h1 class="recipe-title">Garlic Knots</h1>
+                    </div>
+                    <div class="recipe-text-row">
+                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
+                      <h2 class="prep-time">35 min</h2>
+                    </div>
                   </div>
                 </div>
               </div>
