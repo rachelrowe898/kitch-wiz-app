@@ -147,7 +147,8 @@ height: 12px;
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #208AAE; 
+  color: #208AAE;
+  cursor: pointer;
 }
 
 #sort-icon {
@@ -155,7 +156,8 @@ height: 12px;
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #208AAE; 
+  color: #208AAE;
+  cursor: pointer;
 }
 
 #add-icon {
@@ -163,7 +165,8 @@ height: 12px;
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #208AAE; 
+  color: #208AAE;
+  cursor: pointer;
 }
 
 #recipe-section {
