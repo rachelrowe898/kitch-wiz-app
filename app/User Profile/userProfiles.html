@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Bobby C</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>User Profile - Bobby C</h1>
+    </header>
+    <main>
+        <section class="user-profile">
+            <h2>User Information</h2>
+            <form id="profile-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="Bobby C" readonly>
+
+                <label for="preferences">Food Preferences:</label>
+                <input type="text" id="preferences" name="preferences" placeholder="Enter your food preferences">
+
+                <label for="allergies">Allergies:</label>
+                <input type="text" id="allergies" name="allergies" placeholder="Enter your allergies">
+
+                <label for="difficulty">Difficulty of Preparation:</label>
+                <select id="difficulty" name="difficulty">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
