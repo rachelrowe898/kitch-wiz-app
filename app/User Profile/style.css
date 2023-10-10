@@ -1,0 +1,66 @@
+/* Reset some default browser styles */
+body, h1, h2, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply basic styling to the header */
+header {
+    background-color: #5f90e0;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style the main content section */
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style the form elements */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], select {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #5f90e0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Style form elements on hover and focus */
+input[type="text"]:hover, input[type="text"]:focus,
+select:hover, select:focus,
+button[type="submit"]:hover {
+    border-color: #5f90e0;
+    outline: none;
+}
+
+/* Center the form on larger screens */
+@media (min-width: 768px) {
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+}
