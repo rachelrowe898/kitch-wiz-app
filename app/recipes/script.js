@@ -14,14 +14,16 @@ function openAdd() {
   console.log("open add");
   var x = document.getElementById("addRecipe");
   var addIcon = document.getElementById("add-icon");
-  var recipeListing = document.getElementById("recipe-listing");
+  var sortDropdown = document.getElementsByClassName("dropdown-menu")[0];
+  var sortDropdownButton = document.getElementsByClassName("sortDropdownButton")[0];
   if (x.style.display === "block") {
     x.style.display = "none";
     addIcon.style.color = "#208AAE";
-    // recipeListing.style.display = "block";
   } else {
     x.style.display = "block";
     addIcon.style.color = "#fdb833";
+    sortDropdown.style.display = "none";
+    sortDropdownButton.style.backgroundColor = "#208AAE";
     // recipeListing.style.display = "none";
   }
 }
@@ -123,94 +125,76 @@ function switchTab(evt, tabName) {
   console.log(evt.currentTarget.className)
 }
 
+function openDropdown() {
+  // Get the dropdown button element
+  const dropdownButton = document.getElementsByClassName('sortDropdownButton')[0];
 
-// Choices tab display options when button clicked
-function displayPreferences() {
-  // Get the selected cuisine
-  const selectedCuisine = document.querySelector('input[name="cuisine"]:checked');
+  var dropdownMenu = document.getElementsByClassName("dropdown-menu")[0];
+  var addRecipe = document.getElementById("addRecipe");
+  var addIcon = document.getElementById("add-icon");
 
-  // Get the selected dietary preference
-  const selectedDietaryPreference = document.getElementById('dietary-preference').value;
-
-  // Display the selected preferences
-  const userPreferences = document.getElementById('user-preferences');
-  userPreferences.innerHTML = '';
-
-  if (selectedCuisine) {
-    const cuisineText = document.createElement('p');
-    cuisineText.textContent = `Preferred Cuisine: ${selectedCuisine.value}`;
-    userPreferences.appendChild(cuisineText);
-  }
-
-  if (selectedDietaryPreference !== 'None') {
-    const dietaryPreferenceText = document.createElement('p');
-    dietaryPreferenceText.textContent = `Dietary Preference: ${selectedDietaryPreference}`;
-    userPreferences.appendChild(dietaryPreferenceText);
+  if (dropdownMenu.style.display === "none") {
+    var dropdownMenu = document.getElementsByClassName("dropdown-menu")[0];
+    dropdownMenu.style.display = "block";
+    dropdownButton.style.backgroundColor = "#fdb833";
+    addRecipe.style.display = "none";
+    addIcon.style.color = "#208AAE";
+  } else {
+    var dropdownMenu = document.getElementsByClassName("dropdown-menu")[0];
+    dropdownMenu.style.display = "none";
+    dropdownButton.style.backgroundColor = "#208AAE";
   }
 }
 
+function zipArrays(arr1, arr2) {
+  const zippedArray = [];
 
-// Function to display the to-do list
-var todoItems = [];
+  const minLength = Math.min(arr1.length, arr2.length);
 
-// Function to generate a random color
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+  for (let i = 0; i < minLength; i++) {
+    zippedArray.push([arr1[i], arr2[i]]);
   }
-  return color;
+
+  return zippedArray;
 }
 
-// Function to add a new item to the to-do list
-function addItem() {
-  var todoItem = document.getElementById("todo-item").value.trim();
-  if (todoItem !== "") {
-    // Create a unique ID for each item (for future enhancements)
-    var itemId = new Date().getTime().toString();
-    var itemColor = getRandomColor(); // Generate a random color
-    todoItems.push({ id: itemId, text: todoItem, completed: false, color: itemColor });
-    document.getElementById("todo-item").value = "";
-    displayTodoList();
-  }
-}
+function sortRecipes(order) {
+  const recipeSquares = document.getElementsByClassName('recipe-square');
+  const prepTimes = document.getElementsByClassName('prep-time');
 
-// Function to display the to-do list
-function displayTodoList() {
-  var todoList = document.getElementById("todo-list");
-  todoList.innerHTML = ""; // Clear the existing list
+  console.log(recipeSquares);
+  console.log(prepTimes);
 
-  for (var i = 0; i < todoItems.length; i++) {
-    var item = todoItems[i];
-    var listItem = document.createElement("li");
-    listItem.style.backgroundColor = "gray"; // Apply a random background color
-    listItem.innerHTML = '<div class="todo-item">'
-      + '<input type="checkbox" onclick="toggleComplete(' + i + ')"' + (item.completed ? ' checked' : '') + '>'
-      + '<span class="todo-text' + (item.completed ? ' completed' : '') + '">' + item.text + '</span>'
-      + '</div>'
-      + '<button class="delete-button" onclick="deleteItem(' + i + ')">Delete</button>';
-    todoList.appendChild(listItem);
-  }
-}
+  const zippedRecipesTimes = zipArrays(recipeSquares, prepTimes);
 
-// Function to toggle item completion
-function toggleComplete(index) {
-  todoItems[index].completed = !todoItems[index].completed;
-  displayTodoList();
-}
+  const sortedZipped = Array.from(zippedRecipesTimes).sort((a, b) => {
+    // console.log(a.childNodes);
+    // console.log(a.childNodes[4]);
+    // console.log(b.childNodes[4]);
+    // console.log(a.querySelector('.prep-time'));
+    console.log(a[1].textContent)
+    const timeA = parseInt(a[1].textContent.split(' ')[0]);
+    const timeB = parseInt(b[1].textContent.split(' ')[0]);
 
-// Function to delete an item from the to-do list
-function deleteItem(index) {
-  todoItems.splice(index, 1);
-  displayTodoList();
-}
+    console.log("timeA", timeA);
+    console.log("timeB", timeB);
 
-// Function to handle the popup
-function openPopup() {
-  document.getElementById('alert').style.display = 'block';
-}
+    if (order === 'asc') {
+      return timeA - timeB;
+    } else if (order === 'desc') {
+      return timeB - timeA;
+    }
+  });
 
-function closePopup() {
-  document.getElementById('alert').style.display = 'none';
+  const sortedRecipeSquares = sortedZipped.map(tuple => tuple[0]);
+
+  const container = document.getElementById('recipe-listing');
+
+  // Clear the container
+  container.innerHTML = '';
+
+  // Append the sorted recipe squares back to the container
+  sortedRecipeSquares.forEach((square) => {
+    container.appendChild(square);
+  });
 }

@@ -6,6 +6,7 @@
     <title>KitchWiz</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body class="wrapper">
     <main>
@@ -33,9 +34,14 @@
             <div id="recipe-section">
               <div class="recipe-heading-section">
                 <h1 class="recipe-heading-text">My Recipes</h1>
-                <i id="sort-icon" class="fa fa-sort-amount-asc" aria-hidden="true" href="javascript:void(0);" onclick="flipSort()"></i>
-                <i id="filter-icon" class="fa fa-filter" aria-hidden="true"></i>
                 <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true" href="javascript:void(0);" onclick="openAdd()"></i>
+                <i id="filter-icon" class="fa fa-filter" aria-hidden="true"></i>
+                <div class="dropdown">
+                  <button class="sortDropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0);" class="icon" onclick="openDropdown()">
+                    Sort
+                    <i id="sort-icon" class="fa fa-sort-desc" aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
               
               <!-- Add Recipe (hidden by default) -->
@@ -56,6 +62,14 @@
                   <!-- <input id="form-recipe-pic" type="file" name="image" accept="image/png, image/jpeg" required/><br> -->
                   <input id="form-submit" type="submit" value="Submit" onclick="saveRecipe(); return false;">
                 </form>
+              </div>
+
+              <div class="dropdown-menu">
+                <a onclick="sortRecipes('asc')">Prep Time: Low - High</a>
+                <a onclick="sortRecipes('desc')">Prep Time: High - Low</a>
+                <!-- <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li> -->
               </div>
 
               <div id="recipe-listing">
@@ -103,7 +117,7 @@
                     </div>
                     <div class="recipe-text-row">
                       <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                      <h2 class="prep-time">1 hr 15 min</h2>
+                      <h2 class="prep-time">75 min</h2>
                     </div>
                   </div>
                 </div>
