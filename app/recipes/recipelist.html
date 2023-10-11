@@ -35,9 +35,9 @@
               <div class="recipe-heading-section">
                 <h1 class="recipe-heading-text">My Recipes</h1>
                 <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true" href="javascript:void(0);" onclick="openAdd()"></i>
-                <i id="filter-icon" class="fa fa-filter" aria-hidden="true"></i>
+                <i id="filter-icon" class="fa fa-filter" aria-hidden="true" onclick="openFilter()"></i>
                 <div class="dropdown">
-                  <button class="sortDropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0);" class="icon" onclick="openDropdown()">
+                  <button class="sortDropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0);" class="icon" onclick="openSort()">
                     Sort
                     <i id="sort-icon" class="fa fa-sort-desc" aria-hidden="true"></i>
                   </button>
@@ -64,9 +64,30 @@
                 </form>
               </div>
 
-              <div class="dropdown-menu">
-                <a onclick="sortRecipes('asc')">Prep Time: Low - High</a>
-                <a onclick="sortRecipes('desc')">Prep Time: High - Low</a>
+              <div id="filterMenu">
+                <h1 style="padding: 20px; margin: 0 auto;">Filter Recipes</h1>
+                <div class="range_container">
+                  <h2 style="padding: 20px; margin: 10px 10px;">Prep Time (minutes)</h2>
+                  <div class="sliders_control">
+                      <input id="fromSlider" type="range" value="10" min="0" max="300"/>
+                      <input id="toSlider" type="range" value="40" min="0" max="300"/>
+                  </div>
+                  <div class="form_control">
+                      <div class="form_control_container">
+                          <div class="form_control_container__time">Min</div>
+                          <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="100"/>
+                      </div>
+                      <div class="form_control_container">
+                          <div class="form_control_container__time">Max</div>
+                          <input class="form_control_container__time__input" type="number" id="toInput" value="40" min="0" max="100"/>
+                      </div>
+                  </div>
+                </div>  
+              </div>
+
+              <div id="sortMenu">
+                <a id="sortMenuAsc" onclick="sortRecipes('asc')">Prep Time: Low - High</a>
+                <a id="sortMenuDesc" onclick="sortRecipes('desc')">Prep Time: High - Low</a>
                 <!-- <li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li> -->
@@ -136,7 +157,6 @@
               </div>
             </div>
           </div>
-
         </div>
         
     </main>

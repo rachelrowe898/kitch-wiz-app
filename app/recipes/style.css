@@ -300,6 +300,18 @@ a.fill-div {
   border-radius: 10px;
 }
 
+#filterMenu {
+  display: none;
+  background-color: #208AAE;
+  height: 850px;
+  margin-left: 15px;
+  margin-right: 15px;
+  color: white;
+  justify-content: left;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
 .sortDropdownButton {
   display: flex;
   flex: 0 0 10%;
@@ -388,7 +400,7 @@ input[type="submit"]:hover {
   font-size: 20px;
 }
 
-.dropdown-menu {
+#sortMenu {
   display: none;
   flex: 0 0 10%;
   /* width: 90px; */
@@ -414,3 +426,96 @@ input[type="submit"]:hover {
 }
 
 .dropdown-menu a:hover {background-color: #FDB833}
+
+.range_container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  font-family: Helvetica;
+}
+
+.sliders_control {
+  position: relative;
+  min-height: 50px;
+  margin: 15px;
+}
+
+.form_control {
+  position: static;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  color: white;
+  font-family: Helvetica;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #C6C6C6;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #C6C6C6;
+  cursor: pointer;  
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  background: #f7f7f7;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+  -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+}
+
+input#fromInput[type="number"] {
+  color: #8a8383;
+  width: 50px;
+  height: 30px;
+  font-size: 20px;
+  border: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; 
+  appearance: none;
+  height: 8px;
+  width: 100%;
+  position: static;
+  background-color: #C6C6C6;
+  pointer-events: none;
+}
+
+#fromSlider,
+#toSlider {
+  position: absolute;
+  width: 100%;
+  z-index: 1; /* Ensure both sliders are on the same z-index */
+}
+
+#fromSlider {
+  height: 0;
+}
+
+#toSlider {
+  height: 8px;
+  left: 0; /* Adjust the left position as needed to make them overlap */
+}
