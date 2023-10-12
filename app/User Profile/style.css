@@ -85,7 +85,6 @@ body {
 }
 
 .user-profile {
-    background-color: #FDB833;
     border: 2px solid black;
     border-radius: 10px;
     padding: 20px;
@@ -257,3 +256,29 @@ body {
     box-shadow: 5px 10px 8px #888888; /* Add drop shadow */
 }
 
+.user-profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.user-profile-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-detail {
+    margin: 20px 0;
+}
+
+.save-profile-button {
+    background-color: #208AAE;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}

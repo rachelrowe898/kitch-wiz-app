@@ -9,3 +9,15 @@ function openNav() {
       userSection.style.marginTop = "300px";
     }
   }
+
+  function saveUserProfile() {
+    // Get the selected values from the form fields
+    var foodPreference = document.getElementById("food-preference").value;
+    var allergies = document.getElementById("allergies").value;
+    var difficulty = document.getElementById("difficulty").value;
+
+    // log the values to the console.
+    console.log("Food Preference: " + foodPreference);
+    console.log("Allergies: " + allergies);
+    console.log("Preparation Difficulty: " + difficulty);
+}
