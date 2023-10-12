@@ -1,17 +1,23 @@
-// Get the form element
-const profileForm = document.getElementById('profile-form');
+function openNav() {
+    var x = document.getElementById("menuLinks");
+    var userSection = document.getElementById("user-profile-section");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+      userSection.style.marginTop = "150px";
+    } else {
+      x.style.display = "block";
+      userSection.style.marginTop = "300px";
+    }
+  }
 
-// Add an event listener for form submission
-profileForm.addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent the form from submitting normally
+  function saveUserProfile() {
+    // Get the selected values from the form fields
+    var foodPreference = document.getElementById("food-preference").value;
+    var allergies = document.getElementById("allergies").value;
+    var difficulty = document.getElementById("difficulty").value;
 
-    // Get the values from the form
-    const preferences = document.getElementById('preferences').value;
-    const allergies = document.getElementById('allergies').value;
-    const difficulty = document.getElementById('difficulty').value;
-
-    // Perform any necessary actions here, such as sending the data to a server or updating a database
-
-    // Optionally, display a success message to the user
-    alert('Profile updated successfully!');
-});
+    // log the values to the console.
+    console.log("Food Preference: " + foodPreference);
+    console.log("Allergies: " + allergies);
+    console.log("Preparation Difficulty: " + difficulty);
+}
