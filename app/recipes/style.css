@@ -337,8 +337,14 @@ a.fill-div {
 
 /* form styles for add recipe */
 
-form {
+form[add]{
   max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Helvetica;
+}
+
+form[filter]{
   margin: 0 auto;
   padding: 20px;
   font-family: Helvetica;
@@ -384,6 +390,22 @@ input[type="file"] {
   font-family: Helvetica;
 }
 
+.dietary_pref_container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  font-family: Helvetica;
+  margin-top: 40px;
+}
+
+#dietary-checkbox {
+  font-size: 25px;
+  cursor: pointer;
+  font-family: Helvetica;
+  margin: 10px
+}
+
 input[type="submit"] {
   background-color: white;
   color: #635C70;
@@ -395,9 +417,8 @@ input[type="submit"] {
   margin-top: 20px;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:active {
   background-color: gray;
-  font-size: 20px;
 }
 
 #sortMenu {
