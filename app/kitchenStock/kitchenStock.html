@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchWiz</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="wrapper">
+    <main>
+        <div class="appBox">
+          <div class="app-heading">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+              <!-- Top Navigation Menu -->
+              <div class="topnav">
+                <a href="#home" class="active">KitchWiz</a>
+                <!-- Navigation links (hidden by default) -->
+                <div id="menuLinks">
+                  <a href="#home">Home</a>
+                  <a href="#profile" onclick="location.href='../User Profile/userProfiles.html';">Profile</a>
+                  <a href="#recipes" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
+                  <a href="#kitchenStock" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen Stock</a>
+                </div>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+          </div>
+          
+          <div class="main-section">
+                <h1 class="fridge-heading-text">My Kitchen Stock</h1>
+                <!-- Fridge Contents Button -->
+                <button id="fridge-button" class="section-button" onclick="showFridgeContents()">View Fridge Contents</button>
+                <br>
+                <!-- Freezer Contents Button -->
+                <button id="freezer-button" class="section-button" onclick="showFreezerContents()">View Freezer Contents</button>
+                <br>
+                <!-- Add/Remove Items Button -->
+                <button id="add-remove-button" class="section-button" onclick="showAddRemoveItems()">Add/Remove Items</button>
+                </div>
+        </div>
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
