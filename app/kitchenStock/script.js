@@ -9,3 +9,15 @@ function openNav() {
       recipeSection.style.marginTop = "300px";
     }
   }
+
+  function showFridgeContents() {
+
+  }
+
+  function showFreezerContents() {
+
+  }
+
+  function showAddRemoveItems() {
+    
+  }
