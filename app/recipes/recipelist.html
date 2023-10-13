@@ -35,7 +35,7 @@
               <div class="recipe-heading-section">
                 <h1 class="recipe-heading-text">My Recipes</h1>
                 <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true" href="javascript:void(0);" onclick="openAdd()"></i>
-                <i id="filter-icon" class="fa fa-filter" aria-hidden="true" onclick="openFilter()"></i>
+                <i id="filter-icon" class="fa fa-filter" aria-hidden="true" onclick="openFilter();"></i>
                 <div class="dropdown">
                   <button class="sortDropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0);" class="icon" onclick="openSort()">
                     Sort
@@ -47,42 +47,68 @@
               <!-- Add Recipe (hidden by default) -->
               <div id="addRecipe">
                 <h1 style="padding: 20px; margin: 0 auto;">Add New Recipe</h1>
-                <form>
-                  <input id="form-recipe-name" type="text" placeholder="Recipe name" required><br>
+                <form add>
+                  <input id="form-recipe-name" type="text" placeholder="Recipe name" required onkeyup="enableSubmit()"><br>
                   <textarea id="form-ingredients" placeholder="Ingredients (one ingredient per line)" style="height:200px" required></textarea><br>
                   <textarea id="form-instructions" placeholder="Instructions" style="height:200px" required></textarea><br>
                   <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Prep time:</label> <br> -->
                   <div class="form-prep-time-bundle" style="display: flex; flex-direction: row; justify-content: space-between;">
-                    <input id="form-prep-time" type="number" placeholder="Prep time" required>
+                    <input id="form-prep-time" type="number" placeholder="Prep time" required onkeyup="enableSubmit()">
                     <p style="font-size:20px; font-family: Helvetica;">minutes</p>
                     <br>
                   </div>
                   <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Image URL:</label> <br> -->
-                  <input id="form-recipe-pic" type="url" placeholder="Image URL" required><br>
+                  <input id="form-recipe-pic" type="url" placeholder="Image URL" required onkeyup="enableSubmit()"><br>
                   <!-- <input id="form-recipe-pic" type="file" name="image" accept="image/png, image/jpeg" required/><br> -->
-                  <input id="form-submit" type="submit" value="Submit" onclick="saveRecipe(); return false;">
+                  <input id="form-submit" type="submit" value="Submit" onclick="saveRecipe(); return false;" disabled>
                 </form>
               </div>
 
               <div id="filterMenu">
-                <h1 style="padding: 20px; margin: 0 auto;">Filter Recipes</h1>
-                <div class="range_container">
-                  <h2 style="padding: 20px; margin: 10px 10px;">Prep Time (minutes)</h2>
-                  <div class="sliders_control">
-                      <input id="fromSlider" type="range" value="10" min="0" max="300"/>
-                      <input id="toSlider" type="range" value="40" min="0" max="300"/>
-                  </div>
-                  <div class="form_control">
-                      <div class="form_control_container">
-                          <div class="form_control_container__time">Min</div>
-                          <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="100"/>
-                      </div>
-                      <div class="form_control_container">
-                          <div class="form_control_container__time">Max</div>
-                          <input class="form_control_container__time__input" type="number" id="toInput" value="40" min="0" max="100"/>
-                      </div>
-                  </div>
-                </div>  
+                <form filter id="filterForm">
+                  <h1 style="padding: 20px; margin: 0 auto;">Filter Recipes</h1>
+                  <div class="range_container">
+                    <h2 style="padding: 20px; margin: 10px 10px;">Prep Time (minutes)</h2>
+                    <div class="sliders_control">
+                        <input id="fromSlider" type="range" value="0" min="0" max="100"/>
+                        <input id="toSlider" type="range" value="100" min="0" max="100"/>
+                    </div>
+                    <div class="form_control">
+                        <div class="form_control_container">
+                            <div class="form_control_container__time">Min</div>
+                            <input class="form_control_container__time__input" type="number" id="fromInput" value="0" min="0" max="100"/>
+                        </div>
+                        <div class="form_control_container">
+                            <div class="form_control_container__time">Max</div>
+                            <input class="form_control_container__time__input" type="number" id="toInput" value="100" min="0" max="100"/>
+                        </div>
+                    </div>
+                  </div> 
+                  <div class="dietary_pref_container">
+                    <h2 style="padding: 20px; margin: 10px 10px;">Dietary Preferences</h2>
+                    <label class="dietary-checkbox">
+                      <input id="vegetarian-checkbox" type="checkbox" name="dietaryPreference" value="vegetarian">
+                      Vegetarian
+                    </label>
+                    <br>
+                    <label class="dietary-checkbox">
+                      <input id="vegan-checkbox" type="checkbox" name="dietaryPreference" value="vegan">
+                      Vegan
+                    </label>
+                    <br>
+                    <label class="dietary-checkbox">
+                      <input id="gluten-checkbox" type="checkbox" name="dietaryPreference" value="gluten-free">
+                      Gluten-Free
+                    </label>
+                    <br>
+                    <label class="dietary-checkbox">
+                      <input id="nut-checkbox" type="checkbox" name="dietaryPreference" value="nut-free">
+                      Nut-Free
+                    </label>
+                    <br>
+                  </div> 
+                  <input id="form-submit" type="submit" value="Submit" onclick="applyFilter(); return false;">
+                </form> 
               </div>
 
               <div id="sortMenu">
@@ -94,7 +120,7 @@
               </div>
 
               <div id="recipe-listing">
-                <div class="recipe-square" onclick="location.href='spaghetti.html';" style="cursor:pointer;">
+                <div class="recipe-square" dietaryprefs="nut-free" onclick="location.href='spaghetti.html';" style="cursor:pointer;">
                   <img class="dish-pic" src="https://thefoodcharlatan.com/wp-content/uploads/2023/04/Spaghetti-Sauce-Recipe-6.jpg" alt="spaghetti-pic">
                   <div class="recipe-text-column">
                     <div class="recipe-text-row">
@@ -106,7 +132,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="recipe-square">
+                <div class="recipe-square" dietaryprefs="vegetarian,vegan,nut-free">
                   <img class="dish-pic" src="https://gourmandelle.com/wp-content/uploads/2018/02/falafel-wrap-recipe-falafel-la-lipie.jpg" alt="falafel-pic">
                   <div class="recipe-text-column">
                     <div class="recipe-text-row">
@@ -118,7 +144,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="recipe-square">
+                <div class="recipe-square" dietaryprefs="gluten-free">
                   <img class="dish-pic" src="https://www.onceuponachef.com/images/2018/05/Kung-Pao-Chicken-16-scaled.jpg" alt="kungpao-pic">
                   <div class="recipe-text-column">
                     <div class="recipe-text-row">
@@ -130,7 +156,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="recipe-square">
+                <div class="recipe-square" dietaryprefs="nut-free,gluten-free">
                   <img class="dish-pic" src="https://saltandbaker.com/wp-content/uploads/2019/12/Indian-Butter-Chicken-Recipe-featured.jpg" alt="butterchicken-pic">
                   <div class="recipe-text-column">
                     <div class="recipe-text-row">
@@ -142,7 +168,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="recipe-square">
+                <div class="recipe-square" dietaryprefs="vegetarian,vegan,nut-free">
                   <img class="dish-pic" src="https://i0.wp.com/dashofsavory.com/wp-content/uploads/2018/10/IMG_04991.jpg?fit=3800%2C2560&ssl=1" alt="garlicknots-pic">
                   <div class="recipe-text-column">
                     <div class="recipe-text-row">

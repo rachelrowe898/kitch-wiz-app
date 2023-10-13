@@ -1,3 +1,19 @@
+console.log(sessionStorage.getItem("allRecipeSquares"));
+
+if (sessionStorage.getItem("allRecipeSquares") === undefined || sessionStorage.getItem("allRecipeSquares") == null){
+  console.log("entered first if")
+  let allRecipeSquares = document.getElementsByClassName('recipe-square');
+  const recipeSquaresArray = Array.from(allRecipeSquares).map((element) => {
+    const attributes = {};
+    attributes.innerHTML = element.innerHTML;
+    attributes.onclick = element.getAttribute("onclick");
+    attributes.style = element.getAttribute("style");
+    attributes.dietaryprefs = element.getAttribute("dietaryprefs");
+    return attributes;
+  });
+  sessionStorage.setItem("allRecipeSquares", JSON.stringify(recipeSquaresArray));
+}
+
 function openNav() {
   var x = document.getElementById("menuLinks");
   var recipeSection = document.getElementById("recipe-section");
@@ -8,6 +24,20 @@ function openNav() {
     x.style.display = "block";
     recipeSection.style.marginTop = "300px";
   }
+}
+
+function enableSubmit(){
+  let inputs = document.querySelectorAll('div[required]'); // Enter your class name for a required field, this should also be reflected within your form fields.
+  let btn = document.querySelector('input[type="submit"]');
+  let isValid = true;
+  for (var i = 0; i < inputs.length; i++){
+    let changedInput = inputs[i];
+    if (changedInput.value.trim() === "" || changedInput.value === null){
+      isValid = false;
+      break;
+    }
+  }
+  btn.disabled = !isValid;
 }
 
 function closeAdd() {
@@ -46,8 +76,6 @@ function openAdd() {
 }
 
 function addRecipeSquare(recipeName, imageUrl, prepTime) {
-  console.log("adding recipe square");
-
   const newRecipeSquare = document.createElement("div");
   newRecipeSquare.className = "recipe-square";
 
@@ -60,9 +88,6 @@ function addRecipeSquare(recipeName, imageUrl, prepTime) {
 
   const recipeTextColumn = document.createElement("div");
   recipeTextColumn.className = "recipe-text-column";
-
-  // const recipeTextRow = document.createElement("div");
-  // recipeTextRow.className = "recipe-text-row";
 
   const leftRecipeTextRow = document.createElement("div"); 
   leftRecipeTextRow.className = "recipe-text-row";
@@ -87,15 +112,55 @@ function addRecipeSquare(recipeName, imageUrl, prepTime) {
   newRecipeSquare.appendChild(img);
   newRecipeSquare.appendChild(recipeTextColumn);
 
+  // Make new total recipe listing
+  const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
+
+  // Convert the JSON string back to an array of attributes
+  const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
+
+  const newTotalRecipeSquares = []
+
+  recipeSquaresTemp.forEach((attributes) => {
+    const element = document.createElement("div");
+    element.innerHTML = attributes.innerHTML;
+    element.onclick = new Function(attributes.onclick);
+    element.setAttribute("style", attributes.style);
+    element.className = "recipe-square";
+    element.style = attributes.style;
+    element.dietaryprefs = attributes.dietaryprefs;
+    newTotalRecipeSquares.push(element);
+  });
+
+  // Add the new recipeSquare
+  newTotalRecipeSquares.push(newRecipeSquare);
+  
+  // Save new total recipe listing to sessionStorage
+  const newTotalRecipeSquaresArray = Array.from(newTotalRecipeSquares).map((element) => {
+    const attributes = {};
+    attributes.innerHTML = element.innerHTML;
+    attributes.onclick = element.getAttribute("onclick");
+    attributes.style = element.getAttribute("style");
+    attributes.dietaryprefs = element.getAttribute("dietaryprefs");
+    return attributes;
+  });
+  sessionStorage.setItem("allRecipeSquares", JSON.stringify(newTotalRecipeSquaresArray));
+
   // Add the new recipe square to the page
-  const recipeListing = document.getElementById("recipe-listing");
-  recipeListing.appendChild(newRecipeSquare);
+  const container = document.getElementById("recipe-listing");
+  
+  // Clear the container
+  container.innerHTML = '';
+
+  // Append the sorted recipe squares back to the container
+  newTotalRecipeSquares.forEach((square) => {
+    container.appendChild(square);
+  });
+
+  setFilterSliderMax();
 }
 
 function saveRecipe() {
   try {
-    console.log("saving recipe");
-
     const recipeName = document.getElementById("form-recipe-name").value;
     const ingredients = document.getElementById("form-ingredients").value;
     const instructions = document.getElementById("form-instructions").value;
@@ -107,16 +172,6 @@ function saveRecipe() {
    console.log(e);
   }
 }
-
-// function flipSort() {
-//   console.log("flip sort");
-//   var x = document.getElementById("sort-icon");
-//   if (x.className === "fa fa-sort-amount-asc") {
-//     x.className = "fa fa-sort-amount-desc";
-//   } else {
-//     x.className = "fa fa-sort-amount-asc"; 
-//   }
-// }
 
 function switchTab(evt, tabName) {
   // Declare all variables
@@ -136,10 +191,7 @@ function switchTab(evt, tabName) {
 
   // Show the current tab, and add an "active" class to the button that opened the tab
   ele = document.getElementById(tabName).style.display = "block";
-  console.log(ele)
   evt.currentTarget.className += " active";
-
-  console.log(evt.currentTarget.className)
 }
 
 function openSort() {
@@ -176,25 +228,31 @@ function zipArrays(arr1, arr2) {
 }
 
 function sortRecipes(order) {
-  const recipeSquares = document.getElementsByClassName('recipe-square');
-  const prepTimes = document.getElementsByClassName('prep-time');
+  const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
 
-  console.log(recipeSquares);
-  console.log(prepTimes);
+  // Convert the JSON string back to an array of attributes
+  const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
+
+  const recipeSquares = [];
+  const prepTimes = [];
+
+  recipeSquaresTemp.forEach((attributes) => {
+    const element = document.createElement("div");
+    element.innerHTML = attributes.innerHTML;
+    element.onclick = new Function(attributes.onclick);
+    element.setAttribute("style", attributes.style);
+    element.className = "recipe-square";
+    element.style = attributes.style;
+    element.dietaryprefs = attributes.dietaryprefs;
+    recipeSquares.push(element);
+    prepTimes.push(element.querySelector(".prep-time").textContent);
+  });
 
   const zippedRecipesTimes = zipArrays(recipeSquares, prepTimes);
 
   const sortedZipped = Array.from(zippedRecipesTimes).sort((a, b) => {
-    // console.log(a.childNodes);
-    // console.log(a.childNodes[4]);
-    // console.log(b.childNodes[4]);
-    // console.log(a.querySelector('.prep-time'));
-    console.log(a[1].textContent)
-    const timeA = parseInt(a[1].textContent.split(' ')[0]);
-    const timeB = parseInt(b[1].textContent.split(' ')[0]);
-
-    console.log("timeA", timeA);
-    console.log("timeB", timeB);
+    const timeA = parseInt(a[1].split(' ')[0]);
+    const timeB = parseInt(b[1].split(' ')[0]);
 
     sortMenuAsc = document.getElementById("sortMenuAsc");
     sortMenuDesc = document.getElementById("sortMenuDesc");
@@ -326,3 +384,151 @@ fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
 toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
 fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
 toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+
+function satisfyDietaryCheckboxConditions(dietaryCheckboxes, dietaryTags) {
+  console.log("satisfyDietaryCheckboxConditions");
+  console.log(dietaryCheckboxes);
+  console.log(dietaryTags);
+  if (dietaryCheckboxes.includes("vegetarian")) {
+    if (!(dietaryTags.includes("vegetarian"))) {
+      return false;
+    }
+  }
+  if (dietaryCheckboxes.includes("vegan")) {
+    if (!(dietaryTags.includes("vegan"))) {
+      return false;
+    }
+  }
+  if (dietaryCheckboxes.includes("nut-free")) {
+    if (!(dietaryTags.includes("nut-free"))) {
+      return false;
+    }
+  }
+  if (dietaryCheckboxes.includes("gluten-free")) {
+    if (!(dietaryTags.includes("gluten-free"))) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function applyFilter() {
+  try {
+    // get form inputs
+    minTime = parseInt(document.getElementById("fromInput").value);
+    maxTime = parseInt(document.getElementById("toInput").value);
+
+    var dietaryCheckboxes = [];
+
+    if (document.getElementById("vegetarian-checkbox").checked) {
+      dietaryCheckboxes.push("vegetarian");
+    }
+    if (document.getElementById("vegan-checkbox").checked) {
+      dietaryCheckboxes.push("vegan");
+    } 
+    if (document.getElementById("gluten-checkbox").checked) {
+      dietaryCheckboxes.push("gluten-free");
+    } 
+    if (document.getElementById("nut-checkbox").checked) {
+      dietaryCheckboxes.push("nut-free");
+    }
+
+    const filteredRecipeSquares = [];
+    const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
+
+    // Convert the JSON string back to an array of attributes
+    const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
+
+    const recipeSquares = [];
+    const prepTimes = [];
+    const dietaryPrefs = [];
+
+    recipeSquaresTemp.forEach((attributes) => {
+      console.log("!!!!!!!!", attributes)
+      const element = document.createElement("div");
+      element.innerHTML = attributes.innerHTML;
+      element.onclick = new Function(attributes.onclick);
+      element.setAttribute("style", attributes.style);
+      element.className = "recipe-square";
+      element.style = attributes.style;
+      element.dietaryprefs = attributes.dietaryprefs;
+
+      recipeSquares.push(element);
+      prepTimes.push(element.querySelector(".prep-time").textContent);
+      dietaryPrefs.push(element.dietaryprefs);
+    });
+
+    console.log("recipe squares: ", recipeSquares)
+
+    const zippedRecipesTimes = zipArrays(recipeSquares, prepTimes);
+
+    for (let i = 0; i < zippedRecipesTimes.length; i++) {
+      const recipeSquare = zippedRecipesTimes[i][0];
+      const prepTime = parseInt(zippedRecipesTimes[i][1]);
+      console.log("dietaryPrefs", dietaryPrefs);
+      const currDietaryPrefs = dietaryPrefs[i];
+
+      console.log("********** currdietaryprefs", currDietaryPrefs);
+
+      if (prepTime >= minTime && prepTime <= maxTime && satisfyDietaryCheckboxConditions(dietaryCheckboxes, currDietaryPrefs)) {
+        filteredRecipeSquares.push(recipeSquare);
+      }
+
+    }
+
+    const container = document.getElementById('recipe-listing');
+
+    // Clear the container
+    container.innerHTML = '';
+
+    // Append the sorted recipe squares back to the container
+    filteredRecipeSquares.forEach((square) => {
+      container.appendChild(square);
+    });
+  } catch (e){
+    console.log(e)
+  }
+}
+
+function setFilterSliderMax() {
+
+  // Set the max time for fromSlider, toSlider, fromInput, toInput
+  const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
+
+  const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
+  const recipeSquares = [];
+  const prepTimes = [];
+  let maxPrepTime = 0;
+
+  recipeSquaresTemp.forEach((attributes) => {
+    const element = document.createElement("div");
+    element.innerHTML = attributes.innerHTML;
+    element.onclick = new Function(attributes.onclick);
+    element.setAttribute("style", attributes.style);
+    element.className = "recipe-square";
+    element.style = attributes.style;
+    element.dietaryprefs = attributes.dietaryprefs;
+
+    recipeSquares.push(element);
+    prepTime = parseInt(element.querySelector(".prep-time").textContent);
+
+    if (!isNaN(prepTime) && prepTime > maxPrepTime) {
+      maxPrepTime = prepTime;
+    }
+
+  });
+
+  fromSlider.setAttribute("max", maxPrepTime);
+  toSlider.setAttribute("max", maxPrepTime);
+  toSlider.setAttribute("value", maxPrepTime);
+  fromInput.setAttribute("max", maxPrepTime);
+  toInput.setAttribute("max", maxPrepTime);
+  toInput.setAttribute("value", maxPrepTime);
+}
+
+setFilterSliderMax();
+
+
+// window.addEventListener("beforeunload", function(e) {
+//   sessionStorage.removeItem("{session}");
+// });

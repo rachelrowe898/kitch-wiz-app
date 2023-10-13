@@ -3,37 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile - Bobby C</title>
+    <title>KitchWiz - User Profiles</title>
     <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-    <header>
-        <h1>User Profile - Bobby C</h1>
-    </header>
-    <main>
-        <section class="user-profile">
-            <h2>User Information</h2>
-            <form id="profile-form">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" value="Bobby C" readonly>
-
-                <label for="preferences">Food Preferences:</label>
-                <input type="text" id="preferences" name="preferences" placeholder="Enter your food preferences">
-
-                <label for="allergies">Allergies:</label>
-                <input type="text" id="allergies" name="allergies" placeholder="Enter your allergies">
-
-                <label for="difficulty">Difficulty of Preparation:</label>
-                <select id="difficulty" name="difficulty">
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
-                </select>
-
-                <button type="submit">Save Changes</button>
-            </form>
-        </section>
-    </main>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
+</head>
+<body class="wrapper">
+    <main>
+    <div class="appBox">
+        <div class="app-heading">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <!-- Top Navigation Menu -->
+            <div class="topnav">
+                <a href="#home" class="active">KitchWiz</a>
+                <!-- Navigation links (hidden by default) -->
+                <div id="menuLinks">
+                  <a href="#news">Home</a>
+                  <a href="#about">Profile</a>
+                  <a href="#news">Recipes</a>
+                  <a href="#contact">Grocery</a>
+                </div>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                  <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="main-section">
+            <div id="user-profile-section">
+                <h1 class="recipe-heading-text">User Profiles</h1>
+                <div id="recipe-listing">
+                    <div class="recipe-square" onclick="openUserProfile('Bobby C');" style="cursor:pointer;">
+                        <img class="dish-pic" src="profile_image1.jpg" alt="profile-pic">
+                        <div class="recipe-text-column">
+                            <div class="recipe-text-row">
+                                <h1 class="recipe-title">Bobby Chen</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recipe-square" onclick="openUserProfile('Joseph Y');" style="cursor:pointer;">
+                        <img class="dish-pic" src="profile_image2.jpg" alt="profile-pic">
+                        <div class="recipe-text-column">
+                            <div class="recipe-text-row">
+                                <h1 class="recipe-title">Joseph Yu</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recipe-square" onclick="openUserProfile('Amanda L');" style="cursor:pointer;">
+                        <img class="dish-pic" src="profile_image3.jpg" alt="profile-pic">
+                        <div class="recipe-text-column">
+                            <div class="recipe-text-row">
+                                <h1 class="recipe-title">Amanda Liu</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recipe-square" onclick="openUserProfile('Rachel R');" style="cursor:pointer;">
+                        <img class="dish-pic" src="profile_image4.jpg" alt="profile-pic">
+                        <div class="recipe-text-column">
+                            <div class "recipe-text-row">
+                                <h1 class="recipe-title">Rachel Rowe</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-delete-options">
+                    <button class="add-profile-button" onclick="openAddProfile()">Add Profile</button>
+                    <button class="delete-profile-button" onclick="openDeleteProfile()">Delete Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
 </body>
 </html>
