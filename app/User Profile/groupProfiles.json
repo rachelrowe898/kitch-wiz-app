@@ -1,0 +1,7 @@
+{
+  "userGroup": "cmsc434",
+  "username": "Dr Bob",
+  "foodPreference": "American",
+  "allergies": ["peanuts", "shellfish"],
+  "preparationDifficulty": "easy"
+}

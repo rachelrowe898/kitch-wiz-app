@@ -282,3 +282,14 @@ body {
     cursor: pointer;
     margin: 0 10px;
 }
+
+.group-square {
+    border: 2px solid #2C3C4B;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.group-text-row {
+    margin-top: 120px;
+}
