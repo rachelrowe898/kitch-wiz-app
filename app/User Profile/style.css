@@ -282,3 +282,29 @@ body {
     cursor: pointer;
     margin: 0 10px;
 }
+
+.group-square {
+    border: 2px solid #2C3C4B;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.group-header-row {
+    margin-top: 120px;
+}
+.group-details {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.group-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#group-listing {
+    margin-bottom: 240px;
+}

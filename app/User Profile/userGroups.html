@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KitchWiz - User Profiles</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>KitchWiz - User Groups</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
 </head>
@@ -32,44 +32,28 @@
 
         <div class="main-section">
             <div id="user-profile-section">
-                <h1 class="recipe-heading-text">User Profiles</h1>
+                <h1 class="recipe-heading-text">Groups</h1>
                 <div id="recipe-listing">
                     <div class="recipe-square" onclick="openUserProfile('Bobby C');" style="cursor:pointer;">
-                        <img class="dish-pic" src="profile_image1.jpg" alt="profile-pic">
+                        <img class="dish-pic" src="Bob_the_builder.jpg" alt="profile-pic">
                         <div class="recipe-text-column">
                             <div class="recipe-text-row">
-                                <h1 class="recipe-title">Bobby Chen</h1>
+                                <h1 class="recipe-title">Bob Squad</h1>
                             </div>
                         </div>
                     </div>
                     <div class="recipe-square" onclick="openUserProfile('Joseph Y');" style="cursor:pointer;">
-                        <img class="dish-pic" src="profile_image2.jpg" alt="profile-pic">
+                        <img class="dish-pic" src="nerd.jpg" alt="profile-pic">
                         <div class="recipe-text-column">
                             <div class="recipe-text-row">
-                                <h1 class="recipe-title">Joseph Yu</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recipe-square" onclick="openUserProfile('Amanda L');" style="cursor:pointer;">
-                        <img class="dish-pic" src="profile_image3.jpg" alt="profile-pic">
-                        <div class="recipe-text-column">
-                            <div class="recipe-text-row">
-                                <h1 class="recipe-title">Amanda Liu</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recipe-square" onclick="openUserProfile('Rachel R');" style="cursor:pointer;">
-                        <img class="dish-pic" src="profile_image4.jpg" alt="profile-pic">
-                        <div class="recipe-text-column">
-                            <div class "recipe-text-row">
-                                <h1 class="recipe-title">Rachel Rowe</h1>
+                                <h1 class="recipe-title">Nerd Herd</h1>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="add-delete-options">
-                    <button class="add-profile-button" onclick="openAddProfile()">Add Profile</button>
-                    <button class="delete-profile-button" onclick="openDeleteProfile()">Delete Profile</button>
+                    <button class="add-profile-button" onclick="openAddProfile()">Create Group</button>
+                    <button class="delete-profile-button" onclick="openDeleteProfile()">Leave Group</button>
                 </div>
             </div>
         </div>

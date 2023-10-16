@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KitchWiz - User Profiles</title>
+    <title>KitchWiz - User Profile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
@@ -34,14 +34,15 @@
             <div class="user-profile-page">
                 <!-- Profile Information -->
                 <div class="user-profile">
-                    <h1 class="user-profile-heading">Bobby Chen's Profile</h1>
+                    <h1 class="user-profile-heading">User Profile</h1>
                     <div class="user-details">
                         <div class="profile-detail">
-                            <label for="food-preference">Food Preference:</label>
+                            <label for="food-preference">Cusine:</label>
                             <select id="food-preference">
+                                <option value="Japanese">American</option>
                                 <option value="Italian">Italian</option>
-                                <option value="Mexican">Mexican</option>
                                 <option value="Japanese">Japanese</option>
+                                <option value="Mexican">Mexican</option>
                                 <!-- Add more options as needed -->
                             </select>
                         </div>
@@ -50,7 +51,7 @@
                             <input type="text" id="allergies" placeholder="Enter allergies...">
                         </div>
                         <div class="profile-detail">
-                            <label for="difficulty">Preparation Difficulty:</label>
+                            <label for="difficulty">Difficulty:</label>
                             <select id="difficulty">
                                 <option value="Easy">Easy</option>
                                 <option value="Medium">Medium</option>
@@ -59,7 +60,7 @@
                         </div>
                     </div>
                     <!-- Save button to update profile -->
-                    <button class="save-profile-button" onclick="saveUserProfile()">Save Profile</button>
+                    <button class="save-profile-button" onclick="saveUserProfile()">Save</button>
                 </div>
             </div>            
         </div>

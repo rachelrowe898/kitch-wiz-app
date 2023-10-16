@@ -564,4 +564,213 @@ input[type="range"] {
 .section-button:hover {
     background-color: #2C3C4B;
 }
+
+/* ------------------------------------- SECTION: USER PREFERENCES  -------------------------------------*/
+
+/* Style the User Preferences buttons */
+#user-profile-section {
+  margin: 150px 10px;
+  display: flex;
+  justify-content: auto;
+  flex-direction: column;
+}
+
+.user-profile-heading {
+  font-size: 30px;
+  margin: 10px;
+  text-align: center;
+  color: #635C70;
+}
+
+.user-profiles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-profile {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.user-name {
+  font-size: 24px;
+  text-align: center;
+  color: white;
+}
+
+.add-delete-options {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 120px;
+}
+
+.add-profile-button, .delete-profile-button {
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.add-profile-button {
+  background-color: #208AAE;
+  color: white;
+}
+
+.delete-profile-button {
+  background-color: #FF2E2E;
+  color: white;
+}
+
+/* Styling for User Profiles page */
+#user-profile-section {
+  margin: 150px 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.recipe-heading-text {
+  display: flex;
+  flex: 0 0 52%;
+  padding: 5px 5px;
+  flex-direction: column;
+  font-size: 40px;
+  color: #635C70;
+  margin-left: 15px;
+}
+
+#recipe-listing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe-square {
+  height: 150px;
+  width: 550px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dish-pic {
+  flex: 0 0 25%;
+  padding: 5px;
+  height: 125px;
+  width: 125px;
+  border-radius: 10px;
+}
+
+.recipe-text-column {
+  flex: 0 0 75%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe-title {
+  font-size: 30px;
+  color: #635C70;
+}
+
+.recipe-text-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#clock-icon {
+  font-size: 30px;
+  color: #208AAE;
+  margin: 0 10px;
+}
+
+.prep-time {
+  font-size: 25px;
+  color: #635C70;
+}
+
+/* Add Profile and Delete Profile buttons */
+.add-delete-options {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.add-profile-button,
+.delete-profile-button {
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.add-profile-button {
+  background-color: #208AAE;
+  color: white;
+}
+
+.delete-profile-button {
+  background-color: #FF2E2E;
+  color: white;
+}
+
+.recipe-listing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe-square {
+  height: 150px;
+  width: 550px;
+  padding: 10px;
+  border: 3px solid black;
+  margin: 30px 10px;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 5px 10px 8px #888888; /* Add drop shadow */
+}
+
+.user-profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.user-profile-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.profile-detail {
+  margin: 20px 0;
+}
+
+.save-profile-button {
+  background-color: #208AAE;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
 }
