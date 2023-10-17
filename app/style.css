@@ -178,7 +178,7 @@ height: 12px;
 #recipe-section {
   margin: 150px 10px;
   display: flex;
-  justify-content: auto;
+  /* justify-content: auto; note: the validator says auto is not a justify-content value */
   flex-direction: column;
 }
 
@@ -338,17 +338,20 @@ a.fill-div {
 /* form styles for add recipe */
 
 form[add]{
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Helvetica;
-}
-
-form[filter]{
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Helvetica;
-}
+    max-width: 400px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Helvetica;
+  }
+  form[filter]{
+    margin: 0 auto;
+    margin: 0 auto;
+    padding: 20px;
+    padding: 20px;
+    font-family: Helvetica;
+    font-family: Helvetica;
+  }
 
 
 input[type="number"],
@@ -559,6 +562,12 @@ input[type="range"] {
     background-color: #2C3C4B;
 }
 
+#main-kitchen-stock-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Subtract the height of the navigation bar */
+}
 /* ------------------------------------- SECTION: USER PREFERENCES  -------------------------------------*/
 
 /* Style the User Preferences buttons */
@@ -765,6 +774,4 @@ input[type="range"] {
   border-radius: 5px;
   cursor: pointer;
   margin: 0 10px;
-}
-
 }
