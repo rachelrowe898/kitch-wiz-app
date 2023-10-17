@@ -337,7 +337,6 @@ a.fill-div {
 }
 
 /* form styles for add recipe */
-
 form[add]{
   max-width: 400px;
   max-width: 400px;
@@ -353,6 +352,7 @@ form[filter]{
   font-family: Helvetica;
   font-family: Helvetica;
 }
+
 
 input[type="number"],
 textarea {

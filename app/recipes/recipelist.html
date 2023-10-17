@@ -34,10 +34,10 @@
             <div id="recipe-section">
               <div class="recipe-heading-section">
                 <h1 class="recipe-heading-text">My Recipes</h1>
-                <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true" href="javascript:void(0);" onclick="openAdd()"></i>
+                <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true" href="javascript:void(0);" onclick="openAdd();"></i>
                 <i id="filter-icon" class="fa fa-filter" aria-hidden="true" onclick="openFilter();"></i>
                 <div class="dropdown">
-                  <button class="sortDropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0);" class="icon" onclick="openSort()">
+                  <button class="sortDropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0);" class="icon" onclick="openSort();">
                     Sort
                     <i id="sort-icon" class="fa fa-sort-desc" aria-hidden="true"></i>
                   </button>
@@ -45,7 +45,7 @@
               </div>
               
               <!-- Add Recipe (hidden by default) -->
-              <div id="addRecipe">
+              <div id="addRecipe" style="display: None;">
                 <h1 style="padding: 20px; margin: 0 auto;">Add New Recipe</h1>
                 <form add>
                   <input id="form-recipe-name" type="text" placeholder="Recipe name" required onkeyup="enableSubmit()"><br>
@@ -58,13 +58,13 @@
                     <br>
                   </div>
                   <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Image URL:</label> <br> -->
-                  <input id="form-recipe-pic" type="url" placeholder="Image URL" required onkeyup="enableSubmit()"><br>
+                  <input id="form-recipe-pic" type="url" placeholder="Image URL"><br>
                   <!-- <input id="form-recipe-pic" type="file" name="image" accept="image/png, image/jpeg" required/><br> -->
                   <input id="form-submit" type="submit" value="Submit" onclick="saveRecipe(); return false;" disabled>
                 </form>
               </div>
 
-              <div id="filterMenu">
+              <div id="filterMenu" style="display: None;">
                 <form filter id="filterForm">
                   <h1 style="padding: 20px; margin: 0 auto;">Filter Recipes</h1>
                   <div class="range_container">
@@ -111,7 +111,7 @@
                 </form> 
               </div>
 
-              <div id="sortMenu">
+              <div id="sortMenu" style="display: None;">
                 <a id="sortMenuAsc" onclick="sortRecipes('asc')">Prep Time: Low - High</a>
                 <a id="sortMenuDesc" onclick="sortRecipes('desc')">Prep Time: High - Low</a>
                 <!-- <li><a class="dropdown-item" href="#">Action</a></li>
