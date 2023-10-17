@@ -30,18 +30,21 @@
               </div>
           </div>
           
-          <div id="kitchen-stock-section">
-                <h1 class="fridge-heading-text">My Kitchen Stock</h1>
-                <!-- Fridge Contents Button -->
-                <button id="fridge-button" class="section-button" onclick="location.href='../kitchenStock/fridgeStock.html';"">View Fridge Contents</button>
-                <br>
-                <!-- Freezer Contents Button -->
-                <button id="freezer-button" class="section-button" onclick="location.href='../kitchenStock/freezerStock.html';"">View Freezer Contents</button>
-                <br>
-                <!-- Add/Remove Items Button -->
-                <button id="add-remove-button" class="section-button" onclick="showAddRemoveItems()">Add/Remove Items</button>
-                </div>
+          <div id="fridge-stock-section">
+            <div class="fridge-header">
+                <button id="back-button" onclick="goBack()">Back</button>
+                <h1 class="fridge-heading-text">My Fridge Stock</h1>
+            </div>
+            <div class="fridge-list">
+                <input type="text" id="fridge-item-input" placeholder="Enter an item">
+                <button id="add-item-button" onclick="addItem()">Add Item</button>
+                <button id="remove-item-button" onclick="removeItem()">Remove Item</button>
+            </div>
+            <ul id="fridge-items-list">
+                <!-- Display the contents of the list here -->
+            </ul>
         </div>
+        
         
     </main>
     <script src="script.js"></script>
