@@ -341,7 +341,6 @@ a.fill-div {
 /* form styles for add recipe */
 
 form[add]{
-  form {
     max-width: 400px;
     max-width: 400px;
     margin: 0 auto;
@@ -777,6 +776,4 @@ input[type="range"] {
   border-radius: 5px;
   cursor: pointer;
   margin: 0 10px;
-}
-
 }
