@@ -335,27 +335,21 @@ a.fill-div {
   border-radius: 10px;
   cursor: pointer;
 }
-
-
-
 /* form styles for add recipe */
 
 form[add]{
-  form {
-    max-width: 400px;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Helvetica;
-  }
-  form[filter]{
-    margin: 0 auto;
-    margin: 0 auto;
-    padding: 20px;
-    padding: 20px;
-    font-family: Helvetica;
-    font-family: Helvetica;
-  }
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Helvetica;
+}
+
+form[filter]{
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Helvetica;
+}
+
 
 input[type="number"],
 textarea {

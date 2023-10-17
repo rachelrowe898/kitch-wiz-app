@@ -75,26 +75,109 @@ function openAdd() {
   }
 }
 
-function addRecipeSquare(recipeName, imageUrl, prepTime) {
+// function addRecipeSquare(recipeName, imageUrl, prepTime) {
+//   const newRecipeSquare = document.createElement("div");
+//   newRecipeSquare.className = "recipe-square";
+
+//   // Create the elements
+//   const img = document.createElement("img");
+//   img.className = "dish-pic";
+//   img.src = imageUrl; // Set the image URL directly
+
+//   img.alt = recipeName;
+
+//   const recipeTextColumn = document.createElement("div");
+//   recipeTextColumn.className = "recipe-text-column";
+
+//   const leftRecipeTextRow = document.createElement("div"); 
+//   leftRecipeTextRow.className = "recipe-text-row";
+
+//   const rightRecipeTextRow = document.createElement("div"); 
+//   rightRecipeTextRow.className = "recipe-text-row";
+//   clockIcon = document.getElementById("clock-icon").cloneNode(true);
+//   const prepTimeH2 = document.createElement("h2");
+//   prepTimeH2.className = "prep-time";
+//   prepTimeH2.textContent = prepTime + " min";
+
+//   const recipeTitle = document.createElement("h1");
+//   recipeTitle.className = "recipe-title";
+//   recipeTitle.textContent = recipeName;
+
+//   // Assemble the elements
+//   leftRecipeTextRow.appendChild(recipeTitle);
+//   rightRecipeTextRow.appendChild(clockIcon);
+//   rightRecipeTextRow.appendChild(prepTimeH2);
+//   recipeTextColumn.appendChild(leftRecipeTextRow);
+//   recipeTextColumn.appendChild(rightRecipeTextRow);
+//   newRecipeSquare.appendChild(img);
+//   newRecipeSquare.appendChild(recipeTextColumn);
+
+//   // Make new total recipe listing
+//   const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
+
+//   // Convert the JSON string back to an array of attributes
+//   const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
+
+//   const newTotalRecipeSquares = []
+
+//   recipeSquaresTemp.forEach((attributes) => {
+//     const element = document.createElement("div");
+//     element.innerHTML = attributes.innerHTML;
+//     element.onclick = new Function(attributes.onclick);
+//     element.setAttribute("style", attributes.style);
+//     element.className = "recipe-square";
+//     element.style = attributes.style;
+//     element.dietaryprefs = attributes.dietaryprefs;
+//     newTotalRecipeSquares.push(element);
+//   });
+
+//   // Add the new recipeSquare
+//   newTotalRecipeSquares.push(newRecipeSquare);
+  
+//   // Save new total recipe listing to sessionStorage
+//   const newTotalRecipeSquaresArray = Array.from(newTotalRecipeSquares).map((element) => {
+//     const attributes = {};
+//     attributes.innerHTML = element.innerHTML;
+//     attributes.onclick = element.getAttribute("onclick");
+//     attributes.style = element.getAttribute("style");
+//     attributes.dietaryprefs = element.getAttribute("dietaryprefs");
+//     return attributes;
+//   });
+//   sessionStorage.setItem("allRecipeSquares", JSON.stringify(newTotalRecipeSquaresArray));
+
+//   // Add the new recipe square to the page
+//   const container = document.getElementById("recipe-listing");
+  
+//   // Clear the container
+//   container.innerHTML = '';
+
+//   // Append the sorted recipe squares back to the container
+//   newTotalRecipeSquares.forEach((square) => {
+//     container.appendChild(square);
+//   });
+
+//   setFilterSliderMax();
+// }
+
+function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructions) {
   const newRecipeSquare = document.createElement("div");
   newRecipeSquare.className = "recipe-square";
-
+  
   // Create the elements
   const img = document.createElement("img");
   img.className = "dish-pic";
-  img.src = imageUrl; // Set the image URL directly
-
+  img.src = imageUrl;
   img.alt = recipeName;
 
   const recipeTextColumn = document.createElement("div");
   recipeTextColumn.className = "recipe-text-column";
 
-  const leftRecipeTextRow = document.createElement("div"); 
+  const leftRecipeTextRow = document.createElement("div");
   leftRecipeTextRow.className = "recipe-text-row";
 
-  const rightRecipeTextRow = document.createElement("div"); 
+  const rightRecipeTextRow = document.createElement("div");
   rightRecipeTextRow.className = "recipe-text-row";
-  clockIcon = document.getElementById("clock-icon").cloneNode(true);
+  const clockIcon = document.getElementById("clock-icon").cloneNode(true);
   const prepTimeH2 = document.createElement("h2");
   prepTimeH2.className = "prep-time";
   prepTimeH2.textContent = prepTime + " min";
@@ -114,11 +197,9 @@ function addRecipeSquare(recipeName, imageUrl, prepTime) {
 
   // Make new total recipe listing
   const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
-
-  // Convert the JSON string back to an array of attributes
   const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
 
-  const newTotalRecipeSquares = []
+  const newTotalRecipeSquares = [];
 
   recipeSquaresTemp.forEach((attributes) => {
     const element = document.createElement("div");
@@ -133,7 +214,7 @@ function addRecipeSquare(recipeName, imageUrl, prepTime) {
 
   // Add the new recipeSquare
   newTotalRecipeSquares.push(newRecipeSquare);
-  
+
   // Save new total recipe listing to sessionStorage
   const newTotalRecipeSquaresArray = Array.from(newTotalRecipeSquares).map((element) => {
     const attributes = {};
@@ -147,7 +228,7 @@ function addRecipeSquare(recipeName, imageUrl, prepTime) {
 
   // Add the new recipe square to the page
   const container = document.getElementById("recipe-listing");
-  
+
   // Clear the container
   container.innerHTML = '';
 
@@ -156,7 +237,83 @@ function addRecipeSquare(recipeName, imageUrl, prepTime) {
     container.appendChild(square);
   });
 
+  createRecipePage(recipeName, imageUrl, prepTime, ingredients, instructions);
+
   setFilterSliderMax();
+}
+
+function createRecipePage(recipeName, imageUrl, prepTime, ingredients, instructions) {
+  const mainSection = document.getElementsByClassName("main-section")[0];
+
+  // Create a new recipe page element
+  const recipePage = document.createElement("div");
+  recipePage.className = "recipe-page";
+  recipePage.style.display = "none"; // Hide the recipe page by default
+
+  // Create elements for the recipe page
+  const recipeNameText = document.createElement("h2");
+  recipeNameText.className = "recipe-name-text";
+  recipeNameText.textContent = recipeName;
+
+  const recipePageImg = document.createElement("img");
+  recipePageImg.className = "recipe-page-pic";
+  recipePageImg.src = imageUrl;
+  recipePageImg.alt = recipeName;
+
+  const recipePagePrepTime = document.createElement("div");
+  recipePagePrepTime.className = "recipe-page-prep-time";
+  const clockIcon = document.getElementById("clock-icon").cloneNode(true);
+  const prepTimeH2 = document.createElement("h2");
+  prepTimeH2.className = "prep-time";
+  prepTimeH2.textContent = prepTime + " min";
+
+  const recipePageIngredients = document.createElement("div");
+  recipePageIngredients.className = "recipe-page-ingredients";
+  const ingredientsHeading = document.createElement("h2");
+  ingredientsHeading.className = "ingredients-heading";
+  ingredientsHeading.textContent = "Ingredients";
+  const ingredientsList = document.createElement("ul");
+  ingredientsList.className = "ingredients-list";
+  ingredients.split('\n').forEach((ingredient) => {
+    if (ingredient.trim() !== '') {
+      const ingredientsListItem = document.createElement("li");
+      ingredientsListItem.className = "ingredients-list-item";
+      ingredientsListItem.textContent = ingredient.trim();
+      ingredientsList.appendChild(ingredientsListItem);
+    }
+  });
+
+  const recipePageInstructions = document.createElement("div");
+  recipePageInstructions.className = "recipe-page-instructions";
+  const instructionsHeading = document.createElement("h2");
+  instructionsHeading.className = "instructions-heading";
+  instructionsHeading.textContent = "Instructions";
+  const instructionsList = document.createElement("ol");
+  instructionsList.className = "instructions-list";
+  instructions.split('\n').forEach((instruction) => {
+    if (instruction.trim() !== '') {
+      const instructionsListItem = document.createElement("li");
+      instructionsListItem.className = "instructions-list-item";
+      instructionsListItem.textContent = instruction.trim();
+      instructionsList.appendChild(instructionsListItem);
+    }
+  });
+
+  // Assemble the recipe page elements
+  recipePage.appendChild(recipeNameText);
+  recipePage.appendChild(recipePageImg);
+  recipePagePrepTime.appendChild(clockIcon);
+  recipePagePrepTime.appendChild(prepTimeH2);
+  recipePage.appendChild(recipePagePrepTime);
+  recipePageIngredients.appendChild(ingredientsHeading);
+  recipePageIngredients.appendChild(ingredientsList);
+  recipePage.appendChild(recipePageIngredients);
+  recipePageInstructions.appendChild(instructionsHeading);
+  recipePageInstructions.appendChild(instructionsList);
+  recipePage.appendChild(recipePageInstructions);
+
+  // Append the recipe page to the main section
+  mainSection.appendChild(recipePage);
 }
 
 function saveRecipe() {
@@ -165,9 +322,16 @@ function saveRecipe() {
     const ingredients = document.getElementById("form-ingredients").value;
     const instructions = document.getElementById("form-instructions").value;
     const prepTime = document.getElementById("form-prep-time").value;
-    const imageUrl = document.getElementById("form-recipe-pic").value;
+    let imageUrl = "";
+    if (document.getElementById("form-recipe-pic").value !== "") {
+      imageUrl = document.getElementById("form-recipe-pic").value;
+      console.log(imageUrl)
+    } else {
+      imageUrl = "https://media.istockphoto.com/id/843611684/vector/plate-circle-icon-with-long-shadow-flat-design-style.jpg?s=612x612&w=0&k=20&c=2MtIhrmQD7ilI5nx_j6tfnHLIFwQByIxHsNUlO9q-3Y=";
+      console.log(imageUrl)
+    }
 
-    addRecipeSquare(recipeName, imageUrl, prepTime);
+    addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructions);
   } catch (e) {
    console.log(e);
   }
