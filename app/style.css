@@ -562,39 +562,32 @@ input[type="range"] {
     background-color: #2C3C4B;
 }
 
-#kitchen-stock-section {
-  margin: 150px 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-#fridge-stock-section {
+#kitchen-stock-section, #stock-section {
   margin: 150px 10px;
   display: flex;
   flex-direction: column;
 }
 
 /* Styling for the Fridge Stock Section */
-#fridge-stock-section {
+#stock-section {
   text-align: center;
   background-color: #F2F2F2;
   padding: 20px;
   border-radius: 10px;
 }
 
-.fridge-heading-text {
+.stock-heading-text {
   font-size: 28px;
-  color: #635C70;
   margin-bottom: 20px;
 }
 
-.fridge-list {
+.stock-list {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#fridge-item-input {
+#item-input {
   width: 300px;
   padding: 10px;
   margin: 10px 0;
@@ -605,7 +598,7 @@ input[type="range"] {
 }
 
 #add-item-button, #remove-item-button {
-  background-color: #208AAE;
+  background-color: #FDB833;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -620,20 +613,20 @@ input[type="range"] {
   background-color: #2C3C4B;
 }
 
-ul#fridge-items-list {
+ul#items-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
   text-align: left;
 }
 
-ul#fridge-items-list li {
+ul#items-list li {
   font-size: 18px;
   margin: 5px 0;
 }
 
 /* Style for individual items in the list */
-ul#fridge-items-list li {
+ul#items-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -644,7 +637,7 @@ ul#fridge-items-list li {
 }
 
 /* Style for the "Remove" button within each list item */
-ul#fridge-items-list li button {
+ul#items-list li button {
   background-color: #FF2E2E;
   color: white;
   padding: 5px 10px;
@@ -654,14 +647,8 @@ ul#fridge-items-list li button {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
-/* Hover effect for the "Remove" button within each list item */
-ul#fridge-items-list li button:hover {
-  background-color: #FF0000;
-}
 /* Style the quantity input and buttons */
 .quantity-input {
-  /* width: 300px; */
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
@@ -696,14 +683,13 @@ ul#fridge-items-list li button:hover {
   background-color: #2C3C4B;
 }
 
-/* Add this to your existing CSS */
-.fridge-header {
+.stock-header {
   display: flex;
   align-items: center;
 }
 
 #back-button {
-  background-color: #208AAE;
+  background-color: #FDB833;;
   color: white;
   border: none;
   border-radius: 5px;

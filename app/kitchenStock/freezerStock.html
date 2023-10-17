@@ -30,21 +30,21 @@
               </div>
           </div>
           
-          <div id="fridge-stock-section">
-            <div class="fridge-header">
-                <button id="back-button" onclick="goBack()">Back</button>
-                <h1 class="fridge-heading-text">My Fridge Stock</h1>
+          <div id="stock-section">
+            <div class="stock-header">
+              <button id="back-button" onclick="goBack()">Back</button>
+              <h1 class="stock-heading-text">My Freezer Stock</h1>
+          </div>
+            <div class="stock-list">
+                <input type="text" id="item-input" placeholder="Enter an item">
+                <input type="number" id="item-quantity" placeholder="Quantity" min="1">
+                <button id="add-item-button">Add Item</button>
             </div>
-            <div class="fridge-list">
-                <input type="text" id="fridge-item-input" placeholder="Enter an item">
-                <button id="add-item-button" onclick="addItem()">Add Item</button>
-                <button id="remove-item-button" onclick="removeItem()">Remove Item</button>
-            </div>
-            <ul id="fridge-items-list">
+            <ul id="items-list">
                 <!-- Display the contents of the list here -->
             </ul>
         </div>
-        
+        </div>
         
     </main>
     <script src="script.js"></script>

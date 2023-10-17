@@ -24,13 +24,13 @@ function openNav() {
 
 // Function to add an item with a quantity to the list
 function addItem() {
-  const itemInput = document.getElementById("fridge-item-input");
+  const itemInput = document.getElementById("item-input");
   const quantityInput = document.getElementById("item-quantity");
   const itemText = itemInput.value.trim();
   const quantity = parseInt(quantityInput.value);
 
   if (itemText !== "" && !isNaN(quantity) && quantity > 0) {
-      const itemsList = document.getElementById("fridge-items-list");
+      const itemsList = document.getElementById("items-list");
       const listItem = document.createElement("li");
 
       // Create a div to hold the item name and quantity
