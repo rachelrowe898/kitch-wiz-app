@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchWiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body class="wrapper">
+    <main>
+        <div class="appBox">
+          <div class="app-heading">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+              <!-- Top Navigation Menu -->
+              <div class="topnav">
+                <a href="#home" class="active">KitchWiz</a>
+                <!-- Navigation links (hidden by default) -->
+                <div id="menuLinks">
+                  <a href="#news">Home</a>
+                  <a href="#about">Profile</a>
+                  <a href="#news" onclick="location.href='recipelist.html';">Recipes</a>
+                  <a href="#contact">Grocery</a>
+                </div>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+          </div>
+
+
+          <div class="shopping-section">
+            <h1>Shopping</h1>
+            <button id="make-list" onclick="location.href='listMaker.html'">Make List</button>
+
+          </div>
+
+
+
+
+          </div>
+        </div>
+    </main>
+</body>
+</html>
+
