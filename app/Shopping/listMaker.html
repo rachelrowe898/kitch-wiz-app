@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KitchWiz</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -18,10 +18,10 @@
                 <a href="#home" class="active">KitchWiz</a>
                 <!-- Navigation links (hidden by default) -->
                 <div id="menuLinks">
-                  <a href="#home">Home</a>
-                  <a href="#profile" onclick="location.href='../User Profile/userProfiles.html';">Profile</a>
-                  <a href="#recipes" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
-                  <a href="#kitchenStock" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen Stock</a>
+                  <a href="#news">Home</a>
+                  <a href="#about">Profile</a>
+                  <a href="#news" onclick="location.href='recipelist.html';">Recipes</a>
+                  <a href="#contact">Grocery</a>
                 </div>
                 <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                 <a href="javascript:void(0);" class="icon" onclick="openNav()">
@@ -29,18 +29,30 @@
                 </a>
               </div>
           </div>
-          
-          <div id="stock-section">
-                <h1 class="fridge-heading-text">My Kitchen Stock</h1>
-                <!-- Fridge Contents Button -->
-                <button id="fridge-button" class="section-button" onclick="location.href='../kitchenStock/fridgeStock.html';"">My Fridge Contents</button>
-                <br>
-                <!-- Freezer Contents Button -->
-                <button id="freezer-button" class="section-button" onclick="location.href='../kitchenStock/freezerStock.html';"">My Freezer Contents</button>
-                </div>
+
+          <div class="shopping-list-section">
+            <div id="create-list">
+                <h1>Create New List</h1>
+                <form add id="item-list-form">
+                    <input id="list-Name" type="text" placeholder="List Name"><br><br>
+                    <textarea id="item-list" style="height:200px" placeholder="Shopping List Ingredients (One per line)"></textarea><br>
+                    <button type="Button" id="list-form-submit">Use List</button>
+                    <div id="checkbox-modal" class="hidden">
+                      <div class="modal-content">
+                          <div id="checkbox-list"></div>
+                          <button type="button" id="close-button">Close</button>
+                      </div>
+                  </div>
+                </form>
+            </div>
+          </div>
+
+
+
+
+          </div>
         </div>
-        
     </main>
-    <script src="script.js"></script>
 </body>
+<script src="script.js"></script>
 </html>

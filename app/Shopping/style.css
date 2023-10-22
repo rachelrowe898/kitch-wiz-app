@@ -1,0 +1,368 @@
+body {
+    margin-bottom: 200%;
+}
+
+.wrapper {
+    position: absolute;
+}
+
+.appBox {
+    position: fixed;
+    border: 2px solid black;
+    font: 24px/36px;
+    font-family: Helvetica;
+    width: 640px;
+    height: 960px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-section {
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.app-heading {
+    overflow: hidden;
+    position: fixed;
+    padding-top: 0px;
+    background-color: white;
+    width: 640px;
+    text-align: center;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #635C70;
+    position: relative;
+}
+
+.topnav #menuLinks {
+    display: none;
+}
+
+.topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.topnav a.icon {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 50px;
+}
+
+.active {
+    background-color: #2C3C4B;
+    height: 80px;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+#user-profile-section {
+    margin: 150px 10px;
+    display: flex;
+    justify-content: auto;
+    flex-direction: column;
+  }
+
+.user-profile-heading {
+    font-size: 30px;
+    margin: 10px;
+    text-align: center;
+    color: #635C70;
+}
+
+.user-profiles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-profile {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.user-name {
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+
+.add-delete-options {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.add-profile-button, .delete-profile-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.add-profile-button {
+    background-color: #208AAE;
+    color: white;
+}
+
+.delete-profile-button {
+    background-color: #FF2E2E;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    }
+    
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #ccc;  
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #635C70;  
+}
+
+/* Styling for User Profiles page */
+#user-profile-section {
+    margin: 150px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.recipe-heading-text {
+    display: flex;
+    flex: 0 0 52%;
+    padding: 5px 5px;
+    flex-direction: column;
+    font-size: 40px;
+    color: #635C70;
+    margin-left: 15px;
+}
+
+#recipe-listing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe-square {
+    height: 150px;
+    width: 550px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dish-pic {
+    flex: 0 0 25%;
+    padding: 5px;
+    height: 125px;
+    width: 125px;
+    border-radius: 10px;
+}
+
+.recipe-text-column {
+    flex: 0 0 75%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe-title {
+    font-size: 30px;
+    color: #635C70;
+}
+
+.recipe-text-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#clock-icon {
+    font-size: 30px;
+    color: #208AAE;
+    margin: 0 10px;
+}
+
+.prep-time {
+    font-size: 25px;
+    color: #635C70;
+}
+
+/* Add Profile and Delete Profile buttons */
+.add-delete-options {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.add-profile-button,
+.delete-profile-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.add-profile-button {
+    background-color: #208AAE;
+    color: white;
+}
+
+.delete-profile-button {
+    background-color: #FF2E2E;
+    color: white;
+}
+
+.recipe-listing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe-square {
+    height: 150px;
+    width: 550px;
+    padding: 10px;
+    border: 3px solid black;
+    margin: 30px 10px;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 5px 10px 8px #888888; /* Add drop shadow */
+}
+
+.user-profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.user-profile-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-detail {
+    margin: 20px 0;
+}
+
+.save-profile-button {
+    background-color: #208AAE;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+
+
+/* Start Shopping Styles */
+.shopping-section {
+    text-align: center;
+    padding: 30px;
+    margin: 350px;
+    display: flex;
+    justify-content: auto;
+    flex-direction: column;
+    width:100%;
+}
+
+.shopping-list-section {
+    text-align: left;
+    padding: 30px;
+    margin: 100px;
+    display: flex;
+    justify-content: auto;
+    flex-direction: column;
+    width:100%;
+}
+
+#create-list {
+    display: block;
+    background-color: grey;
+    height: 400px;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: white;
+    justify-content: left;
+    padding: 20px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#checkbox-list {
+    display: block;
+    background-color: grey;
+    height: 400px;
+}
+
+#item-list-form {
+    position: relative;
+}
+
+.checkbox-list-item {
+    display: block;
+    margin-bottom: 10px; /* Add some spacing between items */
+}
+
+#checkbox-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-150%, -50%);
+    width: 80%;
+    max-width: 400px; 
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: relative;
+}
+
+
+form[add]{
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+    font-family: Helvetica;
+}
+
+/* End of Shopping Styles */

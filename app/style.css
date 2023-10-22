@@ -344,23 +344,23 @@ a.fill-div {
   border-radius: 10px;
   cursor: pointer;
 }
-/* form styles for add recipe */
 
+/* form styles for add recipe */
 form[add]{
-    max-width: 400px;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Helvetica;
-  }
-  form[filter]{
-    margin: 0 auto;
-    margin: 0 auto;
-    padding: 20px;
-    padding: 20px;
-    font-family: Helvetica;
-    font-family: Helvetica;
-  }
+  max-width: 400px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Helvetica;
+}
+form[filter]{
+  margin: 0 auto;
+  margin: 0 auto;
+  padding: 20px;
+  padding: 20px;
+  font-family: Helvetica;
+  font-family: Helvetica;
+}
 
 
 input[type="number"],
@@ -554,7 +554,7 @@ input[type="range"] {
 
 /* SECTION: KITCHEN STOCK */
 
-/* Style the Kitchen Stockbuttons */
+/* Style the Kitchen Stock buttons */
 .section-button {
   background-color: #FDB833;
   color: white;
@@ -571,11 +571,144 @@ input[type="range"] {
     background-color: #2C3C4B;
 }
 
-#main-kitchen-stock-section {
+#kitchen-stock-section, #stock-section {
+  margin: 150px 10px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+/* Styling for the Fridge Stock Section */
+#stock-section {
+  text-align: center;
+  background-color: #F2F2F2;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.stock-heading-text {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.stock-list {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  min-height: calc(100vh - 80px); /* Subtract the height of the navigation bar */
+}
+
+#item-input {
+  width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+#add-item-button, #remove-item-button {
+  background-color: #FDB833;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s;
+}
+
+#add-item-button:hover, #remove-item-button:hover {
+  background-color: #2C3C4B;
+}
+
+ul#items-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+ul#items-list li {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+/* Style for individual items in the list */
+ul#items-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  background-color: #fff;
+}
+
+/* Style for the "Remove" button within each list item */
+ul#items-list li button {
+  background-color: #FF2E2E;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+/* Style the quantity input and buttons */
+.quantity-input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.item-div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-div span {
+  flex-grow: 1;
+  padding: 5px;
+}
+
+.item-div button {
+  padding: 5px 10px;
+  background-color: #FDB833;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.item-div button:hover {
+  background-color: #2C3C4B;
+}
+
+.stock-header {
+  display: flex;
+  align-items: center;
+}
+
+#back-button {
+  background-color: #FDB833;;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#back-button:hover {
+  background-color: #2C3C4B;
 }
 /* ------------------------------------- SECTION: USER PREFERENCES  -------------------------------------*/
 
@@ -583,7 +716,7 @@ input[type="range"] {
 #user-profile-section {
   margin: 150px 10px;
   display: flex;
-  justify-content: auto;
+  /* justify-content: auto; this gives an error that auto is not a value for justify content */
   flex-direction: column;
 }
 
