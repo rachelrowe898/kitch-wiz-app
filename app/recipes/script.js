@@ -1,19 +1,3 @@
-console.log(sessionStorage.getItem("allRecipeSquares"));
-
-if (sessionStorage.getItem("allRecipeSquares") === undefined || sessionStorage.getItem("allRecipeSquares") == null){
-  console.log("entered first if")
-  let allRecipeSquares = document.getElementsByClassName('recipe-square');
-  const recipeSquaresArray = Array.from(allRecipeSquares).map((element) => {
-    const attributes = {};
-    attributes.innerHTML = element.innerHTML;
-    attributes.onclick = element.getAttribute("onclick");
-    attributes.style = element.getAttribute("style");
-    attributes.dietaryprefs = element.getAttribute("dietaryprefs");
-    return attributes;
-  });
-  sessionStorage.setItem("allRecipeSquares", JSON.stringify(recipeSquaresArray));
-}
-
 function openNav() {
   var x = document.getElementById("menuLinks");
   var recipeSection = document.getElementById("recipe-section");
@@ -75,90 +59,6 @@ function openAdd() {
   }
 }
 
-// function addRecipeSquare(recipeName, imageUrl, prepTime) {
-//   const newRecipeSquare = document.createElement("div");
-//   newRecipeSquare.className = "recipe-square";
-
-//   // Create the elements
-//   const img = document.createElement("img");
-//   img.className = "dish-pic";
-//   img.src = imageUrl; // Set the image URL directly
-
-//   img.alt = recipeName;
-
-//   const recipeTextColumn = document.createElement("div");
-//   recipeTextColumn.className = "recipe-text-column";
-
-//   const leftRecipeTextRow = document.createElement("div"); 
-//   leftRecipeTextRow.className = "recipe-text-row";
-
-//   const rightRecipeTextRow = document.createElement("div"); 
-//   rightRecipeTextRow.className = "recipe-text-row";
-//   clockIcon = document.getElementById("clock-icon").cloneNode(true);
-//   const prepTimeH2 = document.createElement("h2");
-//   prepTimeH2.className = "prep-time";
-//   prepTimeH2.textContent = prepTime + " min";
-
-//   const recipeTitle = document.createElement("h1");
-//   recipeTitle.className = "recipe-title";
-//   recipeTitle.textContent = recipeName;
-
-//   // Assemble the elements
-//   leftRecipeTextRow.appendChild(recipeTitle);
-//   rightRecipeTextRow.appendChild(clockIcon);
-//   rightRecipeTextRow.appendChild(prepTimeH2);
-//   recipeTextColumn.appendChild(leftRecipeTextRow);
-//   recipeTextColumn.appendChild(rightRecipeTextRow);
-//   newRecipeSquare.appendChild(img);
-//   newRecipeSquare.appendChild(recipeTextColumn);
-
-//   // Make new total recipe listing
-//   const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
-
-//   // Convert the JSON string back to an array of attributes
-//   const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
-
-//   const newTotalRecipeSquares = []
-
-//   recipeSquaresTemp.forEach((attributes) => {
-//     const element = document.createElement("div");
-//     element.innerHTML = attributes.innerHTML;
-//     element.onclick = new Function(attributes.onclick);
-//     element.setAttribute("style", attributes.style);
-//     element.className = "recipe-square";
-//     element.style = attributes.style;
-//     element.dietaryprefs = attributes.dietaryprefs;
-//     newTotalRecipeSquares.push(element);
-//   });
-
-//   // Add the new recipeSquare
-//   newTotalRecipeSquares.push(newRecipeSquare);
-  
-//   // Save new total recipe listing to sessionStorage
-//   const newTotalRecipeSquaresArray = Array.from(newTotalRecipeSquares).map((element) => {
-//     const attributes = {};
-//     attributes.innerHTML = element.innerHTML;
-//     attributes.onclick = element.getAttribute("onclick");
-//     attributes.style = element.getAttribute("style");
-//     attributes.dietaryprefs = element.getAttribute("dietaryprefs");
-//     return attributes;
-//   });
-//   sessionStorage.setItem("allRecipeSquares", JSON.stringify(newTotalRecipeSquaresArray));
-
-//   // Add the new recipe square to the page
-//   const container = document.getElementById("recipe-listing");
-  
-//   // Clear the container
-//   container.innerHTML = '';
-
-//   // Append the sorted recipe squares back to the container
-//   newTotalRecipeSquares.forEach((square) => {
-//     container.appendChild(square);
-//   });
-
-//   setFilterSliderMax();
-// }
-
 function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructions) {
   const newRecipeSquare = document.createElement("div");
   newRecipeSquare.className = "recipe-square";
@@ -186,6 +86,46 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
   recipeTitle.className = "recipe-title";
   recipeTitle.textContent = recipeName;
 
+  const recipePageIngredients = document.createElement("div");
+  recipePageIngredients.style.display = "none";
+  recipePageIngredients.className = "recipe-page-ingredients";
+  const ingredientsHeading = document.createElement("h2");
+  ingredientsHeading.className = "ingredients-heading";
+  ingredientsHeading.textContent = "Ingredients";
+  const ingredientsList = document.createElement("ul");
+  ingredientsList.className = "ingredients-list";
+  ingredients.split('\n').forEach((ingredient) => {
+    if (ingredient.trim() !== '') {
+      const ingredientsListItem = document.createElement("li");
+      ingredientsListItem.className = "ingredients-list-item";
+      ingredientsListItem.textContent = ingredient.trim();
+      ingredientsList.appendChild(ingredientsListItem);
+    }
+  });
+
+  const recipePageInstructions = document.createElement("div");
+  recipePageInstructions.style.display = "none";
+  recipePageInstructions.className = "recipe-page-instructions";
+  const instructionsHeading = document.createElement("h2");
+  instructionsHeading.className = "instructions-heading";
+  instructionsHeading.textContent = "Instructions";
+  const instructionsList = document.createElement("ol");
+  instructionsList.className = "instructions-list";
+  instructions.split('\n').forEach((instruction) => {
+    if (instruction.trim() !== '') {
+      const instructionsListItem = document.createElement("li");
+      instructionsListItem.className = "instructions-list-item";
+      instructionsListItem.textContent = instruction.trim();
+      instructionsList.appendChild(instructionsListItem);
+    }
+  });
+
+  // Assemble the recipe page elements
+  recipePageIngredients.appendChild(ingredientsHeading);
+  recipePageIngredients.appendChild(ingredientsList);
+  recipePageInstructions.appendChild(instructionsHeading);
+  recipePageInstructions.appendChild(instructionsList);
+
   // Assemble the elements
   leftRecipeTextRow.appendChild(recipeTitle);
   rightRecipeTextRow.appendChild(clockIcon);
@@ -194,10 +134,13 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
   recipeTextColumn.appendChild(rightRecipeTextRow);
   newRecipeSquare.appendChild(img);
   newRecipeSquare.appendChild(recipeTextColumn);
+  newRecipeSquare.appendChild(recipePageIngredients);
+  newRecipeSquare.appendChild(recipePageInstructions);
 
   // Make new total recipe listing
   const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
   const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
+  console.log("recipeSquaresTemp", recipeSquaresTemp);
 
   const newTotalRecipeSquares = [];
 
@@ -237,7 +180,10 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
     container.appendChild(square);
   });
 
-  createRecipePage(recipeName, imageUrl, prepTime, ingredients, instructions);
+  const templateContainer = document.getElementById("recipe-section");
+
+  // add recipeSquareListener
+  addRecipeSquareListener(newRecipeSquare, templateContainer);
 
   setFilterSliderMax();
 }
@@ -327,8 +273,7 @@ function saveRecipe() {
       imageUrl = document.getElementById("form-recipe-pic").value;
       console.log(imageUrl)
     } else {
-      imageUrl = "https://media.istockphoto.com/id/843611684/vector/plate-circle-icon-with-long-shadow-flat-design-style.jpg?s=612x612&w=0&k=20&c=2MtIhrmQD7ilI5nx_j6tfnHLIFwQByIxHsNUlO9q-3Y=";
-      console.log(imageUrl)
+      imageUrl = "../images/defaultrecipe-pic.jpeg";
     }
 
     addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructions);
@@ -485,7 +430,11 @@ function controlToInput(toSlider, fromInput, toInput, controlSlider) {
 
 function controlFromSlider(fromSlider, toSlider, fromInput) {
 const [from, to] = getParsed(fromSlider, toSlider);
-fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+try {
+  fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+} catch (e) {
+  console.log(e)
+}
 if (from > to) {
   fromSlider.value = to;
   fromInput.value = to;
@@ -515,9 +464,15 @@ return [from, to];
 
 /* filter slider code */
 function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
-  const rangeDistance = to.max-to.min;
-  const fromPosition = from.value - to.min;
-  const toPosition = to.value - to.min;
+  try {
+    const rangeDistance = to.max-to.min;
+    const fromPosition = from.value - to.min;
+    const toPosition = to.value - to.min;
+  } catch (e) {
+    const rangeDistance = 0;
+    const fromPosition = 0;
+    const toPosition = 0;
+  }
   controlSlider.style.background = `linear-gradient(
     to right,
     ${sliderColor} 0%,
@@ -541,13 +496,25 @@ const fromSlider = document.querySelector('#fromSlider');
 const toSlider = document.querySelector('#toSlider');
 const fromInput = document.querySelector('#fromInput');
 const toInput = document.querySelector('#toInput');
-fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
-setToggleAccessible(toSlider);
+try {
+  fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+} catch (e) {
+  console.log(e)
+}
+try {
+  setToggleAccessible(toSlider);
+} catch (e) {
+  console.log(e)
+}
 
-fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
-toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
-fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
-toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+try {
+  fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+  toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+  fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+  toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+} catch (e) {
+  console.log(e)
+}
 
 function satisfyDietaryCheckboxConditions(dietaryCheckboxes, dietaryTags) {
   console.log("satisfyDietaryCheckboxConditions");
@@ -690,9 +657,81 @@ function setFilterSliderMax() {
   toInput.setAttribute("value", maxPrepTime);
 }
 
-setFilterSliderMax();
+function addRecipeSquareListener(recipeSquare, templateContainer) {
+  // Add an event listener to each recipe square element
+  recipeSquare.addEventListener("click", function () {
+    // Check which template is currently displayed
+    if (templateContainer.firstElementChild.id == "recipe-template") {
+      // If recipesTemplate is displayed, replace it with recipePage
 
+      console.log("recipeSquare", recipeSquare);
+      console.log("recipeSquare.querySelector(.recipe-page-ingredients)", recipeSquare.querySelector(".recipe-page-ingredients"));
 
-// window.addEventListener("beforeunload", function(e) {
-//   sessionStorage.removeItem("{session}");
-// });
+      // get relevant items from recipeSquare
+      recipeTitle = recipeSquare.querySelector(".recipe-title").textContent;
+      recipePicSrc = recipeSquare.querySelector(".dish-pic").src;
+      recipePrepTime = recipeSquare.querySelector(".prep-time").textContent;
+      recipeIngredients = recipeSquare.querySelector(".recipe-page-ingredients");
+      recipeIngredients.style.display = "block";
+      recipeInstructions = recipeSquare.querySelector(".recipe-page-instructions");
+      recipeInstructions.style.display = "block";
+
+      recipePage.content.querySelector(".recipe-name-text").textContent = recipeTitle;
+      recipePage.content.querySelector(".recipe-page-pic").src = recipePicSrc;
+      recipePage.content.querySelector(".prep-time").textContent = recipePrepTime;
+      oldRecipeIngredients = recipePage.content.querySelector(".recipe-page-ingredients");
+      recipePage.content.replaceChild(recipeIngredients, oldRecipeIngredients);
+      oldRecipeInstructions = recipePage.content.querySelector(".recipe-page-instructions");
+      recipePage.content.replaceChild(recipeInstructions, oldRecipeInstructions);
+
+      templateContainer.innerHTML = "";
+      templateContainer.appendChild(document.importNode(recipePage.content, true));
+    } else {
+      // If recipePage is displayed, replace it with recipesTemplate
+      templateContainer.innerHTML = "";
+      templateContainer.appendChild(document.importNode(recipesTemplate.content, true));
+    }
+  });
+}
+
+// Get references to the templates and the container where templates will be displayed
+const recipesTemplate = document.getElementById("recipe-template");
+const recipePage = document.getElementById("recipe-page");
+const templateContainer = document.getElementById("recipe-section");
+
+// Initially, display recipesTemplate
+templateContainer.appendChild(document.importNode(recipesTemplate.content, true));
+
+// Add an event listener to the button to switch between templates
+const recipeSquareList = document.getElementsByClassName("recipe-square");
+
+for (let i = 0; i < recipeSquareList.length; i++) {
+  const recipeSquare = recipeSquareList[i];
+
+  addRecipeSquareListener(recipeSquare, templateContainer);
+}
+
+// store recipe page in localStorage: recipeName -> [imageUrl, prepTime, ingredients, instructions]
+
+if (sessionStorage.getItem("allRecipeSquares") === undefined || sessionStorage.getItem("allRecipeSquares") == null){
+  console.log("entered first if");
+  let allRecipeSquares = document.getElementsByClassName('recipe-square');
+  console.log("allRecipeSquares", allRecipeSquares);
+  const recipeSquaresArray = Array.from(allRecipeSquares).map((element) => {
+    const attributes = {};
+    attributes.innerHTML = element.innerHTML;
+    attributes.onclick = element.getAttribute("onclick");
+    attributes.style = element.getAttribute("style");
+    attributes.dietaryprefs = element.getAttribute("dietaryprefs");
+    console.log("attributes", attributes);
+    return attributes;
+  });
+  sessionStorage.setItem("allRecipeSquares", JSON.stringify(recipeSquaresArray));
+  console.log("beginning", sessionStorage.getItem("allRecipeSquares"));
+}
+
+try {
+  setFilterSliderMax();
+} catch (e) {
+  console.log(e);
+}

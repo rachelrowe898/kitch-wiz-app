@@ -127,6 +127,12 @@ height: 12px;
   align-items: center;
 }
 
+.recipe-page-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .recipe-heading-text {
   display: flex;
   flex: 0 0 52%;
@@ -158,6 +164,8 @@ height: 12px;
   color: white;
   font-size: 25px;
   margin-bottom: 5px;
+  margin-top: 10px;
+  height: 15px;
   /* display: flex;
   flex: 0 0 10%;
   flex-direction: column;
@@ -191,7 +199,7 @@ height: 12px;
 
 .recipe-page-ingredients {
   color: #635C70;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.8;
   margin-left: 40px;
   margin-right: 40px;
@@ -202,7 +210,7 @@ height: 12px;
 
 .recipe-page-instructions {
   color: #635C70;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.8;
   margin-left: 40px;
   margin-right: 40px;
@@ -272,9 +280,9 @@ height: 12px;
 }
 
 #clock-icon {
-  font-size: 30px;
+  height: 35px;
   color: #208AAE;
-  margin: 20px 10px;
+  margin: 15px 5px;
 }
 
 .prep-time {
@@ -327,7 +335,8 @@ a.fill-div {
   height: 45px;
   padding-top: 5px;
   margin-top: 5px;
-  margin-right: 30px;
+  margin-right: 25px;
+  margin-left: 10px;
   text-align: center;
   font-family: Helvetica;
   font-size: 25px;
@@ -692,12 +701,6 @@ input[type="range"] {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-#clock-icon {
-  font-size: 30px;
-  color: #208AAE;
-  margin: 0 10px;
 }
 
 .prep-time {

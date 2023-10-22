@@ -12,7 +12,6 @@
     <main>
         <div class="appBox">
           <div class="app-heading">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
               <!-- Top Navigation Menu -->
               <div class="topnav">
                 <a href="#home" class="active">KitchWiz</a>
@@ -25,162 +24,361 @@
                 </div>
                 <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                 <a href="javascript:void(0);" class="icon" onclick="openNav()">
-                  <i class="fa fa-bars"></i>
+                  <img src="../icons/hamburger-menu.png" alt="hamburger menu">
                 </a>
               </div>
           </div>
           
           <div class="main-section">
             <div id="recipe-section">
-              <div class="recipe-heading-section">
-                <h1 class="recipe-heading-text">My Recipes</h1>
-                <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true" href="javascript:void(0);" onclick="openAdd();"></i>
-                <i id="filter-icon" class="fa fa-filter" aria-hidden="true" onclick="openFilter();"></i>
-                <div class="dropdown">
-                  <button class="sortDropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0);" class="icon" onclick="openSort();">
-                    Sort
-                    <i id="sort-icon" class="fa fa-sort-desc" aria-hidden="true"></i>
-                  </button>
-                </div>
-              </div>
-              
-              <!-- Add Recipe (hidden by default) -->
-              <div id="addRecipe" style="display: None;">
-                <h1 style="padding: 20px; margin: 0 auto;">Add New Recipe</h1>
-                <form add>
-                  <input id="form-recipe-name" type="text" placeholder="Recipe name" required onkeyup="enableSubmit()"><br>
-                  <textarea id="form-ingredients" placeholder="Ingredients (one ingredient per line)" style="height:200px" required></textarea><br>
-                  <textarea id="form-instructions" placeholder="Instructions" style="height:200px" required></textarea><br>
-                  <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Prep time:</label> <br> -->
-                  <div class="form-prep-time-bundle" style="display: flex; flex-direction: row; justify-content: space-between;">
-                    <input id="form-prep-time" type="number" placeholder="Prep time" required onkeyup="enableSubmit()">
-                    <p style="font-size:20px; font-family: Helvetica;">minutes</p>
-                    <br>
+              <template id="recipe-template">
+                <div class="recipe-heading-section">
+                  <h1 class="recipe-heading-text">My Recipes</h1>
+                  <!-- <i id="add-icon" class="fa fa-plus-circle" aria-hidden="true" href="javascript:void(0);" onclick="openAdd();"></i> -->
+                  <img id="add-icon" src="../icons/add-icon.png" aria-hidden="true" onclick="openAdd();" alt="add icon">
+                  <!-- <i id="filter-icon" class="fa fa-filter" aria-hidden="true" onclick="openFilter();"></i> -->
+                  <img id="filter-icon" src="../icons/filter-icon.png" aria-hidden="true" onclick="openFilter();" alt="filter icon">
+                  <div class="dropdown">
+                    <button class="sortDropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0);" class="icon" onclick="openSort();">
+                      Sort
+                      <img id="sort-icon" src="../icons/arrow-icon.png" aria-hidden="true" alt="arrow icon">
+                    </button>
                   </div>
-                  <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Image URL:</label> <br> -->
-                  <input id="form-recipe-pic" type="url" placeholder="Image URL"><br>
-                  <!-- <input id="form-recipe-pic" type="file" name="image" accept="image/png, image/jpeg" required/><br> -->
-                  <input id="form-submit" type="submit" value="Submit" onclick="saveRecipe(); return false;" disabled>
-                </form>
-              </div>
+                </div>
+                
+                <!-- Add Recipe (hidden by default) -->
+                <div id="addRecipe" style="display: None;">
+                  <h1 style="padding: 20px; margin: 0 auto;">Add New Recipe</h1>
+                  <form add>
+                    <input id="form-recipe-name" type="text" placeholder="Recipe name" required onkeyup="enableSubmit()"><br>
+                    <textarea id="form-ingredients" placeholder="Ingredients (one ingredient per line)" style="height:200px" required></textarea><br>
+                    <textarea id="form-instructions" placeholder="Instructions" style="height:200px" required></textarea><br>
+                    <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Prep time:</label> <br> -->
+                    <div class="form-prep-time-bundle" style="display: flex; flex-direction: row; justify-content: space-between;">
+                      <input id="form-prep-time" type="number" placeholder="Prep time" required onkeyup="enableSubmit()">
+                      <p style="font-size:20px; font-family: Helvetica;">minutes</p>
+                      <br>
+                    </div>
+                    <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Image URL:</label> <br> -->
+                    <input id="form-recipe-pic" type="url" placeholder="Image URL"><br>
+                    <!-- <input id="form-recipe-pic" type="file" name="image" accept="image/png, image/jpeg" required/><br> -->
+                    <input id="form-submit" type="submit" value="Submit" onclick="saveRecipe(); return false;" disabled>
+                  </form>
+                </div>
 
-              <div id="filterMenu" style="display: None;">
-                <form filter id="filterForm">
-                  <h1 style="padding: 20px; margin: 0 auto;">Filter Recipes</h1>
-                  <div class="range_container">
-                    <h2 style="padding: 20px; margin: 10px 10px;">Prep Time (minutes)</h2>
-                    <div class="sliders_control">
-                        <input id="fromSlider" type="range" value="0" min="0" max="100"/>
-                        <input id="toSlider" type="range" value="100" min="0" max="100"/>
-                    </div>
-                    <div class="form_control">
-                        <div class="form_control_container">
-                            <div class="form_control_container__time">Min</div>
-                            <input class="form_control_container__time__input" type="number" id="fromInput" value="0" min="0" max="100"/>
-                        </div>
-                        <div class="form_control_container">
-                            <div class="form_control_container__time">Max</div>
-                            <input class="form_control_container__time__input" type="number" id="toInput" value="100" min="0" max="100"/>
-                        </div>
-                    </div>
-                  </div> 
-                  <div class="dietary_pref_container">
-                    <h2 style="padding: 20px; margin: 10px 10px;">Dietary Preferences</h2>
-                    <label class="dietary-checkbox">
-                      <input id="vegetarian-checkbox" type="checkbox" name="dietaryPreference" value="vegetarian">
-                      Vegetarian
-                    </label>
-                    <br>
-                    <label class="dietary-checkbox">
-                      <input id="vegan-checkbox" type="checkbox" name="dietaryPreference" value="vegan">
-                      Vegan
-                    </label>
-                    <br>
-                    <label class="dietary-checkbox">
-                      <input id="gluten-checkbox" type="checkbox" name="dietaryPreference" value="gluten-free">
-                      Gluten-Free
-                    </label>
-                    <br>
-                    <label class="dietary-checkbox">
-                      <input id="nut-checkbox" type="checkbox" name="dietaryPreference" value="nut-free">
-                      Nut-Free
-                    </label>
-                    <br>
-                  </div> 
-                  <input id="form-submit" type="submit" value="Submit" onclick="applyFilter(); return false;">
-                </form> 
-              </div>
+                <div id="filterMenu" style="display: None;">
+                  <form filter id="filterForm">
+                    <h1 style="padding: 20px; margin: 0 auto;">Filter Recipes</h1>
+                    <div class="range_container">
+                      <h2 style="padding: 20px; margin: 10px 10px;">Prep Time (minutes)</h2>
+                      <div class="sliders_control">
+                          <input id="fromSlider" type="range" value="0" min="0" max="100"/>
+                          <input id="toSlider" type="range" value="100" min="0" max="100"/>
+                      </div>
+                      <div class="form_control">
+                          <div class="form_control_container">
+                              <div class="form_control_container__time">Min</div>
+                              <input class="form_control_container__time__input" type="number" id="fromInput" value="0" min="0" max="100"/>
+                          </div>
+                          <div class="form_control_container">
+                              <div class="form_control_container__time">Max</div>
+                              <input class="form_control_container__time__input" type="number" id="toInput" value="100" min="0" max="100"/>
+                          </div>
+                      </div>
+                    </div> 
+                    <div class="dietary_pref_container">
+                      <h2 style="padding: 20px; margin: 10px 10px;">Dietary Preferences</h2>
+                      <label class="dietary-checkbox">
+                        <input id="vegetarian-checkbox" type="checkbox" name="dietaryPreference" value="vegetarian">
+                        Vegetarian
+                      </label>
+                      <br>
+                      <label class="dietary-checkbox">
+                        <input id="vegan-checkbox" type="checkbox" name="dietaryPreference" value="vegan">
+                        Vegan
+                      </label>
+                      <br>
+                      <label class="dietary-checkbox">
+                        <input id="gluten-checkbox" type="checkbox" name="dietaryPreference" value="gluten-free">
+                        Gluten-Free
+                      </label>
+                      <br>
+                      <label class="dietary-checkbox">
+                        <input id="nut-checkbox" type="checkbox" name="dietaryPreference" value="nut-free">
+                        Nut-Free
+                      </label>
+                      <br>
+                    </div> 
+                    <input id="form-submit" type="submit" value="Submit" onclick="applyFilter(); return false;">
+                  </form> 
+                </div>
 
-              <div id="sortMenu" style="display: None;">
-                <a id="sortMenuAsc" onclick="sortRecipes('asc')">Prep Time: Low - High</a>
-                <a id="sortMenuDesc" onclick="sortRecipes('desc')">Prep Time: High - Low</a>
-                <!-- <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-              </div>
+                <div id="sortMenu" style="display: None;">
+                  <a id="sortMenuAsc" onclick="sortRecipes('asc')">Prep Time: Low - High</a>
+                  <a id="sortMenuDesc" onclick="sortRecipes('desc')">Prep Time: High - Low</a>
+                  <!-- <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                </div>
 
-              <div id="recipe-listing">
-                <div class="recipe-square" dietaryprefs="nut-free" onclick="location.href='spaghetti.html';" style="cursor:pointer;">
-                  <img class="dish-pic" src="https://thefoodcharlatan.com/wp-content/uploads/2023/04/Spaghetti-Sauce-Recipe-6.jpg" alt="spaghetti-pic">
-                  <div class="recipe-text-column">
-                    <div class="recipe-text-row">
-                      <h1 class="recipe-title">Spaghetti and Meatballs</h1>
+                <div id="recipe-listing">
+                  <div class="recipe-square" dietaryprefs="nut-free" style="cursor:pointer;">
+                    <img class="dish-pic" src="../images/spaghetti-pic.jpeg" alt="spaghetti-pic">
+                    <div class="recipe-text-column">
+                      <div class="recipe-text-row">
+                        <h1 class="recipe-title">Spaghetti and Meatballs</h1>
+                      </div>
+                      <div class="recipe-text-row">
+                        <img id="clock-icon" src="../icons/clock-icon.png" aria-hidden="true" alt="clockicon">
+                        <h2 class="prep-time">40 min</h2>
+                      </div>
                     </div>
-                    <div class="recipe-text-row">
-                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                      <h2 class="prep-time">40 min</h2>
+                    <div class="recipe-page-ingredients" style="display: None;">
+                      <h2 class="ingredients-heading">Ingredients</h2>
+                      <ul class="ingredients-list">
+                        <li class="ingredients-list-item">1 lb ground beef</li>
+                        <li class="ingredients-list-item">1/2 cup breadcrumbs</li>
+                        <li class="ingredients-list-item">1/4 cup milk</li>
+                        <li class="ingredients-list-item">1/4 cup Parmesan cheese</li>
+                        <li class="ingredients-list-item">2 tbsp parsley, chopped</li>
+                        <li class="ingredients-list-item">1 egg</li>
+                        <li class="ingredients-list-item">1 tsp salt</li>
+                        <li class="ingredients-list-item">1/2 tsp garlic powder</li>
+                        <li class="ingredients-list-item">1/2 tsp onion powder</li>
+                        <li class="ingredients-list-item">1/4 tsp black pepper</li>
+                        <li class="ingredients-list-item">2 tbsp olive oil</li>
+                        <li class="ingredients-list-item">8 oz spaghetti</li>
+                        <li class="ingredients-list-item">24 oz pasta sauce</li>
+                        <li class="ingredients-list-item">Additional Parmesan cheese and parsley for garnish (optional)</li>
+                      </ul>
+                    </div>
+                    <div class="recipe-page-instructions" style="display: None;">
+                      <h2 class="instructions-heading">Instructions</h2>
+                      <ol class="instructions-list">
+                        <li class="instructions-list-item">In a large mixing bowl, combine 1 pound of ground beef, 1/2 cup of bread crumbs, 1/4 cup of milk, 1/4 cup of grated Parmesan cheese, 2 tablespoons of chopped parsley, 1 egg, 1 teaspoon of salt, 1/2 teaspoon of garlic powder, 1/2 teaspoon of onion powder, and 1/4 teaspoon of black pepper. Mix until all ingredients are evenly combined. Shape the mixture into 1 1/2-inch meatballs.</li>
+                        <li class="instructions-list-item">In a large skillet, heat 2 tablespoons of olive oil over medium heat. Add the meatballs in batches, ensuring not to overcrowd the skillet. Cook until they are browned on all sides, which should take about 5 minutes. Transfer the browned meatballs to a plate.</li>
+                        <li class="instructions-list-item">Bring a large pot of water to a boil and lightly salt it. Cook 8 ounces of spaghetti in the boiling water, stirring occasionally, until it is tender yet still firm to the bite. This usually takes about 12 minutes. Drain the cooked spaghetti.</li>
+                        <li class="instructions-list-item">Return the skillet to the heat and pour in 24 ounces of pasta sauce. Bring it to a simmer. Add the browned meatballs back into the skillet and simmer until they are cooked through, which should take about 10 minutes.</li>
+                        <li class="instructions-list-item">To serve, place the cooked spaghetti on plates and top it with the meatballs and sauce. Garnish with additional grated Parmesan cheese and chopped parsley if desired.</li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="recipe-square" dietaryprefs="vegetarian,vegan,nut-free">
+                    <img class="dish-pic" src="../images/falafel-pic.jpeg" alt="falafel-pic">
+                    <div class="recipe-text-column">
+                      <div class="recipe-text-row">
+                        <h1 class="recipe-title">Falafel Wrap</h1>
+                      </div>
+                      <div class="recipe-text-row">
+                        <img id="clock-icon" src="../icons/clock-icon.png" aria-hidden="true" alt="clockicon">
+                        <h2 class="prep-time">50 min</h2>
+                      </div>
+                    </div>
+                    <div class="recipe-page-ingredients" style="display: None;">
+                      <h2 class="ingredients-heading">Ingredients</h2>
+                      <ul class="ingredients-list">
+                        <li class="ingredients-list-item">1 cup dried chickpeas</li>
+                        <li class="ingredients-list-item">1/2 large onion, roughly chopped</li>
+                        <li class="ingredients-list-item">2 cloves garlic</li>
+                        <li class="ingredients-list-item">3 tablespoons fresh parsley, chopped</li>
+                        <li class="ingredients-list-item">1 teaspoon coriander</li>
+                        <li class="ingredients-list-item">1 teaspoon cumin</li>
+                        <li class="ingredients-list-item">1 teaspoon salt</li>
+                        <li class="ingredients-list-item">1/4 teaspoon black pepper</li>
+                        <li class="ingredients-list-item">1/4 teaspoon cayenne pepper</li>
+                        <li class="ingredients-list-item">Pinch of ground cardamom (optional)</li>
+                        <li class="ingredients-list-item">Vegetable oil for frying</li>
+                        <li class="ingredients-list-item">4 pita bread rounds</li>
+                        <li class="ingredients-list-item">Tahini sauce, lettuce, tomatoes, and cucumbers for serving</li>
+                      </ul>
+                    </div>
+                    <div class="recipe-page-instructions" style="display: None;">
+                      <h2 class="instructions-heading">Instructions</h2>
+                      <ol class="instructions-list">
+                        <li class="instructions-list-item">In a food processor, combine 1 cup dried chickpeas, 1/2 large onion (roughly chopped), 2 cloves garlic, 3 tablespoons fresh parsley, 1 teaspoon coriander, 1 teaspoon cumin, 1 teaspoon salt, 1/4 teaspoon black pepper, 1/4 teaspoon cayenne pepper, and a pinch of ground cardamom (optional). Pulse the mixture until it's finely chopped but not pureed.</li>
+                        <li class="instructions-list-item">Transfer the mixture to a bowl and add water if needed to make it hold together. Form the mixture into 1-inch balls and flatten them slightly to make patties.</li>
+                        <li class="instructions-list-item">In a skillet, heat vegetable oil over medium-high heat. Fry the falafel patties in the hot oil until they're browned on both sides, which should take about 3-4 minutes per side. Transfer them to a paper towel-lined plate to remove excess oil.</li>
+                        <li class="instructions-list-item">Warm 4 pita bread rounds in the oven or on a stovetop griddle until they're soft and pliable.</li>
+                        <li class="instructions-list-item">To assemble the falafel wraps, spread a spoonful of tahini sauce on each pita bread round. Add lettuce, tomatoes, cucumbers, and 4-5 falafel patties to each wrap. Drizzle with more tahini sauce if desired.</li>
+                        <li class="instructions-list-item">Fold the sides of each pita over the filling and roll it up tightly. Serve your homemade falafel wraps immediately.</li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="recipe-square" dietaryprefs="gluten-free">
+                    <img class="dish-pic" src="../images/kungpao-pic.jpeg" alt="kungpao-pic">
+                    <div class="recipe-text-column">
+                      <div class="recipe-text-row">
+                        <h1 class="recipe-title">Kung Pao Chicken</h1>
+                      </div>
+                      <div class="recipe-text-row">
+                        <img id="clock-icon" src="../icons/clock-icon.png" aria-hidden="true" alt="clockicon">
+                        <h2 class="prep-time">30 min</h2>
+                      </div>
+                    </div>
+                    <div class="recipe-page-ingredients" style="display: None;">
+                      <h2 class="ingredients-heading">Ingredients</h2>
+                      <ul class="ingredients-list">
+                        <li class="ingredients-list-item">1 lb boneless, skinless chicken breasts, diced into 1-inch pieces</li>
+                        <li class="ingredients-list-item">1/2 cup unsalted dry-roasted peanuts</li>
+                        <li class="ingredients-list-item">2 tablespoons vegetable oil</li>
+                        <li class="ingredients-list-item">3 cloves garlic, minced</li>
+                        <li class="ingredients-list-item">1 teaspoon fresh ginger, minced</li>
+                        <li class="ingredients-list-item">3-4 dried red chili peppers (adjust to your spice preference)</li>
+                        <li class="ingredients-list-item">1/2 cup diced red bell pepper</li>
+                        <li class="ingredients-list-item">1/2 cup diced green bell pepper</li>
+                        <li class="ingredients-list-item">1/2 cup diced onion</li>
+                        <li class="ingredients-list-item">2 tablespoons soy sauce</li>
+                        <li class="ingredients-list-item">1 tablespoon rice vinegar</li>
+                        <li class="ingredients-list-item">1 tablespoon hoisin sauce</li>
+                        <li class="ingredients-list-item">1 teaspoon sugar</li>
+                        <li class="ingredients-list-item">1/2 teaspoon cornstarch (for sauce thickening)</li>
+                        <li class="ingredients-list-item">Sesame seeds and green onions for garnish (optional)</li>
+                      </ul>
+                    </div>
+                    <div class="recipe-page-instructions" style="display: None;">
+                      <h2 class="instructions-heading">Instructions</h2>
+                      <ol class="instructions-list">
+                        <li class="instructions-list-item">In a bowl, mix together 1 lb diced chicken pieces, 2 tablespoons soy sauce, 1 tablespoon rice vinegar, 1 tablespoon hoisin sauce, 1 teaspoon sugar, and 1/2 teaspoon cornstarch. Let the chicken marinate for about 10 minutes.</li>
+                        <li class="instructions-list-item">Heat 2 tablespoons of vegetable oil in a large skillet over high heat. Add the marinated chicken and stir-fry until it's browned and cooked through, which should take about 5-6 minutes. Transfer the chicken to a plate.</li>
+                        <li class="instructions-list-item">In the same skillet, add dried red chili peppers (3-4) and stir-fry for about 30 seconds until they become fragrant. Be cautious as the peppers can be spicy.</li>
+                        <li class="instructions-list-item">Add the minced garlic (3 cloves) and minced fresh ginger (1 teaspoon) to the skillet. Stir-fry for another 30 seconds until aromatic.</li>
+                        <li class="instructions-list-item">Add diced red bell pepper (1/2 cup), diced green bell pepper (1/2 cup), and diced onion (1/2 cup) to the skillet. Stir-fry for 2-3 minutes until the vegetables are slightly tender.</li>
+                        <li class="instructions-list-item">Return the cooked chicken to the skillet and add unsalted dry-roasted peanuts (1/2 cup). Stir-fry for another 2 minutes until everything is well combined and heated through.</li>
+                        <li class="instructions-list-item">Serve your delicious Kung Pao Chicken over steamed rice or noodles. Garnish with sesame seeds and green onions if desired.</li>
+                      </ol>                      
+                    </div>
+                  </div>
+                  <div class="recipe-square" dietaryprefs="nut-free,gluten-free">
+                    <img class="dish-pic" src="../images/butterchicken-pic.jpeg" alt="butterchicken-pic">
+                    <div class="recipe-text-column">
+                      <div class="recipe-text-row">
+                        <h1 class="recipe-title">Butter Chicken</h1>
+                      </div>
+                      <div class="recipe-text-row">
+                        <img id="clock-icon" src="../icons/clock-icon.png" aria-hidden="true" alt="clockicon">
+                        <h2 class="prep-time">75 min</h2>
+                      </div>
+                    </div>
+                    <div class="recipe-page-ingredients" style="display: None;">
+                      <h2 class="ingredients-heading">Ingredients</h2>
+                      <ul class="ingredients-list">
+                        <li class="ingredients-list-item">1 lb boneless, skinless chicken thighs or breasts, cut into bite-sized pieces</li>
+                        <li class="ingredients-list-item">2 tablespoons vegetable oil</li>
+                        <li class="ingredients-list-item">1 large onion, finely chopped</li>
+                        <li class="ingredients-list-item">4 cloves garlic, minced</li>
+                        <li class="ingredients-list-item">1-inch piece of fresh ginger, minced</li>
+                        <li class="ingredients-list-item">1 can (14 oz) crushed tomatoes</li>
+                        <li class="ingredients-list-item">1/4 cup plain yogurt</li>
+                        <li class="ingredients-list-item">1/4 cup heavy cream</li>
+                        <li class="ingredients-list-item">1/4 cup unsalted butter</li>
+                        <li class="ingredients-list-item">2 teaspoons garam masala</li>
+                        <li class="ingredients-list-item">1 teaspoon ground cumin</li>
+                        <li class="ingredients-list-item">1 teaspoon ground coriander</li>
+                        <li class="ingredients-list-item">1 teaspoon paprika</li>
+                        <li class="ingredients-list-item">1/2 teaspoon chili powder (adjust to your spice preference)</li>
+                        <li class="ingredients-list-item">Salt and pepper to taste</li>
+                        <li class="ingredients-list-item">Fresh cilantro leaves for garnish</li>
+                        <li class="ingredients-list-item">Cooked basmati rice or naan bread for serving</li>
+                      </ul>
+                    </div>
+                    <div class="recipe-page-instructions" style="display: None;">
+                      <h2 class="instructions-heading">Instructions</h2>
+                      <ol class="instructions-list">
+                        <li class="instructions-list-item">Heat 2 tablespoons of vegetable oil in a large skillet over medium-high heat.</li>
+                        <li class="instructions-list-item">Add finely chopped onion (1 large) and sauté until it becomes soft and translucent, which should take about 5 minutes.</li>
+                        <li class="instructions-list-item">Stir in minced garlic (4 cloves) and minced fresh ginger (1-inch piece) and cook for another 1-2 minutes until fragrant.</li>
+                        <li class="instructions-list-item">Add bite-sized chicken pieces (1 lb) to the skillet and cook until they are browned on all sides, which should take about 5 minutes.</li>
+                        <li class="instructions-list-item">Stir in ground cumin (1 teaspoon), ground coriander (1 teaspoon), paprika (1 teaspoon), and chili powder (1/2 teaspoon). Cook for an additional 2 minutes to toast the spices.</li>
+                        <li class="instructions-list-item">Add crushed tomatoes (1 can, 14 oz) to the skillet and bring the mixture to a simmer. Let it cook for about 10 minutes, stirring occasionally, until the sauce thickens.</li>
+                        <li class="instructions-list-item">Reduce the heat to low and stir in heavy cream (1/4 cup), unsalted butter (1/4 cup), and garam masala (2 teaspoons). Simmer for another 10 minutes until the chicken is cooked through and the sauce is creamy.</li>
+                        <li class="instructions-list-item">Season with salt and pepper to taste.</li>
+                        <li class="instructions-list-item">Serve your delicious Butter Chicken over cooked basmati rice or with naan bread. Garnish with fresh cilantro leaves.</li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="recipe-square" dietaryprefs="vegetarian,vegan,nut-free">
+                    <img class="dish-pic" src="../images/garlicknot-pic.webp" alt="garlicknots-pic">
+                    <div class="recipe-text-column">
+                      <div class="recipe-text-row">
+                        <h1 class="recipe-title">Garlic Knots</h1>
+                      </div>
+                      <div class="recipe-text-row">
+                        <img id="clock-icon" src="../icons/clock-icon.png" aria-hidden="true" alt="clockicon">
+                        <h2 class="prep-time">35 min</h2>
+                      </div>
+                    </div>
+                    <div class="recipe-page-ingredients" style="display: None;">
+                      <h2 class="ingredients-heading">Ingredients</h2>
+                      <ul class="ingredients-list">
+                        <li class="ingredients-list-item">1 pound pizza dough</li>
+                        <li class="ingredients-list-item">2 tablespoons unsalted butter, melted</li>
+                        <li class="ingredients-list-item">3 cloves garlic, minced</li>
+                        <li class="ingredients-list-item">1 tablespoon fresh parsley, chopped</li>
+                        <li class="ingredients-list-item">1/4 cup grated Parmesan cheese</li>
+                        <li class="ingredients-list-item">Salt to taste</li>
+                        <li class="ingredients-list-item">Olive oil for brushing</li>
+                        <li class="ingredients-list-item">Additional grated Parmesan cheese for topping (optional)</li>
+                        <li class="ingredients-list-item">Marinara sauce for dipping (optional)</li>
+                      </ul>
+                    </div>
+                    <div class="recipe-page-instructions" style="display: None;">
+                      <h2 class="instructions-heading">Instructions</h2>
+                      <ol class="instructions-list">
+                        <li class="instructions-list-item">Preheat your oven to 375°F (190°C). Line a baking sheet with parchment paper.</li>
+                        <li class="instructions-list-item">Take 1 pound of pizza dough and divide it into 12 equal portions.</li>
+                        <li class="instructions-list-item">Roll each portion into a rope about 10 inches long.</li>
+                        <li class="instructions-list-item">Tie each rope into a knot and place the knots on the prepared baking sheet.</li>
+                        <li class="instructions-list-item">In a small bowl, combine 2 tablespoons of unsalted butter (melted), 3 cloves of minced garlic, and 1 tablespoon of fresh chopped parsley.</li>
+                        <li class="instructions-list-item">Brush the garlic and parsley mixture over the knots, ensuring they are well coated.</li>
+                        <li class="instructions-list-item">Sprinkle grated Parmesan cheese (1/4 cup) and a pinch of salt over the knots.</li>
+                        <li class="instructions-list-item">Bake in the preheated oven for about 15-20 minutes or until the garlic knots are golden brown and cooked through.</li>
+                        <li class="instructions-list-item">Remove from the oven and let them cool slightly.</li>
+                        <li class="instructions-list-item">Serve your delicious Garlic Knots as an appetizer or side dish. Enjoy!</li>
+                      </ol>
                     </div>
                   </div>
                 </div>
-                <div class="recipe-square" dietaryprefs="vegetarian,vegan,nut-free">
-                  <img class="dish-pic" src="https://gourmandelle.com/wp-content/uploads/2018/02/falafel-wrap-recipe-falafel-la-lipie.jpg" alt="falafel-pic">
-                  <div class="recipe-text-column">
-                    <div class="recipe-text-row">
-                      <h1 class="recipe-title">Falafel Wrap</h1>
-                    </div>
-                    <div class="recipe-text-row">
-                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                      <h2 class="prep-time">50 min</h2>
-                    </div>
+              </template>
+
+              <template id="recipe-page">
+                <div class="recipe-page-heading">
+                  <h2 class="recipe-name-text">Spaghetti and Meatballs</h2>
+                  <img class="recipe-page-pic" src="../images/spaghetti-pic.jpeg" alt="spaghetti-pic">
+                  <div class="recipe-page-prep-time">
+                    <img id="clock-icon" src="../icons/clock-icon.png" aria-hidden="true" alt="clockicon">
+                    <h2 class="prep-time">40 min</h2>
                   </div>
                 </div>
-                <div class="recipe-square" dietaryprefs="gluten-free">
-                  <img class="dish-pic" src="https://www.onceuponachef.com/images/2018/05/Kung-Pao-Chicken-16-scaled.jpg" alt="kungpao-pic">
-                  <div class="recipe-text-column">
-                    <div class="recipe-text-row">
-                      <h1 class="recipe-title">Kung Pao Chicken</h1>
-                    </div>
-                    <div class="recipe-text-row">
-                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                      <h2 class="prep-time">30 min</h2>
-                    </div>
-                  </div>
+                <div class="recipe-page-ingredients">
+                  <h2 class="ingredients-heading">Ingredients</h2>
+                  <ul class="ingredients-list">
+                    <li class="ingredients-list-item">1 lb ground beef</li>
+                    <li class="ingredients-list-item">1/2 cup breadcrumbs</li>
+                    <li class="ingredients-list-item">1/4 cup milk</li>
+                    <li class="ingredients-list-item">1/4 cup Parmesan cheese</li>
+                    <li class="ingredients-list-item">2 tbsp parsley, chopped</li>
+                    <li class="ingredients-list-item">1 egg</li>
+                    <li class="ingredients-list-item">1 tsp salt</li>
+                    <li class="ingredients-list-item">1/2 tsp garlic powder</li>
+                    <li class="ingredients-list-item">1/2 tsp onion powder</li>
+                    <li class="ingredients-list-item">1/4 tsp black pepper</li>
+                    <li class="ingredients-list-item">2 tbsp olive oil</li>
+                    <li class="ingredients-list-item">8 oz spaghetti</li>
+                    <li class="ingredients-list-item">24 oz pasta sauce</li>
+                    <li class="ingredients-list-item">Additional Parmesan cheese and parsley for garnish (optional)</li>
+                  </ul>
                 </div>
-                <div class="recipe-square" dietaryprefs="nut-free,gluten-free">
-                  <img class="dish-pic" src="https://saltandbaker.com/wp-content/uploads/2019/12/Indian-Butter-Chicken-Recipe-featured.jpg" alt="butterchicken-pic">
-                  <div class="recipe-text-column">
-                    <div class="recipe-text-row">
-                      <h1 class="recipe-title">Butter Chicken</h1>
-                    </div>
-                    <div class="recipe-text-row">
-                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                      <h2 class="prep-time">75 min</h2>
-                    </div>
-                  </div>
+                <div class="recipe-page-instructions">
+                  <h2 class="instructions-heading">Instructions</h2>
+                  <ol class="instructions-list">
+                    <li class="instructions-list-item">In a large mixing bowl, combine 1 pound of ground beef, 1/2 cup of bread crumbs, 1/4 cup of milk, 1/4 cup of grated Parmesan cheese, 2 tablespoons of chopped parsley, 1 egg, 1 teaspoon of salt, 1/2 teaspoon of garlic powder, 1/2 teaspoon of onion powder, and 1/4 teaspoon of black pepper. Mix until all ingredients are evenly combined. Shape the mixture into 1 1/2-inch meatballs.</li>
+                    <li class="instructions-list-item">In a large skillet, heat 2 tablespoons of olive oil over medium heat. Add the meatballs in batches, ensuring not to overcrowd the skillet. Cook until they are browned on all sides, which should take about 5 minutes. Transfer the browned meatballs to a plate.</li>
+                    <li class="instructions-list-item">Bring a large pot of water to a boil and lightly salt it. Cook 8 ounces of spaghetti in the boiling water, stirring occasionally, until it is tender yet still firm to the bite. This usually takes about 12 minutes. Drain the cooked spaghetti.</li>
+                    <li class="instructions-list-item">Return the skillet to the heat and pour in 24 ounces of pasta sauce. Bring it to a simmer. Add the browned meatballs back into the skillet and simmer until they are cooked through, which should take about 10 minutes.</li>
+                    <li class="instructions-list-item">To serve, place the cooked spaghetti on plates and top it with the meatballs and sauce. Garnish with additional grated Parmesan cheese and chopped parsley if desired.</li>
+                  </ol>
                 </div>
-                <div class="recipe-square" dietaryprefs="vegetarian,vegan,nut-free">
-                  <img class="dish-pic" src="https://i0.wp.com/dashofsavory.com/wp-content/uploads/2018/10/IMG_04991.jpg?fit=3800%2C2560&ssl=1" alt="garlicknots-pic">
-                  <div class="recipe-text-column">
-                    <div class="recipe-text-row">
-                      <h1 class="recipe-title">Garlic Knots</h1>
-                    </div>
-                    <div class="recipe-text-row">
-                      <i id="clock-icon" class="fa fa-clock-o" aria-hidden="true"></i>
-                      <h2 class="prep-time">35 min</h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </template>
             </div>
           </div>
         </div>
