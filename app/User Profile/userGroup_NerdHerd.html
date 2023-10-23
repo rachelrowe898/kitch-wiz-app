@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchWiz - User Group</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
+</head>
+<body class="wrapper">
+    <main>
+        <div class="appBox">
+            <div class="app-heading">
+                <div class="topnav">
+                    <a href="#home" class="active">KitchWiz</a>
+                    <div id="menuLinks">
+                      <a href="#news">Home</a>
+                      <a href="#profile">Profile</a>
+                      <a href="#recipes">Recipes</a>
+                      <a href="#contact">Grocery</a>
+                    </div>
+                    <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                      <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <div id="user-group-section">
+                    <h1 class="group-heading-text">User Group</h1>
+                    <div id="group-listing">
+                        <div class="group-header-row">
+                            <h1 class="group-title">Nerd Herd</h1>
+                            <p class="group-member-count">3 members</p>
+                        </div>
+                        <!-- Example group section -->
+                        <div class="group-square" onclick="openGroup('cmsc434');" style="cursor:pointer;">
+                            <div class="group-details">
+                                <h2 class="group-info">Name: Elon Musk</h2>
+                                <div class="group-text-row">
+                                    <h3 class="group-info">Food Preference: American</h3>
+                                    <h3 class="group-info">Allergies: Cash Money</h3>
+                                    <h3 class="group-info">Preparation Difficulty: Hard</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group-square" onclick="openGroup('cmsc434');" style="cursor:pointer;">
+                            <div class="group-details">
+                                <h2 class="group-info">Name: Mark Zuckerberg</h2>
+                                <div class="group-text-row">
+                                    <h3 class="group-info">Food Preference: Indian</h3>
+                                    <h3 class="group-info">Allergies: Lizards</h3>
+                                    <h3 class="group-info">Preparation Difficulty: Easy</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group-square" onclick="openGroup('cmsc434');" style="cursor:pointer;">
+                            <div class="group-details">
+                                <h2 class="group-info">Name: Jeff Bezos</h2>
+                                <div class="group-text-row">
+                                    <h3 class="group-info">Food Preference: Japanese</h3>
+                                    <h3 class="group-info">Allergies: Grass</h3>
+                                    <h3 class="group-info">Preparation Difficulty: Medium</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More group sections can be added dynamically -->
+                        <button class="add-profile-button" onclick="goBackToUserGroups()">Back</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
