@@ -15,11 +15,13 @@ function openNav() {
     var foodPreference = document.getElementById("food-preference").value;
     var allergies = document.getElementById("allergies").value;
     var difficulty = document.getElementById("difficulty").value;
+    var diet = document.getElementById("diet").value;
 
     // log the values to the console.
     console.log("Food Preference: " + foodPreference);
     console.log("Allergies: " + allergies);
     console.log("Preparation Difficulty: " + difficulty);
+    console.log("Diet: " + diet);
 }
 
 // script.js
