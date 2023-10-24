@@ -11,30 +11,26 @@ function openNav() {
 }
 
 function saveUserProfile() {
-    const fs = require('fs');
     // Get the selected values from the form fields
     var foodPreference = document.getElementById("food-preference").value;
     var allergies = document.getElementById("allergies").value;
     var difficulty = document.getElementById("difficulty").value;
     var diet = document.getElementById("diet").value;
 
-    // Create an object to represent the user profile data
-    const userProfile = {
-        foodPreference: foodPreference,
-        allergies: allergies,
-        preparationDifficulty: difficulty,
-        diet: diet
+    // Get the contents of the json file.
+    var jsonData = localStorage.getItem("userProfile.json");
+
+    // console.log("extracted", jsonData)
+    // Update the contents of the json file.
+    jsonData = {
+      "foodPreference": foodPreference,
+      "allergies": allergies,
+      "preparationDifficulty": difficulty,
+      "diet": diet
     };
-
-    // Read the existing JSON data
-    const rawData = fs.readFileSync('userProfile.json');
-    const jsonData = JSON.parse(rawData);
-
-    // Update the JSON data with the new user profile
-    jsonData.userProfile = userProfile;
-
-    // Write the updated JSON data back to the file
-    fs.writeFileSync('userProfile.json', JSON.stringify(jsonData, null, 2));
+    // console.log("updated", jsonData)
+    // Save the updated contents of the json file to localstorage.
+    localStorage.setItem("userProfile.json", jsonData);
 
     // Log the updated data to the console
     console.log('User profile updated:', jsonData);
