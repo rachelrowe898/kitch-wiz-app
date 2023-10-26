@@ -40,6 +40,7 @@
                             <label for="food-preference">Cusine:</label>
                             <select id="food-preference">
                                 <option value="Japanese">American</option>
+                                <option value="Indian">Indian</option>
                                 <option value="Italian">Italian</option>
                                 <option value="Japanese">Japanese</option>
                                 <option value="Mexican">Mexican</option>
@@ -48,7 +49,17 @@
                         </div>
                         <div class="profile-detail">
                             <label for="allergies">Allergies:</label>
-                            <input type="text" id="allergies" placeholder="Enter allergies...">
+                            <select id="allergies" multiple>
+                                <option value="Milk">Milk</option>
+                                <option value="Eggs">Eggs</option>
+                                <option value="Fish">Fish</option>
+                                <option value="Seafood">Seafood</option>
+                                <option value="Nuts">Nuts</option>
+                                <option value="Wheat">Wheat</option>
+                                <option value="Soy">Soy</option>
+                                <!-- Add more options as needed -->
+                                <!-- <input type="text" id="allergies" placeholder="Enter allergies..."> -->
+                            </select>
                         </div>
                         <div class="profile-detail">
                             <label for="difficulty">Difficulty:</label>
@@ -73,7 +84,8 @@
                     </div>
                     <!-- Save button to update profile -->
                     <button class="save-profile-button" onclick="saveUserProfile()">Save</button>
-                </div>
+                    <button id="user-groups-button" onclick="goBackToUserGroups()">User Groups</button>
+                </div> 
             </div>            
         </div>
     </main>
