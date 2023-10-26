@@ -43,3 +43,15 @@ function openUserProfile(username) {
 function goBackToUserGroups(){
   window.location.href = "userGroups.html";
 }
+
+function openAddProfile() {
+
+}
+
+function openDeleteProfile() {
+
+}
+
+function createUserGroup() {
+  
+}
