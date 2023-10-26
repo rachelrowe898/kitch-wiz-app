@@ -11,29 +11,33 @@ function openNav() {
 }
 
 function saveUserProfile() {
-    // Get the selected values from the form fields
-    var foodPreference = document.getElementById("food-preference").value;
-    var allergies = document.getElementById("allergies").value;
-    var difficulty = document.getElementById("difficulty").value;
-    var diet = document.getElementById("diet").value;
+  // Get the selected values from the form fields
+  var foodPreference = document.getElementById("food-preference").value;
+  var allergies = document.getElementById("allergies").value;
+  var difficulty = document.getElementById("difficulty").value;
+  var diet = document.getElementById("diet").value;
 
-    // Get the contents of the json file.
-    var jsonData = localStorage.getItem("userProfile.json");
+  // log the values to the console.
+  console.log("Food Preference: " + foodPreference);
+  console.log("Allergies: " + allergies);
+  console.log("Preparation Difficulty: " + difficulty);
+  console.log("Diet: " + diet);
 
-    // console.log("extracted", jsonData)
-    // Update the contents of the json file.
-    jsonData = {
-      "foodPreference": foodPreference,
-      "allergies": allergies,
-      "preparationDifficulty": difficulty,
-      "diet": diet
-    };
-    // console.log("updated", jsonData)
-    // Save the updated contents of the json file to localstorage.
-    localStorage.setItem("userProfile.json", jsonData);
+  showPopup("User profile is saved!"); // Show the popup when the user profile is saved
+}
 
-    // Log the updated data to the console
-    console.log('User profile updated:', jsonData);
+function showPopup(message) {
+  var messageDisplay = document.createElement("div");
+  messageDisplay.className = "message-display";
+  messageDisplay.textContent = message; // Set the text content of the message display
+
+  // Insert the message display at the bottom of the user-profile-page element
+  var userProfPage = document.querySelector(".user-profile");
+  userProfPage.appendChild(messageDisplay);
+
+  setTimeout(function () {
+    messageDisplay.style.display = "none";
+  }, 2000); // Message display disappears after 2 seconds
 }
 
 function openUserProfile(username) {
