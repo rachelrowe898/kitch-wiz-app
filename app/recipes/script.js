@@ -160,7 +160,7 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
   recipeSquaresTemp.forEach((attributes) => {
     const element = document.createElement("div");
     element.innerHTML = attributes.innerHTML;
-    element.onclick = new Function(attributes.onclick);
+    element.onclick = attributes.onclick;
     element.setAttribute("style", attributes.style);
     element.className = "recipe-square";
     element.style = attributes.style;
@@ -190,6 +190,7 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
 
   // Append the sorted recipe squares back to the container
   newTotalRecipeSquares.forEach((square) => {
+    addRecipeSquareListener(square, templateContainer);
     container.appendChild(square);
   });
 
@@ -361,11 +362,12 @@ function sortRecipes(order) {
   recipeSquaresTemp.forEach((attributes) => {
     const element = document.createElement("div");
     element.innerHTML = attributes.innerHTML;
-    element.onclick = new Function(attributes.onclick);
+    element.onclick = attributes.onclick;
     element.setAttribute("style", attributes.style);
     element.className = "recipe-square";
     element.style = attributes.style;
     element.dietaryprefs = attributes.dietaryprefs;
+    addRecipeSquareListener(element, templateContainer);
     recipeSquares.push(element);
     prepTimes.push(element.querySelector(".prep-time").textContent);
   });
@@ -546,7 +548,7 @@ function setFilterSliderMax() {
   recipeSquaresTemp.forEach((attributes) => {
     const element = document.createElement("div");
     element.innerHTML = attributes.innerHTML;
-    element.onclick = new Function(attributes.onclick);
+    element.onclick = attributes.onclick;
     element.setAttribute("style", attributes.style);
     element.className = "recipe-square";
     element.style = attributes.style;
@@ -604,7 +606,9 @@ function applyFilter() {
       console.log("!!!!!!!!", attributes)
       const element = document.createElement("div");
       element.innerHTML = attributes.innerHTML;
-      element.onclick = new Function(attributes.onclick);
+      element.onclick = attributes.onclick;
+      console.log("attributes", attributes);
+      console.log("onclick", element.onclick);
       element.setAttribute("style", attributes.style);
       element.className = "recipe-square";
       element.style = attributes.style;
@@ -625,8 +629,6 @@ function applyFilter() {
       console.log("dietaryPrefs", dietaryPrefs);
       const currDietaryPrefs = dietaryPrefs[i];
 
-      console.log("********** currdietaryprefs", currDietaryPrefs);
-
       if (prepTime >= minTime && prepTime <= maxTime && satisfyDietaryCheckboxConditions(dietaryCheckboxes, currDietaryPrefs)) {
         filteredRecipeSquares.push(recipeSquare);
       }
@@ -640,6 +642,8 @@ function applyFilter() {
 
     // Append the sorted recipe squares back to the container
     filteredRecipeSquares.forEach((square) => {
+      // add recipeSquareListener
+      addRecipeSquareListener(square, templateContainer);
       container.appendChild(square);
     });
   } catch (e){
@@ -647,7 +651,8 @@ function applyFilter() {
   }
 }
 
-if (document.getElementById('fromSlider')) {
+// if (document.getElementById('fromSlider')) {
+  if (true) {
   var delayInMilliseconds = 1000; //1 second
 
   setTimeout(function() {
@@ -751,6 +756,7 @@ if (sessionStorage.getItem("allRecipeSquares") === undefined || sessionStorage.g
     const attributes = {};
     attributes.innerHTML = element.innerHTML;
     attributes.onclick = element.getAttribute("onclick");
+    console.log("first onclick", attributes.onclick);
     attributes.style = element.getAttribute("style");
     attributes.dietaryprefs = element.getAttribute("dietaryprefs");
     console.log("attributes", attributes);
