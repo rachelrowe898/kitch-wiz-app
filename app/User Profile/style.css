@@ -273,32 +273,50 @@ body {
 
 .user-profile-page {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 50px;
 }
-
+.user-profile-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #635C70;
+}
 .user-profile-content {
     text-align: center;
     padding: 20px;
 }
 
+select {
+    font-size: 25px;
+    border-radius: 10px;
+    border: 2px solid #208AAE;
+}
+
 .profile-detail {
-    margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
 }
 
 
-.save-profile-button {
+.save-profile-button,
+#user-groups-button {
     background-color: #208AAE;
     color: white;
-    padding: 10px 20px;
-    font-size: 20px;
+    padding: 15px 30px;
+    font-size: 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
-    margin: 0 10px;
+    margin-top: 20px;
+}
+
+#user-groups-button {
+    background-color: #3CB371;
 }
 
 .group-square {
