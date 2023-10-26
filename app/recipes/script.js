@@ -1,3 +1,4 @@
+try {
 function openNav() {
   var x = document.getElementById("menuLinks");
   var recipeSection = document.getElementById("recipe-section");
@@ -429,49 +430,50 @@ function controlToInput(toSlider, fromInput, toInput, controlSlider) {
 }
 
 function controlFromSlider(fromSlider, toSlider, fromInput) {
-const [from, to] = getParsed(fromSlider, toSlider);
-try {
-  fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
-} catch (e) {
-  console.log(e)
-}
-if (from > to) {
-  fromSlider.value = to;
-  fromInput.value = to;
-} else {
-  fromInput.value = from;
-}
+  const [from, to] = getParsed(fromSlider, toSlider);
+  try {
+    fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+  } catch (e) {
+    console.log(e)
+  }
+  if (from > to) {
+    fromSlider.value = to;
+    fromInput.value = to;
+  } else {
+    fromInput.value = from;
+  }
 }
 
 function controlToSlider(fromSlider, toSlider, toInput) {
-const [from, to] = getParsed(fromSlider, toSlider);
-fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
-setToggleAccessible(toSlider);
-if (from <= to) {
-  toSlider.value = to;
-  toInput.value = to;
-} else {
-  toInput.value = from;
-  toSlider.value = from;
-}
+  const [from, to] = getParsed(fromSlider, toSlider);
+  fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+  setToggleAccessible(toSlider);
+  if (from <= to) {
+    toSlider.value = to;
+    toInput.value = to;
+  } else {
+    toInput.value = from;
+    toSlider.value = from;
+  }
 }
 
 function getParsed(currentFrom, currentTo) {
-const from = parseInt(currentFrom.value, 10);
-const to = parseInt(currentTo.value, 10);
-return [from, to];
+  const from = parseInt(currentFrom.value, 10);
+  const to = parseInt(currentTo.value, 10);
+  return [from, to];
 }
 
 /* filter slider code */
 function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+  var rangeDistance = 75;
+  var fromPosition = 0;
+  var toPosition = 75;
   try {
-    const rangeDistance = to.max-to.min;
-    const fromPosition = from.value - to.min;
-    const toPosition = to.value - to.min;
+    rangeDistance = to.max-to.min;
+    fromPosition = from.value - to.min;
+    toPosition = to.value - to.min;
   } catch (e) {
-    const rangeDistance = 0;
-    const fromPosition = 0;
-    const toPosition = 0;
+    // pass
   }
   controlSlider.style.background = `linear-gradient(
     to right,
@@ -490,30 +492,6 @@ if (Number(currentTarget.value) <= 0 ) {
 } else {
   toSlider.style.zIndex = 0;
 }
-}
-
-const fromSlider = document.querySelector('#fromSlider');
-const toSlider = document.querySelector('#toSlider');
-const fromInput = document.querySelector('#fromInput');
-const toInput = document.querySelector('#toInput');
-try {
-  fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
-} catch (e) {
-  console.log(e)
-}
-try {
-  setToggleAccessible(toSlider);
-} catch (e) {
-  console.log(e)
-}
-
-try {
-  fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
-  toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
-  fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
-  toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
-} catch (e) {
-  console.log(e)
 }
 
 function satisfyDietaryCheckboxConditions(dietaryCheckboxes, dietaryTags) {
@@ -541,6 +519,42 @@ function satisfyDietaryCheckboxConditions(dietaryCheckboxes, dietaryTags) {
     }
   }
   return true;
+}
+
+function setFilterSliderMax() {
+
+  // Set the max time for fromSlider, toSlider, fromInput, toInput
+  const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
+
+  const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
+  const recipeSquares = [];
+  const prepTimes = [];
+  let maxPrepTime = 0;
+
+  recipeSquaresTemp.forEach((attributes) => {
+    const element = document.createElement("div");
+    element.innerHTML = attributes.innerHTML;
+    element.onclick = new Function(attributes.onclick);
+    element.setAttribute("style", attributes.style);
+    element.className = "recipe-square";
+    element.style = attributes.style;
+    element.dietaryprefs = attributes.dietaryprefs;
+
+    recipeSquares.push(element);
+    prepTime = parseInt(element.querySelector(".prep-time").textContent);
+
+    if (!isNaN(prepTime) && prepTime > maxPrepTime) {
+      maxPrepTime = prepTime;
+    }
+
+  });
+
+  fromSlider.setAttribute("max", maxPrepTime);
+  toSlider.setAttribute("max", maxPrepTime);
+  toSlider.setAttribute("value", maxPrepTime);
+  fromInput.setAttribute("max", maxPrepTime);
+  toInput.setAttribute("max", maxPrepTime);
+  toInput.setAttribute("value", maxPrepTime);
 }
 
 function applyFilter() {
@@ -621,41 +635,43 @@ function applyFilter() {
   }
 }
 
-function setFilterSliderMax() {
+var delayInMilliseconds = 1000; //1 second
 
-  // Set the max time for fromSlider, toSlider, fromInput, toInput
-  const recipeSquaresJSON = sessionStorage.getItem("allRecipeSquares");
+setTimeout(function() {
+  //your code to be executed after 1 second
 
-  const recipeSquaresTemp = JSON.parse(recipeSquaresJSON);
-  const recipeSquares = [];
-  const prepTimes = [];
-  let maxPrepTime = 0;
+  const fromSlider = document.getElementById('fromSlider');
+  console.log("*******fromslider********", fromSlider)
+  const toSlider = document.getElementById('toSlider');
+  const fromInput = document.getElementById('fromInput');
+  const toInput = document.getElementById('toInput');
+  try {
+    fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+  } catch (e) {
+    console.log(e)
+  }
+  try {
+    setToggleAccessible(toSlider);
+  } catch (e) {
+    console.log(e)
+  }
 
-  recipeSquaresTemp.forEach((attributes) => {
-    const element = document.createElement("div");
-    element.innerHTML = attributes.innerHTML;
-    element.onclick = new Function(attributes.onclick);
-    element.setAttribute("style", attributes.style);
-    element.className = "recipe-square";
-    element.style = attributes.style;
-    element.dietaryprefs = attributes.dietaryprefs;
+  try {
+    fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+    toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+    fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+    toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+  } catch (e) {
+    console.log(e)
+  }
 
-    recipeSquares.push(element);
-    prepTime = parseInt(element.querySelector(".prep-time").textContent);
+  try {
+    setFilterSliderMax();
+  } catch (e) {
+    console.log(e);
+  }
 
-    if (!isNaN(prepTime) && prepTime > maxPrepTime) {
-      maxPrepTime = prepTime;
-    }
-
-  });
-
-  fromSlider.setAttribute("max", maxPrepTime);
-  toSlider.setAttribute("max", maxPrepTime);
-  toSlider.setAttribute("value", maxPrepTime);
-  fromInput.setAttribute("max", maxPrepTime);
-  toInput.setAttribute("max", maxPrepTime);
-  toInput.setAttribute("value", maxPrepTime);
-}
+}, delayInMilliseconds);
 
 function addRecipeSquareListener(recipeSquare, templateContainer) {
   // Add an event listener to each recipe square element
@@ -729,9 +745,6 @@ if (sessionStorage.getItem("allRecipeSquares") === undefined || sessionStorage.g
   sessionStorage.setItem("allRecipeSquares", JSON.stringify(recipeSquaresArray));
   console.log("beginning", sessionStorage.getItem("allRecipeSquares"));
 }
-
-try {
-  setFilterSliderMax();
 } catch (e) {
   console.log(e);
 }
