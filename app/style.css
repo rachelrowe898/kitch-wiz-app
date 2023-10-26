@@ -145,7 +145,7 @@ height: 12px;
 }
 
 .recipe-name-text {
-  font-size: 30px; 
+  font-size: 40px; 
   color: #635C70; 
   /* text-shadow: 1px 1px #635C70;  */
   margin-left: 15px;
@@ -273,7 +273,7 @@ height: 12px;
 }
 
 .recipe-title {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bold;
   /* margin: 10px 0px; */
   color: #635C70;
@@ -555,6 +555,22 @@ input[type="range"] {
 #toSlider {
   height: 8px;
   left: 0; /* Adjust the left position as needed to make them overlap */
+}
+
+.addMissingIngredientsButton {
+  font-family: "Helvetica", sans-serif; 
+  background-color: #208AAE;
+  color: white;
+  border-color: #208AAE;
+  padding: 10px 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  font-size: 25px;
+}
+
+/* Style the button on hover */
+.addRecipeIngredientsButton:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
 /* SECTION: KITCHEN STOCK */

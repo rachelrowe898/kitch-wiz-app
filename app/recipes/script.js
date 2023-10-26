@@ -1,4 +1,3 @@
-try {
 function openNav() {
   var x = document.getElementById("menuLinks");
   var recipeSection = document.getElementById("recipe-section");
@@ -8,6 +7,19 @@ function openNav() {
   } else {
     x.style.display = "block";
     recipeSection.style.marginTop = "300px";
+  }
+}
+
+function addMissingIngredients() {
+  var button = document.querySelector('.addMissingIngredientsButton'); // Select the button element
+  
+  console.log(button);
+  if (button) {
+    button.textContent = "Added Missing Ingredients to Shopping List \u2713"; // Change the button text
+    button.disabled = true; // Disable the button to prevent further clicks
+    button.style.border = "none";
+    button.style.color = "#208AAE";
+    button.style.backgroundColor = "white";
   }
 }
 
@@ -635,43 +647,45 @@ function applyFilter() {
   }
 }
 
-var delayInMilliseconds = 1000; //1 second
+if (document.getElementById('fromSlider')) {
+  var delayInMilliseconds = 1000; //1 second
 
-setTimeout(function() {
-  //your code to be executed after 1 second
+  setTimeout(function() {
+    //your code to be executed after 1 second
 
-  const fromSlider = document.getElementById('fromSlider');
-  console.log("*******fromslider********", fromSlider)
-  const toSlider = document.getElementById('toSlider');
-  const fromInput = document.getElementById('fromInput');
-  const toInput = document.getElementById('toInput');
-  try {
-    fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
-  } catch (e) {
-    console.log(e)
-  }
-  try {
-    setToggleAccessible(toSlider);
-  } catch (e) {
-    console.log(e)
-  }
+    const fromSlider = document.getElementById('fromSlider');
+    console.log("*******fromslider********", fromSlider)
+    const toSlider = document.getElementById('toSlider');
+    const fromInput = document.getElementById('fromInput');
+    const toInput = document.getElementById('toInput');
+    try {
+      fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+    } catch (e) {
+      console.log(e)
+    }
+    try {
+      setToggleAccessible(toSlider);
+    } catch (e) {
+      console.log(e)
+    }
 
-  try {
-    fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
-    toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
-    fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
-    toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
-  } catch (e) {
-    console.log(e)
-  }
+    try {
+      fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+      toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+      fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+      toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+    } catch (e) {
+      console.log(e)
+    }
 
-  try {
-    setFilterSliderMax();
-  } catch (e) {
-    console.log(e);
-  }
+    try {
+      setFilterSliderMax();
+    } catch (e) {
+      console.log(e);
+    }
 
-}, delayInMilliseconds);
+  }, delayInMilliseconds);
+}
 
 function addRecipeSquareListener(recipeSquare, templateContainer) {
   // Add an event listener to each recipe square element
@@ -744,7 +758,4 @@ if (sessionStorage.getItem("allRecipeSquares") === undefined || sessionStorage.g
   });
   sessionStorage.setItem("allRecipeSquares", JSON.stringify(recipeSquaresArray));
   console.log("beginning", sessionStorage.getItem("allRecipeSquares"));
-}
-} catch (e) {
-  console.log(e);
 }
