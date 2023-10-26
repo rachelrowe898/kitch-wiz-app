@@ -49,7 +49,7 @@ function goBackToUserGroups(){
 }
 
 function openAddProfile() {
-
+  window.location.href = "createGroup.html";
 }
 
 function openDeleteProfile() {
