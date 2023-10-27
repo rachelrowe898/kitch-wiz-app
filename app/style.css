@@ -2,13 +2,16 @@
 /* Style the navigation menu */
 .topnav {
   overflow: hidden;
-  background-color: #635C70;
+  background-color: #2C3C4B;
   position: relative;
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
 .topnav #menuLinks {
   display: none;
+  font-size: 30px;
+  background-color: #635C70;
+  padding: 10px 16px;
 }
 
 /* Style navigation menu links */
@@ -16,7 +19,14 @@
   color: white;
   padding: 14px 16px;
   text-decoration: none;
-  display: block;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* Style navigation links with the "nav-link" class */
+.topnav a.nav-link {
+  padding: 10px 16px; /* Adjust the padding to your preference */
+  border: 1px solid white; /* Add a white border around the links */
 }
 
 /* Style the hamburger menu */
@@ -577,7 +587,7 @@ input[type="range"] {
 
 /* Style the Kitchen Stock buttons */
 .section-button {
-  background-color: #FDB833;
+  background-color: #208AAE;
   color: white;
   padding: 12px 24px;
   border: none;
@@ -628,7 +638,7 @@ input[type="range"] {
 }
 
 #add-item-button, #remove-item-button {
-  background-color: #FDB833;
+  background-color: #208AAE;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -700,7 +710,7 @@ ul#items-list li button {
 
 .item-div button {
   padding: 5px 10px;
-  background-color: #FDB833;
+  background-color: #208AAE;
   color: white;
   border: none;
   border-radius: 5px;
@@ -719,7 +729,7 @@ ul#items-list li button {
 }
 
 #back-button {
-  background-color: #FDB833;;
+  background-color: #208AAE;;
   color: white;
   border: none;
   border-radius: 5px;
