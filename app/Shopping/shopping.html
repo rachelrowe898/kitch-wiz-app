@@ -4,42 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KitchWiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body class="wrapper">
     <main>
-        <div class="appBox">
-          <div class="app-heading">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-              <!-- Top Navigation Menu -->
-              <div class="topnav">
-                <a href="#home" class="active">KitchWiz</a>
-                <!-- Navigation links (hidden by default) -->
-                <div id="menuLinks">
-                  <a href="#news">Home</a>
-                  <a href="#about">Profile</a>
-                  <a href="#news" onclick="location.href='recipelist.html';">Recipes</a>
-                  <a href="#contact">Grocery</a>
-                </div>
-                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-                <a href="javascript:void(0);" class="icon" onclick="openNav()">
-                  <i class="fa fa-bars"></i>
-                </a>
-              </div>
+      <div class="appBox">
+        <div class="app-heading">
+          <!-- Top Navigation Menu -->
+          <div class="topnav">
+            <a href="#home" class="active">KitchWiz</a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="menuLinks">
+              <a href="#recipes" class="nav-link" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
+              <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen</a>
+              <a href="#shopping" class="nav-link" onclick="location.href='../Shopping/shopping.html';">Shopping</a>
+              <a href="#profile" class="nav-link" onclick="location.href='../User Profile/userProfile.html';">Profile</a>
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="openNav()">
+              <img src="../icons/hamburger-menu.png" alt="hamburger menu">
+            </a>
           </div>
+      </div>
 
-
-          <div class="shopping-section">
-            <h1>Shopping</h1>
-            <button id="make-list" onclick="location.href='listMaker.html'">Make List</button>
+          <div class="shopping-list-section">
+            <div id="create-list">
+                <h2>Create New List</h2>
+                <form add id="item-list-form">
+                    <input id="list-name" type="text" placeholder="List Name"><br><br>
+                    <textarea id="item-list" style="height:200px" placeholder="Shopping List Ingredients (One per line)"></textarea><br>
+                    <button type="Button" class="shop-list-buttons" id="list-form-submit">Create List</button>
+                    <button type="button" class="shop-list-buttons" id="previous-lists">Recently Used Lists</button>
+                    <div id="checkbox-modal" class="hidden">
+                      <div class="modal-content">
+                          <div id="checkbox-list"></div>
+                          <button type="button" id="close-button">Complete Shopping</button>
+                          <button type="button" id="add-button">Add selected to fridge</button>
+                      </div>
+                  </div>
+                </form>
+            </div>
 
           </div>
-
-
-
 
           </div>
         </div>
