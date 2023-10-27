@@ -50,9 +50,15 @@
                             </div>
                         </div>
                     </div>
-                    <!-- This will be a temprorary placeholder group. When the user clicks the create group button, it will 
-                        open a new page that will require the user to input the Group Name, group image, the Group Members. Once the 
-                    user clicks submit on that page, it will add a new recipe square --> 
+                    <!-- Hidden template for the new group -->
+                    <div class="recipe-square hidden" id="new-group-template">
+                        <img class="dish-pic" src="" alt="profile-pic">
+                        <div class="recipe-text-column">
+                            <div class="recipe-text-row">
+                                <h1 class="recipe-title" id="new-group-name"></h1>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="add-delete-options">
                     <button class="add-profile-button" onclick="openAddProfile()">Create Group</button>

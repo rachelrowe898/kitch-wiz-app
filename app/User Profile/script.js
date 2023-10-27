@@ -50,6 +50,9 @@ function goBackToUserGroups(){
 
 function openAddProfile() {
   window.location.href = "createGroup.html";
+    // Reveal the hidden group with the user input
+    const newGroupTemplate = document.getElementById('new-group-template');
+    newGroupTemplate.classList.remove('hidden');
 }
 
 function openDeleteProfile() {
@@ -57,5 +60,15 @@ function openDeleteProfile() {
 }
 
 function createUserGroup() {
-  
+  const groupNameInput = document.getElementById('group-name');
+  const groupMembersInput = document.getElementById('group-members');
+
+  const groupName = groupNameInput.value;
+  const groupMembers = groupMembersInput.value;
+  // Update the group name in the revealed template
+  const newGroupName = document.getElementById('new-group-name');
+  newGroupName.textContent = groupName;
+
+  // Redirect back to userGroups.html
+  window.location.href = "userGroups.html";
 }
