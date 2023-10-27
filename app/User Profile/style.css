@@ -22,40 +22,59 @@ body {
     width: 100%;
 }
 
-.app-heading {
+.app-heading{
     overflow: hidden;
     position: fixed;
     padding-top: 0px;
     background-color: white;
     width: 640px;
     text-align: center;
-}
-
+  }  
+/* SECTION: NAV MENU */
+/* Style the navigation menu */
 .topnav {
     overflow: hidden;
-    background-color: #635C70;
+    background-color: #2C3C4B;
     position: relative;
-}
-
-.topnav #menuLinks {
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #menuLinks {
     display: none;
-}
-
-.topnav a {
+    font-size: 30px;
+    background-color: #635C70;
+    padding: 10px 16px;
+  }
+  
+  /* Style navigation menu links */
+  .topnav a {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
-    display: block;
-}
-
-.topnav a.icon {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  /* Style navigation links with the "nav-link" class */
+  .topnav a.nav-link {
+    padding: 10px 16px; /* Adjust the padding to your preference */
+    border: 1px solid white; /* Add a white border around the links */
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.icon {
     display: block;
     position: absolute;
     left: 0;
     top: 0;
     font-size: 50px;
-}
-
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav a:hover {
+    color: white;
+  }
+  
 .active {
     background-color: #2C3C4B;
     height: 80px;
@@ -106,12 +125,15 @@ body {
 }
 
 .add-profile-button, .delete-profile-button {
-    padding: 10px 20px;
-    font-size: 20px;
+    padding: 12px 20px;
+    font-size: 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin: 0 10px;
+    font-weight: bold;
+    background-color: #208AAE;
+    color: white;
 }
 
 #user-groups-button {
@@ -129,13 +151,8 @@ body {
     background-color: #45a049;
 }
 
-.add-profile-button {
-    background-color: #208AAE;
-    color: white;
-}
-
 .delete-profile-button {
-    background-color: #FF2E2E;
+    background-color: #8b0f0f;
     color: white;
 }
 
@@ -234,26 +251,6 @@ body {
     margin-top: 20px;
 }
 
-.add-profile-button,
-.delete-profile-button {
-    padding: 10px 20px;
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 10px;
-}
-
-.add-profile-button {
-    background-color: #208AAE;
-    color: white;
-}
-
-.delete-profile-button {
-    background-color: #FF2E2E;
-    color: white;
-}
-
 .recipe-listing {
     display: flex;
     flex-direction: column;
@@ -300,6 +297,7 @@ select {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
+    font-weight: bold;
 }
 
 .save-profile-button,
@@ -312,6 +310,7 @@ select {
     border-radius: 20px;
     cursor: pointer;
     margin-top: 20px;
+    font-weight: bold;
 }
 
 #user-groups-button {
@@ -323,27 +322,65 @@ select {
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .group-header-row {
     margin-top: 120px;
+    align-content: center;
 }
 .group-details {
     display: flex;
     flex-direction: column;
     align-items: left;
+    padding: 5px;
 }
 
 .group-info {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    margin: 5px 0;
 }
 
+/* Styles for the group heading */
+.group-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+/* Styles for the sub-information */
+.group-info h3 {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Styles for the group title */
+.group-title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+/* Styles for the group member count */
+.group-member-count {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+  
 #group-listing {
     margin-bottom: 240px;
 }
 
 .hidden {
     display: none;
+}
+
+.space {
+    margin: 20px;  
 }

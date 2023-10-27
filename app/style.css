@@ -9,9 +9,9 @@
 /* Hide the links inside the navigation menu (except for logo/home) */
 .topnav #menuLinks {
   display: none;
-  font-size: 30px;
+  font-size: 27px;
   background-color: #635C70;
-  padding: 10px 16px;
+  padding: 10px 16px 10px 0px;
 }
 
 /* Style navigation menu links */
@@ -942,3 +942,111 @@ ul#items-list li button {
   cursor: pointer;
   margin: 0 10px;
 }
+
+
+/* Start Shopping Styles */
+.shopping-section {
+  text-align: center;
+  padding: 30px;
+  margin: 350px;
+  display: flex;
+  justify-content: auto;
+  flex-direction: column;
+  width:100%;
+}
+
+.shopping-list-section {
+  text-align: left;
+  padding: 30px;
+  margin: 100px;
+  display: flex;
+  justify-content: auto;
+  flex-direction: column;
+  width:100%;
+}
+
+#create-list {
+  display: block;
+  background-color: #208aae;
+  height: 550px;
+  color: white;
+  justify-content: left;
+  padding: 20px 30px 20px 20px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#make-list {
+  background-color: #208aae;
+  color: #635C70;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#checkbox-list {
+  display: block;
+  background-color: #635C70;
+  height: 400px;
+}
+
+#item-list-form {
+  position: relative;
+}
+
+
+.shop-list-buttons {
+  background-color: white;
+  color: #635C70;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.checkbox-list-item {
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px; /* Add some spacing between items */
+}
+
+#checkbox-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150%, -50%);
+  width: 80%;
+  max-width: 400px; 
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  position: relative;
+}
+
+#checklist-title {
+  text-align: center;
+}
+
+form[add]{
+  max-width: 400px;
+  margin: 20px;
+  padding: 20px;
+  font-family: Helvetica;
+}
+
+/* End of Shopping Styles */

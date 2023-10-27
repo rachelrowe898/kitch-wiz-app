@@ -14,19 +14,21 @@
         <div class="app-heading">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <!-- Top Navigation Menu -->
-            <div class="topnav">
-                <a href="#home" class="active">KitchWiz</a>
-                <!-- Navigation links (hidden by default) -->
-                <div id="menuLinks">
-                  <a href="#news">Home</a>
-                  <a href="#about">Profile</a>
-                  <a href="#news">Recipes</a>
-                  <a href="#contact">Grocery</a>
+            <div class="app-heading">
+                <!-- Top Navigation Menu -->
+                <div class="topnav">
+                  <a href="#home" class="active">KitchWiz</a>
+                  <!-- Navigation links (hidden by default) -->
+                  <div id="menuLinks">
+                    <a href="#recipes" class="nav-link" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
+                    <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen Stock</a>
+                    <a href="#profile" class="nav-link" onclick="location.href='../User Profile/userProfile.html';">Profile</a>
+                  </div>
+                  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                  <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                    <img src="../icons/hamburger-menu.png" alt="hamburger menu">
+                  </a>
                 </div>
-                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-                <a href="javascript:void(0);" class="icon" onclick="openNav()">
-                  <i class="fa fa-bars"></i>
-                </a>
             </div>
         </div>
 
@@ -61,7 +63,7 @@
                     </div>
                 </div>
                 <div class="add-delete-options">
-                    <button class="add-profile-button" onclick="openAddProfile()">Create Group</button>
+                    <button class="save-profile-button" onclick="openAddProfile()">Create Group</button>
                 </div>
             </div>
         </div>

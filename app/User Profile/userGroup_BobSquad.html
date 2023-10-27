@@ -12,17 +12,19 @@
     <main>
         <div class="appBox">
             <div class="app-heading">
+                <!-- Top Navigation Menu -->
                 <div class="topnav">
-                    <a href="#home" class="active">KitchWiz</a>
-                    <div id="menuLinks">
-                      <a href="#news">Home</a>
-                      <a href="#profile">Profile</a>
-                      <a href="#recipes">Recipes</a>
-                      <a href="#contact">Grocery</a>
-                    </div>
-                    <a href="javascript:void(0);" class="icon" onclick="openNav()">
-                      <i class="fa fa-bars"></i>
-                    </a>
+                  <a href="#home" class="active">KitchWiz</a>
+                  <!-- Navigation links (hidden by default) -->
+                  <div id="menuLinks">
+                    <a href="#recipes" class="nav-link" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
+                    <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen Stock</a>
+                    <a href="#profile" class="nav-link" onclick="location.href='../User Profile/userProfile.html';">Profile</a>
+                  </div>
+                  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                  <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                    <img src="../icons/hamburger-menu.png" alt="hamburger menu">
+                  </a>
                 </div>
             </div>
 
@@ -35,7 +37,7 @@
                             <p class="group-member-count">3 members</p>
                         </div>
                         <!-- Example group section -->
-                        <div class="group-square" onclick="openGroup('cmsc434');" style="cursor:pointer;">
+                        <div class="group-square" style="cursor:pointer;">
                             <div class="group-details">
                                 <h2 class="group-info">Name: Dr Bob</h2>
                                 <div class="group-text-row">
@@ -47,7 +49,7 @@
                             </div>
                         </div>
 
-                        <div class="group-square" onclick="openGroup('cmsc434');" style="cursor:pointer;">
+                        <div class="group-square" style="cursor:pointer;">
                             <div class="group-details">
                                 <h2 class="group-info">Name: Bob the Builder</h2>
                                 <div class="group-text-row">
@@ -59,7 +61,7 @@
                             </div>
                         </div>
 
-                        <div class="group-square" onclick="openGroup('cmsc434');" style="cursor:pointer;">
+                        <div class="group-square" style="cursor:pointer;">
                             <div class="group-details">
                                 <h2 class="group-info">Name: Bobert</h2>
                                 <div class="group-text-row">
@@ -70,6 +72,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class = "space"></div>
                         <!-- More group sections can be added dynamically -->
                         <button class="add-profile-button" onclick="goBackToUserGroups()">Back</button>
                         <button class="delete-profile-button" onclick="openDeleteProfile()">Leave Group</button>
