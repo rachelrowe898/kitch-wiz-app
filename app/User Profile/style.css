@@ -22,40 +22,59 @@ body {
     width: 100%;
 }
 
-.app-heading {
+.app-heading{
     overflow: hidden;
     position: fixed;
     padding-top: 0px;
     background-color: white;
     width: 640px;
     text-align: center;
-}
-
+  }  
+/* SECTION: NAV MENU */
+/* Style the navigation menu */
 .topnav {
     overflow: hidden;
-    background-color: #635C70;
+    background-color: #2C3C4B;
     position: relative;
-}
-
-.topnav #menuLinks {
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #menuLinks {
     display: none;
-}
-
-.topnav a {
+    font-size: 30px;
+    background-color: #635C70;
+    padding: 10px 16px;
+  }
+  
+  /* Style navigation menu links */
+  .topnav a {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
-    display: block;
-}
-
-.topnav a.icon {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  /* Style navigation links with the "nav-link" class */
+  .topnav a.nav-link {
+    padding: 10px 16px; /* Adjust the padding to your preference */
+    border: 1px solid white; /* Add a white border around the links */
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.icon {
     display: block;
     position: absolute;
     left: 0;
     top: 0;
     font-size: 50px;
-}
-
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav a:hover {
+    color: white;
+  }
+  
 .active {
     background-color: #2C3C4B;
     height: 80px;
