@@ -131,6 +131,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin: 0 10px;
+    font-weight: bold;
 }
 
 #user-groups-button {
@@ -154,7 +155,7 @@ body {
 }
 
 .delete-profile-button {
-    background-color: #FF2E2E;
+    background-color: #8b0f0f;
     color: white;
 }
 
@@ -263,16 +264,6 @@ body {
     margin: 0 10px;
 }
 
-.add-profile-button {
-    background-color: #208AAE;
-    color: white;
-}
-
-.delete-profile-button {
-    background-color: #FF2E2E;
-    color: white;
-}
-
 .recipe-listing {
     display: flex;
     flex-direction: column;
@@ -319,6 +310,7 @@ select {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
+    font-weight: bold;
 }
 
 .save-profile-button,
@@ -331,6 +323,7 @@ select {
     border-radius: 20px;
     cursor: pointer;
     margin-top: 20px;
+    font-weight: bold;
 }
 
 #user-groups-button {
@@ -342,6 +335,9 @@ select {
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .group-header-row {
@@ -351,13 +347,29 @@ select {
     display: flex;
     flex-direction: column;
     align-items: left;
+    padding: 5px;
 }
 
 .group-info {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin: 5px 0;
 }
+
+/* Styles for the group heading */
+.group-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Styles for the sub-information */
+  .group-info h3 {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+  }
 
 #group-listing {
     margin-bottom: 240px;
@@ -365,4 +377,8 @@ select {
 
 .hidden {
     display: none;
+}
+
+.space {
+    margin: 20px;  
 }
