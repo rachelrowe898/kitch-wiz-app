@@ -343,3 +343,7 @@ select {
 #group-listing {
     margin-bottom: 240px;
 }
+
+.hidden {
+    display: none;
+}
