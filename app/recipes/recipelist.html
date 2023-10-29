@@ -126,7 +126,7 @@
                     <img class="dish-pic" src="../images/spaghetti-pic.jpeg" alt="spaghetti-pic">
                     <div class="recipe-text-column">
                       <div class="recipe-text-row">
-                        <h1 class="recipe-title">Spaghetti and Meatballs</h1>
+                        <h1 class="recipe-title">Spaghetti & Meatballs</h1>
                       </div>
                       <div class="recipe-text-row">
                         <img id="clock-icon" src="../icons/clock-icon.png" aria-hidden="true" alt="clockicon">
@@ -136,26 +136,26 @@
                     <div class="recipe-page-ingredients" style="display: None;">
                       <h2 class="ingredients-heading">Ingredients</h2>
                       <ul class="ingredients-list">
-                        <li class="ingredients-list-item">1 lb ground beef</li>
-                        <li class="ingredients-list-item">1/2 cup breadcrumbs <span style="color: red; font-size: 40px"> * </span></li>
-                        <li class="ingredients-list-item">1/4 cup milk</li>
-                        <li class="ingredients-list-item">1/4 cup Parmesan cheese</li>
-                        <li class="ingredients-list-item">2 tbsp parsley, chopped <span style="color: red; font-size: 40px"> * </span></li>
-                        <li class="ingredients-list-item">1 egg</li>
-                        <li class="ingredients-list-item">1 tsp salt</li>
-                        <li class="ingredients-list-item">1/2 tsp garlic powder</li>
-                        <li class="ingredients-list-item">1/2 tsp onion powder</li>
-                        <li class="ingredients-list-item">1/4 tsp black pepper</li>
-                        <li class="ingredients-list-item">2 tbsp olive oil</li>
-                        <li class="ingredients-list-item">8 oz spaghetti</li>
-                        <li class="ingredients-list-item">24 oz pasta sauce</li>
+                        <form ingredients>
+                          <li class="ingredients-list-item">&#10004; 1 lb ground beef</li>
+                          <li class="ingredients-list-item"><input type="checkbox"> 1/2 cup breadcrumbs </li>
+                          <li class="ingredients-list-item">&#10004; 1/4 cup milk</li>
+                          <li class="ingredients-list-item"> &#10004;1/4 cup Parmesan cheese</li>
+                          <li class="ingredients-list-item"><input type="checkbox"> 2 tbsp parsley, chopped </li>
+                          <li class="ingredients-list-item">&#10004; 1 egg</li>
+                          <li class="ingredients-list-item">&#10004; 1 tsp salt</li>
+                          <li class="ingredients-list-item">&#10004; 1/2 tsp garlic powder</li>
+                          <li class="ingredients-list-item">&#10004; 1/2 tsp onion powder</li>
+                          <li class="ingredients-list-item">&#10004; 1/4 tsp black pepper</li>
+                          <li class="ingredients-list-item">&#10004; 2 tbsp olive oil</li>
+                          <li class="ingredients-list-item">&#10004; 8 oz spaghetti</li>
+                          <li class="ingredients-list-item">&#10004; 24 oz pasta sauce</li>
+                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
+                            Add Selected Ingredients to Grocery List
+                          </button>
+                        </form>
                       </ul>
-                      <p>
-                        <span style="color: red; font-size: 40px"> * </span> = Ingredient not in stock
-                      </p>
-                      <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients();">
-                        Add Missing Ingredients to Shopping List
-                      </button>
                     </div>
                     <div class="recipe-page-instructions" style="display: None;">
                       <h2 class="instructions-heading">Instructions</h2>
@@ -182,26 +182,26 @@
                     <div class="recipe-page-ingredients" style="display: None;">
                       <h2 class="ingredients-heading">Ingredients</h2>
                       <ul class="ingredients-list">
-                        <li class="ingredients-list-item">1 cup dried chickpeas</li>
-                        <li class="ingredients-list-item">1/2 large onion, roughly chopped</li>
-                        <li class="ingredients-list-item">2 cloves garlic</li>
-                        <li class="ingredients-list-item">3 tablespoons fresh parsley, chopped <span style="color: red; font-size: 40px"> * </span></li>
-                        <li class="ingredients-list-item">1 teaspoon coriander</li>
-                        <li class="ingredients-list-item">1 teaspoon cumin</li>
-                        <li class="ingredients-list-item">1 teaspoon salt</li>
-                        <li class="ingredients-list-item">1/4 teaspoon black pepper</li>
-                        <li class="ingredients-list-item">1/4 teaspoon cayenne pepper</li>
-                        <li class="ingredients-list-item">Pinch of ground cardamom (optional) <span style="color: red; font-size: 40px"> * </span></li>
-                        <li class="ingredients-list-item">Vegetable oil for frying</li>
-                        <li class="ingredients-list-item">4 pita bread rounds <span style="color: red; font-size: 40px"> * </span></li>
-                        <li class="ingredients-list-item">Tahini sauce, lettuce, tomatoes, and cucumbers for serving</li>
+                        <form ingredients>
+                          <li class="ingredients-list-item">&#10004; 1 cup dried chickpeas</li>
+                          <li class="ingredients-list-item">&#10004; 1/2 large onion, roughly chopped</li>
+                          <li class="ingredients-list-item">&#10004; 2 cloves garlic</li>
+                          <li class="ingredients-list-item"><input type="checkbox"> 3 tablespoons fresh parsley, chopped </li>
+                          <li class="ingredients-list-item">&#10004; 1 teaspoon coriander</li>
+                          <li class="ingredients-list-item">&#10004; 1 teaspoon cumin</li>
+                          <li class="ingredients-list-item">&#10004; 1 teaspoon salt</li>
+                          <li class="ingredients-list-item">&#10004; 1/4 teaspoon black pepper</li>
+                          <li class="ingredients-list-item">&#10004; 1/4 teaspoon cayenne pepper</li>
+                          <li class="ingredients-list-item"><input type="checkbox"> Pinch of ground cardamom (optional) </li>
+                          <li class="ingredients-list-item">&#10004; Vegetable oil for frying</li>
+                          <li class="ingredients-list-item"><input type="checkbox"> 4 pita bread rounds </li>
+                          <li class="ingredients-list-item">&#10004; Tahini sauce, lettuce, tomatoes, and cucumbers for serving</li>
+                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
+                            Add Selected Ingredients to Grocery List
+                          </button>
+                        </form>
                       </ul>
-                      <p>
-                        <span style="color: red; font-size: 40px"> * </span> = Ingredient not in stock
-                      </p>
-                      <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients();">
-                        Add Missing Ingredients to Shopping List
-                      </button>
                     </div>
                     <div class="recipe-page-instructions" style="display: None;">
                       <h2 class="instructions-heading">Instructions</h2>
@@ -229,28 +229,28 @@
                     <div class="recipe-page-ingredients" style="display: None;">
                       <h2 class="ingredients-heading">Ingredients</h2>
                       <ul class="ingredients-list">
-                        <li class="ingredients-list-item">1 lb boneless, skinless chicken breasts, diced into 1-inch pieces</li>
-                        <li class="ingredients-list-item">1/2 cup unsalted dry-roasted peanuts <span style="color: red; font-size: 40px"> * </span></li>
-                        <li class="ingredients-list-item">2 tablespoons vegetable oil</li>
-                        <li class="ingredients-list-item">3 cloves garlic, minced</li>
-                        <li class="ingredients-list-item">1 teaspoon fresh ginger, minced</li>
-                        <li class="ingredients-list-item">3-4 dried red chili peppers (adjust to your spice preference)</li>
-                        <li class="ingredients-list-item">1/2 cup diced red bell pepper</li>
-                        <li class="ingredients-list-item">1/2 cup diced green bell pepper</li>
-                        <li class="ingredients-list-item">1/2 cup diced onion</li>
-                        <li class="ingredients-list-item">2 tablespoons soy sauce</li>
-                        <li class="ingredients-list-item">1 tablespoon rice vinegar</li>
-                        <li class="ingredients-list-item">1 tablespoon hoisin sauce <span style="color: red; font-size: 40px"> * </span></li>
-                        <li class="ingredients-list-item">1 teaspoon sugar</li>
-                        <li class="ingredients-list-item">1/2 teaspoon cornstarch (for sauce thickening)</li>
-                        <li class="ingredients-list-item">Sesame seeds and green onions for garnish (optional)</li>
+                        <form ingredients>
+                          <li class="ingredients-list-item">&#10004; 1 lb boneless, skinless chicken breasts, diced into 1-inch pieces</li>
+                          <li class="ingredients-list-item"><input type="checkbox"> 1/2 cup unsalted dry-roasted peanuts </li>
+                          <li class="ingredients-list-item">&#10004; 2 tablespoons vegetable oil</li>
+                          <li class="ingredients-list-item">&#10004; 3 cloves garlic, minced</li>
+                          <li class="ingredients-list-item">&#10004; 1 teaspoon fresh ginger, minced</li>
+                          <li class="ingredients-list-item">&#10004; 3-4 dried red chili peppers (adjust to your spice preference)</li>
+                          <li class="ingredients-list-item">&#10004; 1/2 cup diced red bell pepper</li>
+                          <li class="ingredients-list-item">&#10004; 1/2 cup diced green bell pepper</li>
+                          <li class="ingredients-list-item">&#10004; 1/2 cup diced onion</li>
+                          <li class="ingredients-list-item">&#10004; 2 tablespoons soy sauce</li>
+                          <li class="ingredients-list-item">&#10004; 1 tablespoon rice vinegar</li>
+                          <li class="ingredients-list-item"><input type="checkbox"> 1 tablespoon hoisin sauce </li>
+                          <li class="ingredients-list-item">&#10004; 1 teaspoon sugar</li>
+                          <li class="ingredients-list-item">&#10004; 1/2 teaspoon cornstarch (for sauce thickening)</li>
+                          <li class="ingredients-list-item">&#10004; Sesame seeds and green onions for garnish (optional)</li>
+                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
+                            Add Selected Ingredients to Grocery List
+                          </button>
+                        </form>
                       </ul>
-                      <p>
-                        <span style="color: red; font-size: 40px"> * </span> = Ingredient not in stock
-                      </p>
-                      <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients();">
-                        Add Missing Ingredients to Shopping List
-                      </button>
                     </div>
                     <div class="recipe-page-instructions" style="display: None;">
                       <h2 class="instructions-heading">Instructions</h2>
@@ -279,30 +279,30 @@
                     <div class="recipe-page-ingredients" style="display: None;">
                       <h2 class="ingredients-heading">Ingredients</h2>
                       <ul class="ingredients-list">
-                        <li class="ingredients-list-item">1 lb boneless, skinless chicken thighs or breasts, cut into bite-sized pieces</li>
-                        <li class="ingredients-list-item">2 tablespoons vegetable oil</li>
-                        <li class="ingredients-list-item">1 large onion, finely chopped</li>
-                        <li class="ingredients-list-item">4 cloves garlic, minced</li>
-                        <li class="ingredients-list-item">1-inch piece of fresh ginger, minced</li>
-                        <li class="ingredients-list-item">1 can (14 oz) crushed tomatoes</li>
-                        <li class="ingredients-list-item">1/4 cup plain yogurt</li>
-                        <li class="ingredients-list-item">1/4 cup heavy cream</li>
-                        <li class="ingredients-list-item">1/4 cup unsalted butter</li>
-                        <li class="ingredients-list-item">2 teaspoons garam masala</li>
-                        <li class="ingredients-list-item">1 teaspoon ground cumin</li>
-                        <li class="ingredients-list-item">1 teaspoon ground coriander</li>
-                        <li class="ingredients-list-item">1 teaspoon paprika</li>
-                        <li class="ingredients-list-item">1/2 teaspoon chili powder (adjust to your spice preference)</li>
-                        <li class="ingredients-list-item">Salt and pepper to taste</li>
-                        <li class="ingredients-list-item">Fresh cilantro leaves for garnish <span style="color: red; font-size: 40px"> * </span></li>
-                        <li class="ingredients-list-item">Cooked basmati rice or naan bread for serving</li>
+                        <form ingredients>
+                          <li class="ingredients-list-item">&#10004; 1 lb boneless, skinless chicken thighs or breasts, cut into bite-sized pieces</li>
+                          <li class="ingredients-list-item">&#10004; 2 tablespoons vegetable oil</li>
+                          <li class="ingredients-list-item">&#10004; 1 large onion, finely chopped</li>
+                          <li class="ingredients-list-item">&#10004; 4 cloves garlic, minced</li>
+                          <li class="ingredients-list-item">&#10004; 1-inch piece of fresh ginger, minced</li>
+                          <li class="ingredients-list-item">&#10004; 1 can (14 oz) crushed tomatoes</li>
+                          <li class="ingredients-list-item">&#10004; 1/4 cup plain yogurt</li>
+                          <li class="ingredients-list-item">&#10004; 1/4 cup heavy cream</li>
+                          <li class="ingredients-list-item">&#10004; 1/4 cup unsalted butter</li>
+                          <li class="ingredients-list-item">&#10004; 2 teaspoons garam masala</li>
+                          <li class="ingredients-list-item">&#10004; 1 teaspoon ground cumin</li>
+                          <li class="ingredients-list-item">&#10004; 1 teaspoon ground coriander</li>
+                          <li class="ingredients-list-item">&#10004; 1 teaspoon paprika</li>
+                          <li class="ingredients-list-item">&#10004; 1/2 teaspoon chili powder (adjust to your spice preference)</li>
+                          <li class="ingredients-list-item">&#10004; Salt and pepper to taste</li>
+                          <li class="ingredients-list-item"><input type="checkbox"> Fresh cilantro leaves for garnish </li>
+                          <li class="ingredients-list-item">&#10004; Cooked basmati rice or naan bread for serving</li>
+                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
+                            Add Selected Ingredients to Grocery List
+                          </button>
+                        </form>
                       </ul>
-                      <p>
-                        <span style="color: red; font-size: 40px"> * </span> = Ingredient not in stock
-                      </p>
-                      <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients();">
-                        Add Missing Ingredients to Shopping List
-                      </button>
                     </div>
                     <div class="recipe-page-instructions" style="display: None;">
                       <h2 class="instructions-heading">Instructions</h2>
@@ -333,22 +333,22 @@
                     <div class="recipe-page-ingredients" style="display: None;">
                       <h2 class="ingredients-heading">Ingredients</h2>
                       <ul class="ingredients-list">
-                        <li class="ingredients-list-item">1 pound pizza dough</li>
-                        <li class="ingredients-list-item">2 tablespoons unsalted butter, melted</li>
-                        <li class="ingredients-list-item">3 cloves garlic, minced</li>
-                        <li class="ingredients-list-item">1 tablespoon fresh parsley, chopped <span style="color: red; font-size: 40px"> * </span></li>
-                        <li class="ingredients-list-item">1/4 cup grated Parmesan cheese</li>
-                        <li class="ingredients-list-item">Salt to taste</li>
-                        <li class="ingredients-list-item">Olive oil for brushing</li>
-                        <li class="ingredients-list-item">Additional grated Parmesan cheese for topping (optional)</li>
-                        <li class="ingredients-list-item">Marinara sauce for dipping (optional)</li>
+                        <form>
+                          <li class="ingredients-list-item">&#10004; 1 pound pizza dough</li>
+                          <li class="ingredients-list-item">&#10004; 2 tablespoons unsalted butter, melted</li>
+                          <li class="ingredients-list-item">&#10004; 3 cloves garlic, minced</li>
+                          <li class="ingredients-list-item"><input type="checkbox"> 1 tablespoon fresh parsley, chopped </li>
+                          <li class="ingredients-list-item">&#10004; 1/4 cup grated Parmesan cheese</li>
+                          <li class="ingredients-list-item">&#10004; Salt to taste</li>
+                          <li class="ingredients-list-item">&#10004; Olive oil for brushing</li>
+                          <li class="ingredients-list-item">&#10004; Additional grated Parmesan cheese for topping (optional)</li>
+                          <li class="ingredients-list-item">&#10004; Marinara sauce for dipping (optional)</li>
+                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
+                            Add Selected Ingredients to Grocery List
+                          </button>
+                        </form>
                       </ul>
-                      <p>
-                        <span style="color: red; font-size: 40px"> * </span> = Ingredient not in stock
-                      </p>
-                      <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients();">
-                        Add Missing Ingredients to Shopping List
-                      </button>
                     </div>
                     <div class="recipe-page-instructions" style="display: None;">
                       <h2 class="instructions-heading">Instructions</h2>
@@ -371,7 +371,7 @@
 
               <template id="recipe-page">
                 <div class="recipe-page-heading">
-                  <h2 class="recipe-name-text">Spaghetti and Meatballs</h2>
+                  <h2 class="recipe-name-text">Spaghetti & Meatballs</h2>
                   <img class="recipe-page-pic" src="../images/spaghetti-pic.jpeg" alt="spaghetti-pic">
                   <div class="recipe-page-prep-time">
                     <img id="clock-icon" src="../icons/clock-icon.png" aria-hidden="true" alt="clockicon">
@@ -381,27 +381,27 @@
                 <div class="recipe-page-ingredients">
                   <h2 class="ingredients-heading">Ingredients</h2>
                   <ul class="ingredients-list">
-                    <li class="ingredients-list-item">1 lb ground beef</li>
-                    <li class="ingredients-list-item">1/2 cup breadcrumbs <span style="color: red; font-size: 40px"> * </span></li>
-                    <li class="ingredients-list-item">1/4 cup milk</li>
-                    <li class="ingredients-list-item">1/4 cup Parmesan cheese</li>
-                    <li class="ingredients-list-item">2 tbsp parsley, chopped <span style="color: red; font-size: 40px"> * </span></li>
-                    <li class="ingredients-list-item">1 egg</li>
-                    <li class="ingredients-list-item">1 tsp salt</li>
-                    <li class="ingredients-list-item">1/2 tsp garlic powder</li>
-                    <li class="ingredients-list-item">1/2 tsp onion powder</li>
-                    <li class="ingredients-list-item">1/4 tsp black pepper</li>
-                    <li class="ingredients-list-item">2 tbsp olive oil</li>
-                    <li class="ingredients-list-item">8 oz spaghetti</li>
-                    <li class="ingredients-list-item">24 oz pasta sauce</li>
-                    <li class="ingredients-list-item">Additional Parmesan cheese and parsley for garnish (optional)</li>
-                  </ul>
-                  <p>
-                    <span style="color: red; font-size: 40px"> * </span> = Ingredient not in stock
-                  </p>
-                  <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients();">
-                    Add Missing Ingredients to Shopping List
-                  </button>
+                    <form ingredients>
+                      <li class="ingredients-list-item">&#10004; 1 lb ground beef</li>
+                      <li class="ingredients-list-item"> <input type="checkbox"> 1/2 cup breadcrumbs </li>
+                      <li class="ingredients-list-item">&#10004; 1/4 cup milk</li>
+                      <li class="ingredients-list-item">&#10004; 1/4 cup Parmesan cheese</li>
+                      <li class="ingredients-list-item"><input type="checkbox"> 2 tbsp parsley, chopped </li>
+                      <li class="ingredients-list-item">&#10004; 1 egg</li>
+                      <li class="ingredients-list-item">&#10004; 1 tsp salt</li>
+                      <li class="ingredients-list-item">&#10004; 1/2 tsp garlic powder</li>
+                      <li class="ingredients-list-item">&#10004; 1/2 tsp onion powder</li>
+                      <li class="ingredients-list-item">&#10004; 1/4 tsp black pepper</li>
+                      <li class="ingredients-list-item">&#10004; 2 tbsp olive oil</li>
+                      <li class="ingredients-list-item">&#10004; 8 oz spaghetti</li>
+                      <li class="ingredients-list-item">&#10004; 24 oz pasta sauce</li>
+                      <li class="ingredients-list-item">&#10004; Additional Parmesan cheese and parsley for garnish (optional)</li>
+                      <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                      <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
+                        Add Selected Ingredients to Grocery List
+                      </button>
+                    </form>
+                  </ul>     
                 </div>
                 <div class="recipe-page-instructions">
                   <h2 class="instructions-heading">Instructions</h2>

@@ -73,7 +73,8 @@ body {
 }
 
 .main-section {
-  overflow-x: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   width: 100%;
 }
 
@@ -117,8 +118,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-width: 12px;
-height: 12px;
+  width: 18px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -194,7 +195,7 @@ height: 12px;
 }
 
 #recipe-section {
-  margin: 150px 10px;
+  margin: 120px 10px;
   display: flex;
   /* justify-content: auto; note: the validator says auto is not a justify-content value */
   flex-direction: column;
@@ -209,7 +210,7 @@ height: 12px;
 
 .recipe-page-ingredients {
   color: #635C70;
-  font-size: 25px;
+  font-size: 28px;
   line-height: 1.8;
   margin-left: 40px;
   margin-right: 40px;
@@ -220,7 +221,7 @@ height: 12px;
 
 .recipe-page-instructions {
   color: #635C70;
-  font-size: 25px;
+  font-size: 28px;
   line-height: 1.8;
   margin-left: 40px;
   margin-right: 40px;
@@ -282,13 +283,6 @@ height: 12px;
   width: 100%;
 }
 
-.recipe-title {
-  font-size: 35px;
-  font-weight: bold;
-  /* margin: 10px 0px; */
-  color: #635C70;
-}
-
 #clock-icon {
   height: 35px;
   color: #208AAE;
@@ -312,7 +306,7 @@ a.fill-div {
 #addRecipe {
   display: none;
   background-color: #208AAE;
-  height: 850px;
+  height: 880px;
   margin-left: 15px;
   margin-right: 15px;
   color: white;
@@ -324,7 +318,7 @@ a.fill-div {
 #filterMenu {
   display: none;
   background-color: #208AAE;
-  height: 850px;
+  height: 890px;
   margin-left: 15px;
   margin-right: 15px;
   color: white;
@@ -370,6 +364,18 @@ form[filter]{
   padding: 20px;
   font-family: Helvetica;
   font-family: Helvetica;
+}
+
+ul.ingredients-list {
+  list-style-type: none;
+}
+
+input[type='checkbox'] {
+  width:25px;
+  height:25px;
+  /* background:white;
+  border-radius:5px;
+  border:2px solid #555; */
 }
 
 
@@ -575,7 +581,10 @@ input[type="range"] {
   padding: 10px 10px;
   border-radius: 10px;
   transition: background-color 0.3s;
-  font-size: 25px;
+  font-size: 28px;
+  height: 100px;
+  width: 400px;
+  box-shadow: 5px 10px 8px #888888;
 }
 
 /* Style the button on hover */
@@ -857,8 +866,9 @@ ul#items-list li button {
 }
 
 .recipe-title {
-  font-size: 30px;
+  font-size: 32px;
   color: #635C70;
+  font-weight: bold;
 }
 
 .recipe-text-row {
@@ -906,11 +916,11 @@ ul#items-list li button {
 }
 
 .recipe-square {
-  height: 150px;
+  height: 180px;
   width: 550px;
   padding: 10px;
   border: 3px solid black;
-  margin: 30px 10px;
+  margin: 20px 10px;
   display: flex;
   border-radius: 10px;
   box-shadow: 5px 10px 8px #888888; /* Add drop shadow */

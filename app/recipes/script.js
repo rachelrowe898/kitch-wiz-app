@@ -14,18 +14,18 @@ function addMissingIngredients() {
   var button = document.querySelector('.addMissingIngredientsButton'); // Select the button element
   
   console.log(button);
-  if (button) {
-    button.textContent = "Added Missing Ingredients to Shopping List \u2713"; // Change the button text
-    button.disabled = true; // Disable the button to prevent further clicks
-    button.style.border = "none";
-    button.style.color = "#208AAE";
-    button.style.backgroundColor = "white";
+  if (button && button.style.backgroundColor != "red") {
+    button.textContent = "Remove Selected Ingredients from Grocery List"; // Change the button text
+    button.style.backgroundColor = "red";
+  } else {
+    button.textContent = "Add Selected Ingredients to Grocery List"; // Change the button text
+    button.style.backgroundColor = "#208AAE";
   }
 }
 
 function enableSubmit(){
   let inputs = document.querySelectorAll('div[required]'); // Enter your class name for a required field, this should also be reflected within your form fields.
-  let btn = document.querySelector('input[type="submit"]');
+  let btn = document.querySelector('form#add input[type="submit"]');
   let isValid = true;
   for (var i = 0; i < inputs.length; i++){
     let changedInput = inputs[i];
