@@ -1,5 +1,6 @@
 body {
     margin-bottom: 200%;
+    overflow-y: scroll;
 }
 
 .wrapper {
@@ -15,6 +16,7 @@ body {
     height: 960px;
     display: flex;
     justify-content: center;
+    overflow: auto;
 }
 
 .main-section {
@@ -103,12 +105,18 @@ body {
     align-items: center;
 }
 
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
 .user-profile {
     border: 2px solid black;
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
     cursor: pointer;
+    width: 80%;
+    overflow: auto;
 }
 
 .user-name {
@@ -176,6 +184,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    overflow: scroll;
 }
 
 .recipe-heading-text {
@@ -273,8 +282,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 50px;
+    width: 100%;
+    overflow: auto;
+    margin: 180px 0px;
 }
 .user-profile-heading {
     font-size: 36px;
@@ -284,6 +294,7 @@ body {
 .user-profile-content {
     text-align: center;
     padding: 20px;
+    overflow: auto;
 }
 
 select {
@@ -293,9 +304,20 @@ select {
 }
 
 .profile-detail {
+    width: 100%;
     font-size: 20px;
     margin-bottom: 20px;
     display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    overflow: auto;
+}
+
+.profile-detail-allergies {
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    /* display: flex; */
     flex-direction: column;
     font-weight: bold;
 }
