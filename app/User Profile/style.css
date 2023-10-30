@@ -406,3 +406,15 @@ select {
 .space {
     margin: 20px;  
 }
+
+input[type="text"] {
+    width: 80%;
+    box-sizing: border-box;
+    font-size: 25px;
+    border-radius: 10px;
+    border: 2px solid #208AAE;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}

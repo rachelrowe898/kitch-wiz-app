@@ -86,3 +86,7 @@ function toggleOtherAllergyInput() {
       }
   });
 }
+
+function goBackToUserProfile() {
+  window.location.href = "userProfile.html"; 
+}
