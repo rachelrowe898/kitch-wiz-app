@@ -43,9 +43,9 @@ body {
   /* Hide the links inside the navigation menu (except for logo/home) */
   .topnav #menuLinks {
     display: none;
-    font-size: 30px;
+    font-size: 27px;
     background-color: #635C70;
-    padding: 10px 16px;
+    padding: 10px 16px 10px 0px;
   }
   
   /* Style navigation menu links */
