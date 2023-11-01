@@ -148,6 +148,10 @@ h2 {
     color: white;
 }
 
+.add-profile-button:hover {
+    background-color: #16617a;
+}
+
 #user-groups-button {
     display: flex;
     justify-content: center;
@@ -166,6 +170,10 @@ h2 {
 .delete-profile-button {
     background-color: #8b0f0f;
     color: white;
+}
+
+.delete-profile-button:hover {
+    background-color: #b00f0f;
 }
 
 ::-webkit-scrollbar {
@@ -339,6 +347,9 @@ select {
     font-weight: bold;
 }
 
+.save-profile-button:hover {
+    background-color: #16617a;
+}
 #user-groups-button {
     background-color: #3CB371;
 }
@@ -353,6 +364,10 @@ select {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
+.group-square:hover {
+    transform: scale(1.1);
+  }
+  
 .group-header-row {
     margin-top: 120px;
     align-content: center;
@@ -362,6 +377,7 @@ select {
     flex-direction: column;
     align-items: left;
     padding: 5px;
+    margin-left: 15px;
 }
 
 .group-info {
@@ -390,6 +406,7 @@ select {
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
+    margin-left: 10px;
   }
   
 /* Styles for the group member count */
@@ -397,6 +414,7 @@ select {
     font-size: 20px;
     font-weight: bold;
     color: #333;
+    margin-left: 10px;
 }
   
 #group-listing {
