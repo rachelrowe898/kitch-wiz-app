@@ -37,14 +37,16 @@ function saveUserProfile() {
   console.log("Preparation Difficulty: " + difficulty);
   console.log("Diet: " + diet);
 
-  showPopup("User profile is saved! Your profile is Food Preference: " + foodPreference + ", Allergies: " + allergies + ", Preparation Difficulty: " + difficulty + ", Diet: " + diet + "."); 
+  showPopup("User profile is saved!<br><br>Food Preference: " + foodPreference + "<br>Allergies: " + allergies + "<br>Preparation Difficulty: " + difficulty + "<br>Diet: " + diet + ".");
+
+
 }
 
 
 function showPopup(message) {
   var messageDisplay = document.createElement("div");
   messageDisplay.className = "message-display";
-  messageDisplay.textContent = message; // Set the text content of the message display
+  messageDisplay.innerHTML = message; 
 
   // Insert the message display at the bottom of the user-profile-page element
   var userProfPage = document.querySelector(".user-profile");
@@ -52,7 +54,7 @@ function showPopup(message) {
 
   setTimeout(function () {
     messageDisplay.style.display = "none";
-  }, 2000); // Message display disappears after 2 seconds
+  }, 5000); 
 }
 
 function openUserProfile(username) {
