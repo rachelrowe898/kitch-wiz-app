@@ -119,8 +119,10 @@ function removeItemFromLocalStorage(itemText, storageKey) {
 function addItem() {
   const itemInput = document.getElementById("item-input");
   const quantityInput = document.getElementById("item-quantity");
+  const expirationInput = document.getElementById("item-expiration");
   const itemText = itemInput.value.trim();
   const quantity = parseInt(quantityInput.value);
+  const expiration = expirationInput.value;
   const listSelector = document.getElementById("list-selector");
   const selectedList = listSelector.value; // Get the selected list (fridge or freezer)
 

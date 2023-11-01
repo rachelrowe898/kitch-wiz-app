@@ -587,7 +587,7 @@ input[type="range"] {
 
 /* Style the Kitchen Stock buttons */
 .section-button {
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   color: white;
   padding: 12px 24px;
   border: none;
@@ -638,7 +638,7 @@ input[type="range"] {
 }
 
 #add-item-button, #remove-item-button {
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -710,7 +710,7 @@ ul#items-list li button {
 
 .item-div button {
   padding: 5px 10px;
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   color: white;
   border: none;
   border-radius: 5px;
@@ -729,7 +729,7 @@ ul#items-list li button {
 }
 
 #back-button {
-  background-color: #208AAE;;
+  background-color: #2C3C4B;;
   color: white;
   border: none;
   border-radius: 5px;
@@ -795,7 +795,7 @@ ul#items-list li button {
 }
 
 .add-profile-button {
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   color: white;
 }
 
@@ -890,7 +890,7 @@ ul#items-list li button {
 }
 
 .add-profile-button {
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   color: white;
 }
 
@@ -933,7 +933,7 @@ ul#items-list li button {
 }
 
 .save-profile-button {
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   color: white;
   padding: 10px 20px;
   font-size: 20px;
@@ -967,7 +967,7 @@ ul#items-list li button {
 
 #create-list {
   display: block;
-  background-color: #208aae;
+  background-color: #2C3C4B;
   height: 550px;
   color: white;
   justify-content: left;
