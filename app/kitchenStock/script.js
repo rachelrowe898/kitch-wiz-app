@@ -12,7 +12,6 @@ function openNav() {
 // Function to load items from local storage
 function loadItems(storageKey, itemsListId) {
   const itemsList = document.getElementById(itemsListId);
-  itemsList.innerHTML = ''; // Clear the current list
 
   // Check if there are items in local storage
   if (localStorage.getItem(storageKey)) {
@@ -27,20 +26,24 @@ function loadItems(storageKey, itemsListId) {
 
 // Call the function to load items when the page loads for the fridge and freezer lists
 window.addEventListener("load", function() {
-  loadItems("fridgeItems", "fridge-items-list");
   loadItems("freezerItems", "freezer-items-list");
 });
+window.addEventListener("load", function() {
+  loadItems("fridgeItems", "fridge-items-list");
+});
 
+// whereToPut, itemText, quantity, typeInput, expirationInput
 // Function to create a list item element
-function createListItem(itemText, quantity, storageKey) {
+function createListItem(storageKey, itemText, quantity, type, expiration) {
   const listItem = document.createElement("li");
 
-  // Create a div to hold the item name and quantity
+  // Create a div to hold the item info
   const itemDiv = document.createElement("div");
   itemDiv.className = "item-div";
 
   const itemName = document.createElement("span");
   itemName.textContent = itemText;
+
 
   // Create a quantity input and buttons
   const itemQuantity = document.createElement("input");
@@ -48,6 +51,7 @@ function createListItem(itemText, quantity, storageKey) {
   itemQuantity.value = quantity;
   itemQuantity.min = 1;
   itemQuantity.className = "quantity-input";
+  
 
   const increaseButton = document.createElement("button");
   increaseButton.textContent = "+";
@@ -69,6 +73,11 @@ function createListItem(itemText, quantity, storageKey) {
       removeItemFromLocalStorage(itemText, storageKey);
     }
   });
+  // Create elements for displaying type and expiration
+  const itemType = document.createElement("span");
+  itemType.textContent = "Type: " + type;
+  const itemExpiration = document.createElement("span");
+  itemExpiration.textContent = "Expiration: " + expiration;
 
   // Create a "Remove" button
   const removeButton = document.createElement("button");
@@ -80,12 +89,50 @@ function createListItem(itemText, quantity, storageKey) {
 
   itemDiv.appendChild(itemName);
   itemDiv.appendChild(itemQuantity);
+  itemDiv.appendChild(itemType);
+  itemDiv.appendChild(itemExpiration);
   itemDiv.appendChild(increaseButton);
   itemDiv.appendChild(decreaseButton);
   listItem.appendChild(itemDiv);
   listItem.appendChild(removeButton);
 
   return listItem;
+}
+
+// Function to add an item with a quantity to the list
+function addItem() {
+  const whereToPutSelector = document.getElementById("list-selector-where");
+  const whereToPut = whereToPutSelector.value; // Get the selected list (fridge or freezer)
+  const itemInput = document.getElementById("item-input");
+  const quantityInput = document.getElementById("item-quantity");
+  const typeInputSelector = document.getElementById("list-selector-type");
+  const typeInput = typeInputSelector.value; // Get the selected type
+  const expirationInput = document.getElementById("item-expiration");
+  const itemText = itemInput.value.trim();
+  const quantity = parseInt(quantityInput.value);
+  const expiration = expirationInput.value;
+  
+  
+  if (itemText !== "" && !isNaN(quantity) && quantity > 0) {
+    const itemsListId = `${whereToPut}-items-list`; // Create the itemsListId based on the selected list
+    console.log(itemsListId);
+    const itemsList = document.getElementById(itemsListId);
+    const listItem = createListItem(whereToPut, itemText, quantity, typeInput, expirationInput);
+
+    // Save the item to local storage
+    const storageKey = `${whereToPut}Items`;
+    saveItemToLocalStorage(itemText, quantity, storageKey);
+
+    itemsList.appendChild(listItem);
+    itemInput.value = "";
+    quantityInput.value = "";
+  }
+}
+
+document.getElementById("add-item-button").addEventListener("click", addItem);
+
+function goBack() {
+  location.href = '../kitchenStock/kitchenStock.html';
 }
 
 // Function to save an item to local storage
@@ -113,37 +160,4 @@ function removeItemFromLocalStorage(itemText, storageKey) {
 
   const updatedItems = items.filter(item => item.name !== itemText);
   localStorage.setItem(storageKey, JSON.stringify(updatedItems));
-}
-
-// Function to add an item with a quantity to the list
-function addItem() {
-  const itemInput = document.getElementById("item-input");
-  const quantityInput = document.getElementById("item-quantity");
-  const expirationInput = document.getElementById("item-expiration");
-  const itemText = itemInput.value.trim();
-  const quantity = parseInt(quantityInput.value);
-  const expiration = expirationInput.value;
-  const listSelector = document.getElementById("list-selector");
-  const selectedList = listSelector.value; // Get the selected list (fridge or freezer)
-
-  if (itemText !== "" && !isNaN(quantity) && quantity > 0) {
-    const itemsListId = `${selectedList}-items-list`; // Create the itemsListId based on the selected list
-    console.log(itemsListId);
-    const itemsList = document.getElementById(itemsListId);
-    const listItem = createListItem(itemText, quantity, selectedList);
-
-    // Save the item to local storage
-    const storageKey = `${selectedList}Items`;
-    saveItemToLocalStorage(itemText, quantity, storageKey);
-
-    itemsList.appendChild(listItem);
-    itemInput.value = "";
-    quantityInput.value = "";
-  }
-}
-
-document.getElementById("add-item-button").addEventListener("click", addItem);
-
-function goBack() {
-  location.href = '../kitchenStock/kitchenStock.html';
 }
