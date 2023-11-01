@@ -3,6 +3,10 @@ body {
     overflow-y: scroll;
 }
 
+h2 {
+    margin: 0px;
+}
+
 .wrapper {
     position: absolute;
 }
@@ -431,3 +435,8 @@ input[type="checkbox"] {
     margin: 10px;
     line-height: 1.5;
   }
+
+  .profile-detail-allergies input[type="checkbox"] {
+    transform: scale(1.5);
+  }
+  
