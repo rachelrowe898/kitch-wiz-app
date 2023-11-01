@@ -18,7 +18,8 @@
                   <!-- Navigation links (hidden by default) -->
                   <div id="menuLinks">
                     <a href="#recipes" class="nav-link" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
-                    <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen Stock</a>
+                    <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen</a>
+                    <a href="#shopping" class="nav-link" onclick="location.href='../Shopping/shopping.html';">Shopping</a>
                     <a href="#profile" class="nav-link" onclick="location.href='../User Profile/userProfile.html';">Profile</a>
                   </div>
                   <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
@@ -28,63 +29,76 @@
                 </div>
             </div>
 
+            <div class="main-section">
+                <div class="user-profile-page">
+                    <!-- Profile Information -->
+                    <div class="user-profile">
+                        <h1 class="user-profile-heading">User Profile</h1>
+                        <div class="user-details">
+                            <div class="profile-detail">
+                                <label for="food-preference">Cusine:</label>
+                                <select id="food-preference">
+                                    <option value="Japanese">American</option>
+                                    <option value="Chinese">Chinese</option> 
+                                    <option value="Greek">Greek</option>
+                                    <option value="Indian">Indian</option>
+                                    <option value="Italian">Italian</option>
+                                    <option value="Japanese">Japanese</option>
+                                    <option value="Mediterranean">Mediterranean</option>
+                                    <option value="Mexican">Mexican</option>
+                                    <option value="Thai">Thai</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
 
-            <div class="user-profile-page">
-                <!-- Profile Information -->
-                <div class="user-profile">
-                    <h1 class="user-profile-heading">User Profile</h1>
-                    <div class="user-details">
-                        <div class="profile-detail">
-                            <label for="food-preference">Cusine:</label>
-                            <select id="food-preference">
-                                <option value="Japanese">American</option>
-                                <option value="Indian">Indian</option>
-                                <option value="Italian">Italian</option>
-                                <option value="Japanese">Japanese</option>
-                                <option value="Mexican">Mexican</option>
-                                <!-- Add more options as needed -->
-                            </select>
+                            <div class="profile-detail-allergies">
+                                <label for="allergies">Allergies:</label><br>
+                                    <input type="checkbox" id="Milk" name="allergies" value="Milk">
+                                    <label for="Milk">Milk</label><br>
+                                    <input type="checkbox" id="Eggs" name="allergies" value="Eggs">
+                                    <label for="Eggs">Eggs</label><br>
+                                    <input type="checkbox" id="Fish" name="allergies" value="Fish">
+                                    <label for="Fish">Fish</label><br>
+                                    <input type="checkbox" id="Seafood" name="allergies" value="Seafood">
+                                    <label for="Seafood">Seafood</label><br>
+                                    <input type="checkbox" id="Nuts" name="allergies" value="Nuts">
+                                    <label for="Nuts">Nuts</label><br>
+                                    <input type="checkbox" id="Wheat" name="allergies" value="Wheat">
+                                    <label for="Wheat">Wheat</label><br>
+                                    <input type="checkbox" id="Soy" name="allergies" value="Soy">
+                                    <label for="Soy">Soy</label><br>
+                                    <input type="checkbox" id="otherAllergyCheckbox" name="allergies" value="Other">
+                                    <label for="otherAllergyCheckbox">Other:</label>
+                                    <input type="text" id="otherAllergy" name="otherAllergy" placeholder="Enter other allergies...">
+                            </div>
+
+                            <div class="profile-detail">
+                                <label for="difficulty">Skill Level:</label>
+                                <select id="difficulty">
+                                    <option value="Easy">Beginner</option>
+                                    <option value="Medium">Intermediate</option>
+                                    <option value="Hard">Expert</option>
+                                </select>
+                            </div>
+                            <div class="profile-detail">
+                                <label for="diet">Diet:</label>
+                                <select id="diet">
+                                    <option value="none">None</option>
+                                    <option value="vegan">Vegan</option>
+                                    <option value="vegetarian">Vegetarian</option>
+                                    <option value="keto">Keto</option>
+                                    <option value="paleo">Paleo</option>
+                                    <option value="gluten-free">Gluten-Free</option>
+                                    <option value="dairy-free">Dairy-Free</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="profile-detail">
-                            <label for="allergies">Allergies:</label>
-                            <select id="allergies" multiple>
-                                <option value="Milk">Milk</option>
-                                <option value="Eggs">Eggs</option>
-                                <option value="Fish">Fish</option>
-                                <option value="Seafood">Seafood</option>
-                                <option value="Nuts">Nuts</option>
-                                <option value="Wheat">Wheat</option>
-                                <option value="Soy">Soy</option>
-                                <!-- Add more options as needed -->
-                                <!-- <input type="text" id="allergies" placeholder="Enter allergies..."> -->
-                            </select>
-                        </div>
-                        <div class="profile-detail">
-                            <label for="difficulty">Difficulty:</label>
-                            <select id="difficulty">
-                                <option value="Easy">Easy</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Hard">Hard</option>
-                            </select>
-                        </div>
-                        <div class="profile-detail">
-                            <label for="diet">Diet:</label>
-                            <select id="diet">
-                                <option value="none">None</option>
-                                <option value="vegan">Vegan</option>
-                                <option value="vegetarian">Vegetarian</option>
-                                <option value="keto">Keto</option>
-                                <option value="paleo">Paleo</option>
-                                <option value="gluten-free">Gluten-Free</option>
-                                <option value="dairy-free">Dairy-Free</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Save button to update profile -->
-                    <button class="save-profile-button" onclick="saveUserProfile()">Save</button>
-                    <button id="user-groups-button" onclick="goBackToUserGroups()">User Groups</button>
-                </div> 
-            </div>            
+                        <!-- Save button to update profile -->
+                        <button class="save-profile-button" onclick="saveUserProfile()">Save</button>
+                        <button id="user-groups-button" onclick="goBackToUserGroups()">User Groups</button>
+                    </div> 
+                </div>
+            </div>
         </div>
     </main>
 </body>

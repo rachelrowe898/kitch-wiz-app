@@ -72,3 +72,21 @@ function createUserGroup() {
   // Redirect back to userGroups.html
   window.location.href = "userGroups.html";
 }
+
+// Function to enable/disable the input based on the checkbox state
+function toggleOtherAllergyInput() {
+  const otherCheckbox = document.getElementById('otherAllergyCheckbox');
+  const otherInput = document.getElementById('otherAllergy');
+
+  otherCheckbox.addEventListener('change', function () {
+      if (this.checked) {
+          otherInput.disabled = false;
+      } else {
+          otherInput.disabled = true;
+      }
+  });
+}
+
+function goBackToUserProfile() {
+  window.location.href = "userProfile.html"; 
+}
