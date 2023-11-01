@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchWiz</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="wrapper">
+    <main>
+        <div class="appBox">
+          <div class="app-heading">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+              <!-- Top Navigation Menu -->
+              <div class="topnav">
+                <a href="#home" class="active">KitchWiz</a>
+                <!-- Navigation links (hidden by default) -->
+                <div id="menuLinks">
+                    <a href="#recipes" class="nav-link" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
+                    <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen</a>
+                    <a href="#shopping" class="nav-link" onclick="location.href='../Shopping/shopping.html';">Shopping</a>
+                    <a href="#profile" class="nav-link" onclick="location.href='../User Profile/userProfile.html';">Profile</a>
+                </div>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+          </div>
+          
+          <div id="stock-section">
+            <div class="stock-header">
+              <button id="back-button" onclick="goBack()">Back</button>
+              <h1 class="stock-heading-text">Add Grocery Item</h1>
+          </div>
+            <div class="stock-list">
+                <div>
+                    <label for="list-selector-where" class="label-large">Add to: </label>
+                    <select id="list-selector-where" class="dropdown-large">
+                        <option value="fridge">Fridge</option>
+                        <option value="freezer">Freezer</option>
+                    </select>
+                    <br>
+                    <input type="text" id="item-input" placeholder="Item Name">
+                    <br>
+                    <input type="number" id="item-quantity" placeholder="Quantity">
+                    <select id="list-selector-type" class="dropdown-large">
+                        <option value="count">Count</option>
+                        <option value="pounds">Pound(s)</option>
+                        <option value="ounces">Ounce(s)</option>
+                        <option value="gallons">Gallon(s)</option>
+                        <option value="quarts">Quart(s)</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label for="item-expiration" class="label-large">Expiration Date: </label>
+                    <input type="date" id="item-expiration" class="dropdown-large">
+                    <br>
+                    <button id="add-item-button" class="section-button">Add</button>
+                  </div>
+            </div>
+        </div>
+        </div>
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

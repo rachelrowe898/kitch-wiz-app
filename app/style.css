@@ -601,7 +601,7 @@ input[type="range"] {
   padding: 12px 24px;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 40px;
   cursor: pointer;
   margin: 10px;
   transition: 0.3s;
@@ -617,32 +617,51 @@ input[type="range"] {
   flex-direction: column;
 }
 
-/* Styling for the Fridge Stock Section */
-#stock-section {
-  text-align: center;
-  background-color: #F2F2F2;
-  padding: 20px;
-  border-radius: 10px;
-}
-
 .stock-heading-text {
-  font-size: 28px;
+  font-size: 48px;
   margin-bottom: 20px;
 }
+
+.heading-text {
+  font-size: 48px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
 
 .stock-list {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+/* Increase font size for label */
+.label-large {
+  font-size: 20px; /* Adjust the size as needed */
+}
+
+/* Increase font size and dimensions for the select */
+.dropdown-large {
+  font-size: 20px; /* Adjust the size as needed */
+  width: 150px; /* Adjust the width as needed */
+  padding: 12px; /* Adjust the padding as needed */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#item-quantity {
+  width: 200px;
+}
 
 #item-input {
-  width: 300px;
+  width: 400px;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
   outline: none;
 }
 
