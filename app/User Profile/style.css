@@ -97,10 +97,10 @@ h2 {
   }
 
 .user-profile-heading {
-    font-size: 30px;
+    font-size: 36px;
     margin: 10px;
     text-align: center;
-    color: #635C70;
+    color: #208AAE;
 }
 
 .user-profiles {
@@ -205,7 +205,7 @@ h2 {
     padding: 5px 5px;
     flex-direction: column;
     font-size: 40px;
-    color: #635C70;
+    color: #208AAE;
     margin-left: 15px;
 }
 
@@ -298,11 +298,7 @@ h2 {
     overflow: scroll;
     margin: 180px 0px;
 }
-.user-profile-heading {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #635C70;
-}
+
 .user-profile-content {
     text-align: center;
     padding: 20px;
@@ -329,7 +325,6 @@ select {
     width: 100%;
     font-size: 20px;
     margin-bottom: 20px;
-    /* display: flex; */
     flex-direction: column;
     font-weight: bold;
 }
@@ -404,7 +399,7 @@ select {
 .group-title {
     font-size: 40px;
     font-weight: bold;
-    color: #333;
+    color: #16617a;
     margin-bottom: 10px;
     margin-left: 10px;
   }
@@ -462,5 +457,4 @@ input[type="checkbox"] {
   .profile-detail-allergies input[type="checkbox"]:hover {
     transform: scale(1.1);
   }
-  
   

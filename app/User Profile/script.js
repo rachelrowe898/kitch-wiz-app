@@ -31,15 +31,7 @@ function saveUserProfile() {
     allergies.push(document.getElementById("otherAllergy").value);
   }
 
-  // log the values to the console.
-  console.log("Food Preference: " + foodPreference);
-  console.log("Allergies: " + allergies);
-  console.log("Preparation Difficulty: " + difficulty);
-  console.log("Diet: " + diet);
-
-  showPopup("User profile is saved!<br><br>Food Preference: " + foodPreference + "<br>Allergies: " + allergies + "<br>Preparation Difficulty: " + difficulty + "<br>Diet: " + diet + ".");
-
-
+  showPopup("<u>User profile is saved!</u><br><br><u>Food Preference:</u> " + foodPreference + "<br><u>Allergies:</u> " + allergies + "<br><u>Preparation Difficulty:</u> " + difficulty + "<br><u>Diet:</u> " + diet + ".");
 }
 
 
