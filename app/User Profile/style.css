@@ -428,7 +428,7 @@ input[type="checkbox"] {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    background-color: darkgreen;
+    background-color: #2C3C4B;
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px;
@@ -437,6 +437,7 @@ input[type="checkbox"] {
   }
 
   .profile-detail-allergies input[type="checkbox"] {
-    transform: scale(1.5);
+    width: 20px;
+    height: 20px;
   }
   
