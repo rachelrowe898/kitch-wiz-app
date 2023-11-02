@@ -149,8 +149,8 @@ h2 {
     color: white;
 }
 
-.add-profile-button:hover {
-    background-color: #16617a;
+.add-profile-button:active {
+    background-color: #1f81a2;
 }
 
 #user-groups-button {
@@ -164,7 +164,7 @@ h2 {
     border-radius: 4px;
     cursor: pointer;
 }
-#user-groups-button:hover {
+#user-groups-button:active {
     background-color: #45a049;
 }
 
@@ -173,7 +173,7 @@ h2 {
     color: white;
 }
 
-.delete-profile-button:hover {
+.delete-profile-button:active {
     background-color: #b00f0f;
 }
 
@@ -343,8 +343,8 @@ select {
     font-weight: bold;
 }
 
-.save-profile-button:hover {
-    background-color: #16617a;
+.save-profile-button:active {
+    background-color: #1f81a2;
 }
 #user-groups-button {
     background-color: #3CB371;
