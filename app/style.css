@@ -305,7 +305,7 @@ a.fill-div {
 
 #addRecipe {
   display: none;
-  background-color: #208AAE;
+  background-color: #1c708c;
   height: 880px;
   margin-left: 15px;
   margin-right: 15px;
@@ -313,6 +313,7 @@ a.fill-div {
   justify-content: left;
   padding: 10px 10px;
   border-radius: 10px;
+  overflow-y: scroll;
 }
 
 #filterMenu {
@@ -654,12 +655,31 @@ input::-webkit-inner-spin-button {
 
 #item-quantity {
   width: 200px;
+  font: Helvetica;
 }
 
 #item-input {
   width: 400px;
   padding: 10px;
   margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+#item-input2 {
+  width: 140px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+#item-quantity2 {
+  width: 100px;
+  padding: 10px;
+  margin: 10px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
@@ -675,6 +695,62 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
   margin: 5px;
   transition: background-color 0.3s;
+}
+
+#list-selector-type2 {
+  width: 100px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.ingredient-input-row {
+  display: flex;
+  flex-direction: row;
+}
+
+#add-ingredient-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  float: right;
+  margin: 15px 20px;
+  font: Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+  height: 80px;
+  width: 150px;
+  justify-content: center;
+}
+
+#remove-ingredient-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  float: right;
+  margin: 15px 20px;
+  font: Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+  height: 80px;
+  width: 150px;
+  justify-content: center;
+}
+
+#remove-and-add-buttons {
+  display: flex;
+  justify-content: row center;
+}
+
+#add-ingredient-button:hover {
+  background-color: #45a049;
 }
 
 #add-item-button:hover, #remove-item-button:hover {

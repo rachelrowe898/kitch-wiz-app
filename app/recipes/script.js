@@ -25,7 +25,7 @@ function addMissingIngredients() {
 
 function enableSubmit(){
   let inputs = document.querySelectorAll('div[required]'); // Enter your class name for a required field, this should also be reflected within your form fields.
-  let btn = document.querySelector('form#add input[type="submit"]');
+  let btn = document.querySelector('form#add-ingredient-form input[type="submit"]');
   let isValid = true;
   for (var i = 0; i < inputs.length; i++){
     let changedInput = inputs[i];
@@ -35,6 +35,35 @@ function enableSubmit(){
     }
   }
   btn.disabled = !isValid;
+}
+
+function addIngredientInputs() {
+  const ingredientInputs = document.getElementById('ingredient-inputs');
+  const newIngredientRow = document.createElement('div');
+  newIngredientRow.className = 'ingredient-input-row';
+  newIngredientRow.innerHTML = `
+    <input type="text" id="item-input2" placeholder="Ingredient" required>
+    <input type="number" id="item-quantity2" placeholder="Quantity" required>
+    <select id="list-selector-type2" class="dropdown-large" required>
+        <option value="count">Count</option>
+        <option value="pounds">Pound(s)</option>
+        <option value="ounces">Ounce(s)</option>
+        <option value="gallons">Gallon(s)</option>
+        <option value="quarts">Quart(s)</option>
+    </select>
+  `;
+  ingredientInputs.appendChild(newIngredientRow);
+}
+
+function removeIngredientInputs() {
+  var ingredientRows = document.querySelectorAll('.ingredient-input-row');
+  
+  // Check if there's more than one ingredient row
+  if (ingredientRows.length > 1) {
+    var lastIngredientRow = ingredientRows[ingredientRows.length - 1];
+    
+    lastIngredientRow.parentNode.removeChild(lastIngredientRow);
+  }
 }
 
 function closeAdd() {
@@ -139,6 +168,8 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
   recipePageInstructions.appendChild(instructionsHeading);
   recipePageInstructions.appendChild(instructionsList);
 
+  console.log("recipePageIngredients", recipePageIngredients);
+
   // Assemble the elements
   leftRecipeTextRow.appendChild(recipeTitle);
   rightRecipeTextRow.appendChild(clockIcon);
@@ -190,12 +221,11 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
 
   // Append the sorted recipe squares back to the container
   newTotalRecipeSquares.forEach((square) => {
-    addRecipeSquareListener(square, templateContainer);
     container.appendChild(square);
+    addRecipeSquareListener(square, container);
   });
 
   const templateContainer = document.getElementById("recipe-section");
-
   // add recipeSquareListener
   addRecipeSquareListener(newRecipeSquare, templateContainer);
 
@@ -276,19 +306,38 @@ function createRecipePage(recipeName, imageUrl, prepTime, ingredients, instructi
   mainSection.appendChild(recipePage);
 }
 
+function getIngredientsText() {
+  const ingredientRows = document.querySelectorAll('.ingredient-input-row');
+  let ingredientsText = '';
+
+  for (const row of ingredientRows) {
+    const ingredient = row.querySelector('#item-input2').value;
+    const quantity = row.querySelector('#item-quantity2').value;
+    const unit = row.querySelector('#list-selector-type2').value;
+
+    if (ingredient && quantity && unit) {
+      ingredientsText += `${ingredient}: ${quantity} ${unit}\n`;
+    }
+  }
+
+  return ingredientsText;
+}
+
 function saveRecipe() {
   try {
     const recipeName = document.getElementById("form-recipe-name").value;
-    const ingredients = document.getElementById("form-ingredients").value;
+    // const ingredients = document.getElementById("form-ingredients").value;
+    const ingredients = getIngredientsText();
     const instructions = document.getElementById("form-instructions").value;
     const prepTime = document.getElementById("form-prep-time").value;
     let imageUrl = "";
-    if (document.getElementById("form-recipe-pic").value !== "") {
-      imageUrl = document.getElementById("form-recipe-pic").value;
-      console.log(imageUrl)
-    } else {
-      imageUrl = "../images/defaultrecipe-pic.jpeg";
-    }
+    imageUrl = "../images/defaultrecipe-pic.jpeg";
+    // if (document.getElementById("form-recipe-pic").value !== "") {
+    //   imageUrl = document.getElementById("form-recipe-pic").value;
+    //   console.log(imageUrl)
+    // } else {
+    //   imageUrl = "../images/defaultrecipe-pic.jpeg";
+    // }
 
     addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructions);
   } catch (e) {
@@ -328,13 +377,13 @@ function openSort() {
   if (dropdownMenu.style.display === "none") {
     var dropdownMenu = document.getElementById("sortMenu");
     dropdownMenu.style.display = "block";
-    dropdownButton.style.backgroundColor = "#fdb833";
+    dropdownButton.style.border = "4px solid #fdb833";
     closeAdd();
     closeFilter();
   } else {
     var dropdownMenu = document.getElementById("sortMenu");
     dropdownMenu.style.display = "none";
-    dropdownButton.style.backgroundColor = "#208AAE";
+    dropdownButton.style.border = "none";
   }
 }
 
