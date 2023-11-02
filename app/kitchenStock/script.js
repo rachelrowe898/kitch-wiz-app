@@ -16,9 +16,8 @@ function loadItems(storageKey, itemsListId) {
   // Check if there are items in local storage
   if (localStorage.getItem(storageKey)) {
     const items = JSON.parse(localStorage.getItem(storageKey));
-
     items.forEach(item => {
-      const listItem = createListItem(item.name, item.quantity, storageKey);
+      const listItem = createListItem(itemsList, storageKey, item.name, item.quantity, item.type, item.expiration);
       itemsList.appendChild(listItem);
     });
   }
@@ -32,9 +31,8 @@ window.addEventListener("load", function() {
   loadItems("fridgeItems", "fridge-items-list");
 });
 
-// whereToPut, itemText, quantity, typeInput, expirationInput
 // Function to create a list item element
-function createListItem(storageKey, itemText, quantity, type, expiration) {
+function createListItem(itemsList, storageKey, itemText, quantity, type, expiration) {
   const listItem = document.createElement("li");
 
   // Create a div to hold the item info
@@ -43,6 +41,7 @@ function createListItem(storageKey, itemText, quantity, type, expiration) {
 
   const itemName = document.createElement("span");
   itemName.textContent = itemText;
+  itemName.style.fontSize = "30px";
 
 
   // Create a quantity input and buttons
@@ -51,33 +50,48 @@ function createListItem(storageKey, itemText, quantity, type, expiration) {
   itemQuantity.value = quantity;
   itemQuantity.min = 1;
   itemQuantity.className = "quantity-input";
+  itemQuantity.style.width = "40px";
   
+  // Create elements for displaying type and expiration
+  const itemType = document.createElement("span");
+  itemType.textContent = type;
+  itemType.style.fontSize = "30px";
+
+  const itemExpiration = document.createElement("span");
+  const  formattedDate = new Date(expiration).toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'});
+  const [month, day, year] = formattedDate.split('/');
+  const formattedYear = year.slice(-2);
+  const formattedExpiration = `${month}/${day}/${formattedYear}`;
+
+  itemExpiration.textContent = "Best by: " + formattedExpiration;
+  itemExpiration.style.fontSize = "25px";
 
   const increaseButton = document.createElement("button");
   increaseButton.textContent = "+";
+  increaseButton.style.fontSize = "25px";
+  increaseButton.style.width = "50px";
+  increaseButton.style.height = "50px";
   increaseButton.addEventListener("click", function () {
     itemQuantity.value = parseInt(itemQuantity.value) + 1;
-    updateItemInLocalStorage(itemText, parseInt(itemQuantity.value), storageKey);
+    updateItemInLocalStorage(itemText, parseInt(itemQuantity.value), type, expiration, storageKey);
   });
 
   const decreaseButton = document.createElement("button");
   decreaseButton.textContent = "-";
+  decreaseButton.style.fontSize = "25px";
+  decreaseButton.style.width = "50px";
+  decreaseButton.style.height = "50px";
   decreaseButton.addEventListener("click", function () {
     const currentQuantity = parseInt(itemQuantity.value);
     if (currentQuantity > 1) {
       itemQuantity.value = currentQuantity - 1;
-      updateItemInLocalStorage(itemText, currentQuantity - 1, storageKey);
+      updateItemInLocalStorage(itemText, currentQuantity - 1, type, expiration, storageKey);
     } else {
       // Remove the item from the list if quantity reaches 0
       itemsList.removeChild(listItem);
       removeItemFromLocalStorage(itemText, storageKey);
     }
   });
-  // Create elements for displaying type and expiration
-  const itemType = document.createElement("span");
-  itemType.textContent = "Type: " + type;
-  const itemExpiration = document.createElement("span");
-  itemExpiration.textContent = "Expiration: " + expiration;
 
   // Create a "Remove" button
   const removeButton = document.createElement("button");
@@ -90,9 +104,9 @@ function createListItem(storageKey, itemText, quantity, type, expiration) {
   itemDiv.appendChild(itemName);
   itemDiv.appendChild(itemQuantity);
   itemDiv.appendChild(itemType);
-  itemDiv.appendChild(itemExpiration);
   itemDiv.appendChild(increaseButton);
   itemDiv.appendChild(decreaseButton);
+  itemDiv.appendChild(itemExpiration);
   listItem.appendChild(itemDiv);
   listItem.appendChild(removeButton);
 
@@ -115,41 +129,43 @@ function addItem() {
   
   if (itemText !== "" && !isNaN(quantity) && quantity > 0) {
     const itemsListId = `${whereToPut}-items-list`; // Create the itemsListId based on the selected list
-    console.log(itemsListId);
     const itemsList = document.getElementById(itemsListId);
-    const listItem = createListItem(whereToPut, itemText, quantity, typeInput, expirationInput);
+    const listItem = createListItem(itemsList, whereToPut, itemText, quantity, typeInput, expiration);
 
     // Save the item to local storage
     const storageKey = `${whereToPut}Items`;
-    saveItemToLocalStorage(itemText, quantity, storageKey);
-
-    itemsList.appendChild(listItem);
+    saveItemToLocalStorage(itemText, quantity, typeInput, expiration, storageKey);
+    //itemsList.appendChild(listItem);
     itemInput.value = "";
     quantityInput.value = "";
   }
 }
 
-document.getElementById("add-item-button").addEventListener("click", addItem);
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("add-item-button").addEventListener("click", addItem);
+});
 
 function goBack() {
   location.href = '../kitchenStock/kitchenStock.html';
 }
 
 // Function to save an item to local storage
-function saveItemToLocalStorage(itemText, quantity, storageKey) {
+function saveItemToLocalStorage(itemText, quantity, type, expiration, storageKey) {
   const items = JSON.parse(localStorage.getItem(storageKey)) || [];
 
-  items.push({ name: itemText, quantity: quantity });
+  items.push({ name: itemText, quantity: quantity, type: type, expiration: expiration });
   localStorage.setItem(storageKey, JSON.stringify(items));
 }
 
 // Function to update an item in local storage
-function updateItemInLocalStorage(itemText, quantity, storageKey) {
+function updateItemInLocalStorage(itemText, quantity, type, expiration, storageKey) {
   const items = JSON.parse(localStorage.getItem(storageKey)) || [];
 
   const itemIndex = items.findIndex(item => item.name === itemText);
   if (itemIndex !== -1) {
     items[itemIndex].quantity = quantity;
+    items[itemIndex].type = type;
+    items[itemIndex].expiration = expiration;
     localStorage.setItem(storageKey, JSON.stringify(items));
   }
 }
