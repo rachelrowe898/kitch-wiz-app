@@ -145,7 +145,7 @@ h2 {
     cursor: pointer;
     margin: 0 10px;
     font-weight: bold;
-    background-color: #208AAE;
+    background-color: #166079;
     color: white;
 }
 
@@ -206,7 +206,7 @@ h2 {
     padding: 5px 5px;
     flex-direction: column;
     font-size: 40px;
-    color: #208AAE;
+    color: #166079;
     margin-left: 15px;
 }
 
@@ -257,7 +257,7 @@ h2 {
 
 #clock-icon {
     font-size: 30px;
-    color: #208AAE;
+    color: #166079;
     margin: 0 10px;
 }
 
@@ -309,7 +309,7 @@ h2 {
 select {
     font-size: 25px;
     border-radius: 10px;
-    border: 2px solid #208AAE;
+    border: 2px solid #166079;
 }
 
 .profile-detail {
@@ -332,7 +332,7 @@ select {
 
 .save-profile-button,
 #user-groups-button {
-    background-color: #208AAE;
+    background-color: #166079;
     color: white;
     padding: 12px 20px;
     font-size: 25px;
@@ -430,7 +430,7 @@ input[type="text"] {
     box-sizing: border-box;
     font-size: 25px;
     border-radius: 10px;
-    border: 2px solid #208AAE;
+    border: 2px solid #166079;
 }
 
 input[type="checkbox"] {
