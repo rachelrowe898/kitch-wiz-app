@@ -100,7 +100,7 @@ h2 {
     font-size: 36px;
     margin: 10px;
     text-align: center;
-    color: #208AAE;
+    color: #2C3C4B;
 }
 
 .user-profiles {
@@ -114,7 +114,7 @@ h2 {
     flex-direction: column;
 }
 .user-profile {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 10px;
     padding: 20px;
     margin-top: 10px;
