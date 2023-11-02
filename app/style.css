@@ -599,7 +599,7 @@ input[type="range"] {
 .section-button {
   background-color: #2C3C4B;
   color: white;
-  padding: 12px 24px;
+  padding: 24px 24px;
   border: none;
   border-radius: 5px;
   font-size: 40px;
@@ -667,6 +667,7 @@ input::-webkit-inner-spin-button {
   outline: none;
 }
 
+<<<<<<< HEAD
 #item-input2 {
   width: 140px;
   padding: 10px;
@@ -768,6 +769,8 @@ ul#items-list li {
   font-size: 18px;
   margin: 5px 0;
 }
+=======
+>>>>>>> 9a37625bea38ec36a4693fe4504b9eabac1e4732
 
 /* Style for individual items in the list */
 ul#items-list li {
@@ -778,19 +781,21 @@ ul#items-list li {
   border-radius: 5px;
   padding: 8px;
   background-color: #fff;
+  padding: 0;
 }
 
 /* Style for the "Remove" button within each list item */
-ul#items-list li button {
-  background-color: #FF2E2E;
+ul#freezer-items-list li button, ul#fridge-items-list li button  {
+  background-color: #2C3C4B;
   color: white;
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 /* Style the quantity input and buttons */
 .quantity-input {
   padding: 10px;
@@ -833,13 +838,16 @@ ul#items-list li button {
 }
 
 #back-button {
-  background-color: #2C3C4B;;
+  background-color: #2C3C4B;
   color: white;
+  padding: 5px 10px;
+  margin: 10px;
+  
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
-  margin-right: 10px;
+  transition: background-color 0.3s;
 }
 
 #back-button:hover {
