@@ -141,7 +141,7 @@ h2 {
     padding: 12px 20px;
     font-size: 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     margin: 0 10px;
     font-weight: bold;
@@ -334,10 +334,10 @@ select {
 #user-groups-button {
     background-color: #208AAE;
     color: white;
-    padding: 15px 30px;
-    font-size: 24px;
+    padding: 12px 20px;
+    font-size: 25px;
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
     font-weight: bold;
