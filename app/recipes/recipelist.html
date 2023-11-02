@@ -48,18 +48,39 @@
                 <!-- Add Recipe (hidden by default) -->
                 <div id="addRecipe" style="display: None;">
                   <h1 style="padding: 20px; margin: 0 auto;">Add New Recipe</h1>
-                  <form add>
-                    <input id="form-recipe-name" type="text" placeholder="Recipe name" required onkeyup="enableSubmit()"><br>
-                    <textarea id="form-ingredients" placeholder="Ingredients (one ingredient per line)" style="height:200px" required></textarea><br>
-                    <textarea id="form-instructions" placeholder="Instructions" style="height:200px" required></textarea><br>
+                  <form add id="add-ingredient-form">
+                    <input id="form-recipe-name" type="text" placeholder="Recipe Name" required onkeyup="enableSubmit()"><br>
+                    <!-- <textarea id="form-ingredients" placeholder="Ingredients (one ingredient per line)" style="height:200px" required></textarea><br> -->
+                    <!-- <p>Ingredients</p> -->
+                    <h2 style="margin: 10px auto;">Ingredients</h2>
+                    <div id="ingredient-inputs">
+                      <div class="ingredient-input-row">
+                        <input type="text" id="item-input2" placeholder="Ingredient" required onkeyup="enableSubmit()">
+                        <input type="number" id="item-quantity2" placeholder="Quantity" required onkeyup="enableSubmit()">
+                        <select id="list-selector-type2" class="dropdown-large" required onkeyup="enableSubmit()">
+                            <option value="count">Count</option>
+                            <option value="pounds">Pound(s)</option>
+                            <option value="ounces">Ounce(s)</option>
+                            <option value="ounces">Cup(s)</option>
+                            <option value="gallons">Gallon(s)</option>
+                            <option value="quarts">Quart(s)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div id="remove-and-add-buttons">
+                      <button type="button" id="remove-ingredient-button" onclick="removeIngredientInputs();">Remove Ingredient</button>
+                      <button type="button" id="add-ingredient-button" onclick="addIngredientInputs();">Add Ingredient</button>
+                    </div>
+                    <br>
+                    <textarea id="form-instructions" placeholder="Instructions" style="height:200px" required onkeyup="enableSubmit()"></textarea><br>
                     <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Prep time:</label> <br> -->
                     <div class="form-prep-time-bundle" style="display: flex; flex-direction: row; justify-content: space-between;">
-                      <input id="form-prep-time" type="number" placeholder="Prep time" required onkeyup="enableSubmit()">
-                      <p style="font-size:20px; font-family: Helvetica;">minutes</p>
+                      <input id="form-prep-time" type="number" placeholder="Prep Time" required onkeyup="enableSubmit()">
+                      <p style="font-size:25px; font-family: Helvetica;">minutes</p>
                       <br>
                     </div>
                     <!-- <label id="form-recipe-pic-label" style="font-size:20px; font-family: Helvetica;" for="form-recipe-pic">Image URL:</label> <br> -->
-                    <input id="form-recipe-pic" type="url" placeholder="Image URL"><br>
+                    <!-- <input id="form-recipe-pic" type="url" placeholder="Image URL"><br> -->
                     <!-- <input id="form-recipe-pic" type="file" name="image" accept="image/png, image/jpeg" required/><br> -->
                     <input id="form-submit" type="submit" value="Submit" onclick="saveRecipe(); return false;" disabled>
                   </form>
@@ -150,7 +171,7 @@
                           <li class="ingredients-list-item">&#10004; 2 tbsp olive oil</li>
                           <li class="ingredients-list-item">&#10004; 8 oz spaghetti</li>
                           <li class="ingredients-list-item">&#10004; 24 oz pasta sauce</li>
-                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <p style="color: #166079"> &#10004; = Ingredient in stock </p>
                           <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
                             Add Selected Ingredients to Grocery List
                           </button>
@@ -196,7 +217,7 @@
                           <li class="ingredients-list-item">&#10004; Vegetable oil for frying</li>
                           <li class="ingredients-list-item"><input type="checkbox"> 4 pita bread rounds </li>
                           <li class="ingredients-list-item">&#10004; Tahini sauce, lettuce, tomatoes, and cucumbers for serving</li>
-                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <p style="color: #166079"> &#10004; = Ingredient in stock </p>
                           <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
                             Add Selected Ingredients to Grocery List
                           </button>
@@ -245,7 +266,7 @@
                           <li class="ingredients-list-item">&#10004; 1 teaspoon sugar</li>
                           <li class="ingredients-list-item">&#10004; 1/2 teaspoon cornstarch (for sauce thickening)</li>
                           <li class="ingredients-list-item">&#10004; Sesame seeds and green onions for garnish (optional)</li>
-                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <p style="color: #166079"> &#10004; = Ingredient in stock </p>
                           <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
                             Add Selected Ingredients to Grocery List
                           </button>
@@ -297,7 +318,7 @@
                           <li class="ingredients-list-item">&#10004; Salt and pepper to taste</li>
                           <li class="ingredients-list-item"><input type="checkbox"> Fresh cilantro leaves for garnish </li>
                           <li class="ingredients-list-item">&#10004; Cooked basmati rice or naan bread for serving</li>
-                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <p style="color: #166079"> &#10004; = Ingredient in stock </p>
                           <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
                             Add Selected Ingredients to Grocery List
                           </button>
@@ -343,7 +364,7 @@
                           <li class="ingredients-list-item">&#10004; Olive oil for brushing</li>
                           <li class="ingredients-list-item">&#10004; Additional grated Parmesan cheese for topping (optional)</li>
                           <li class="ingredients-list-item">&#10004; Marinara sauce for dipping (optional)</li>
-                          <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
+                          <p style="color: #166079"> &#10004; = Ingredient in stock </p>
                           <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
                             Add Selected Ingredients to Grocery List
                           </button>
@@ -396,12 +417,12 @@
                       <li class="ingredients-list-item">&#10004; 8 oz spaghetti</li>
                       <li class="ingredients-list-item">&#10004; 24 oz pasta sauce</li>
                       <li class="ingredients-list-item">&#10004; Additional Parmesan cheese and parsley for garnish (optional)</li>
-                      <p style="color: #208AAE"> &#10004; = Ingredient in stock </p>
-                      <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
-                        Add Selected Ingredients to Grocery List
-                      </button>
                     </form>
-                  </ul>     
+                  </ul>
+                  <p style="color: #166079"> &#10004; = Ingredient in stock </p>
+                  <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
+                    Add Selected Ingredients to Grocery List
+                  </button>     
                 </div>
                 <div class="recipe-page-instructions">
                   <h2 class="instructions-heading">Instructions</h2>

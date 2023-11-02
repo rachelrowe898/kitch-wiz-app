@@ -3,10 +3,10 @@ function openNav() {
   var recipeSection = document.getElementById("recipe-section");
   if (x.style.display === "block") {
     x.style.display = "none";
-    recipeSection.style.marginTop = "150px";
+    // recipeSection.style.marginTop = "150px";
   } else {
     x.style.display = "block";
-    recipeSection.style.marginTop = "300px";
+    // recipeSection.style.marginTop = "300px";
   }
 }
 
@@ -14,18 +14,20 @@ function addMissingIngredients() {
   var button = document.querySelector('.addMissingIngredientsButton'); // Select the button element
   
   console.log(button);
-  if (button && button.style.backgroundColor != "red") {
+  if (button && button.style.backgroundColor != "white") {
     button.textContent = "Remove Selected Ingredients from Grocery List"; // Change the button text
-    button.style.backgroundColor = "red";
+    button.style.backgroundColor = "white";
+    button.style.color = "gray";
   } else {
     button.textContent = "Add Selected Ingredients to Grocery List"; // Change the button text
-    button.style.backgroundColor = "#208AAE";
+    button.style.backgroundColor = "#166079";
+    button.style.color = "white";
   }
 }
 
 function enableSubmit(){
   let inputs = document.querySelectorAll('div[required]'); // Enter your class name for a required field, this should also be reflected within your form fields.
-  let btn = document.querySelector('form#add input[type="submit"]');
+  let btn = document.querySelector('form#add-ingredient-form input[type="submit"]');
   let isValid = true;
   for (var i = 0; i < inputs.length; i++){
     let changedInput = inputs[i];
@@ -37,25 +39,55 @@ function enableSubmit(){
   btn.disabled = !isValid;
 }
 
+function addIngredientInputs() {
+  const ingredientInputs = document.getElementById('ingredient-inputs');
+  const newIngredientRow = document.createElement('div');
+  newIngredientRow.className = 'ingredient-input-row';
+  newIngredientRow.innerHTML = `
+    <input type="text" id="item-input2" placeholder="Ingredient" required>
+    <input type="number" id="item-quantity2" placeholder="Quantity" required>
+    <select id="list-selector-type2" class="dropdown-large" required>
+        <option value="count">Count</option>
+        <option value="pounds">Pound(s)</option>
+        <option value="ounces">Ounce(s)</option>
+        <option value="ounces">Cup(s)</option>
+        <option value="gallons">Gallon(s)</option>
+        <option value="quarts">Quart(s)</option>
+    </select>
+  `;
+  ingredientInputs.appendChild(newIngredientRow);
+}
+
+function removeIngredientInputs() {
+  var ingredientRows = document.querySelectorAll('.ingredient-input-row');
+  
+  // Check if there's more than one ingredient row
+  if (ingredientRows.length > 1) {
+    var lastIngredientRow = ingredientRows[ingredientRows.length - 1];
+    
+    lastIngredientRow.parentNode.removeChild(lastIngredientRow);
+  }
+}
+
 function closeAdd() {
   var x = document.getElementById("addRecipe");
   var addIcon = document.getElementById("add-icon");
   x.style.display = "none";
-  addIcon.style.color = "#208AAE";
+  addIcon.style.color = "#166079";
 }
 
 function closeFilter() {
   var x = document.getElementById("filterMenu");
   var filterIcon = document.getElementById("filter-icon");
   x.style.display = "none";
-  filterIcon.style.color = "#208AAE";
+  filterIcon.style.color = "#166079";
 }
 
 function closeSort() {
   var x = document.getElementById("sortMenu");
   var sortButton = document.getElementsByClassName("sortDropdownButton")[0];
   x.style.display = "none";
-  sortButton.style.backgroundColor = "#208AAE";
+  sortButton.style.backgroundColor = "#166079";
 }
 
 function openAdd() {
@@ -63,10 +95,10 @@ function openAdd() {
   var addIcon = document.getElementById("add-icon");
   if (x.style.display === "block") {
     x.style.display = "none";
-    addIcon.style.color = "#208AAE";
+    addIcon.style.color = "#166079";
   } else {
     x.style.display = "block";
-    addIcon.style.color = "#fdb833";
+    addIcon.style.color = "#FDC34E";
     closeFilter();
     closeSort();
   }
@@ -111,7 +143,7 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
     if (ingredient.trim() !== '') {
       const ingredientsListItem = document.createElement("li");
       ingredientsListItem.className = "ingredients-list-item";
-      ingredientsListItem.textContent = ingredient.trim();
+      ingredientsListItem.textContent = "\u2714 " + ingredient.trim();
       ingredientsList.appendChild(ingredientsListItem);
     }
   });
@@ -138,6 +170,18 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
   recipePageIngredients.appendChild(ingredientsList);
   recipePageInstructions.appendChild(instructionsHeading);
   recipePageInstructions.appendChild(instructionsList);
+
+  const belowIngredientsHTML = `
+  <p style="color: #166079"> &#10004; = Ingredient in stock </p>
+  <button class="addMissingIngredientsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="addMissingIngredients(); this.form.reset();">
+    Add Selected Ingredients to Grocery List
+  </button>
+`;
+
+  // Set the innerHTML of the recipePageIngredients div to the verbatim HTML
+  recipePageIngredients.innerHTML += belowIngredientsHTML;
+
+  console.log("recipePageIngredients", recipePageIngredients);
 
   // Assemble the elements
   leftRecipeTextRow.appendChild(recipeTitle);
@@ -190,12 +234,11 @@ function addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructio
 
   // Append the sorted recipe squares back to the container
   newTotalRecipeSquares.forEach((square) => {
-    addRecipeSquareListener(square, templateContainer);
     container.appendChild(square);
+    addRecipeSquareListener(square, container);
   });
 
   const templateContainer = document.getElementById("recipe-section");
-
   // add recipeSquareListener
   addRecipeSquareListener(newRecipeSquare, templateContainer);
 
@@ -276,19 +319,38 @@ function createRecipePage(recipeName, imageUrl, prepTime, ingredients, instructi
   mainSection.appendChild(recipePage);
 }
 
+function getIngredientsText() {
+  const ingredientRows = document.querySelectorAll('.ingredient-input-row');
+  let ingredientsText = '';
+
+  for (const row of ingredientRows) {
+    const ingredient = row.querySelector('#item-input2').value;
+    const quantity = row.querySelector('#item-quantity2').value;
+    const unit = row.querySelector('#list-selector-type2').value;
+
+    if (ingredient && quantity && unit) {
+      ingredientsText += `${ingredient}: ${quantity} ${unit}\n`;
+    }
+  }
+
+  return ingredientsText;
+}
+
 function saveRecipe() {
   try {
     const recipeName = document.getElementById("form-recipe-name").value;
-    const ingredients = document.getElementById("form-ingredients").value;
+    // const ingredients = document.getElementById("form-ingredients").value;
+    const ingredients = getIngredientsText();
     const instructions = document.getElementById("form-instructions").value;
     const prepTime = document.getElementById("form-prep-time").value;
     let imageUrl = "";
-    if (document.getElementById("form-recipe-pic").value !== "") {
-      imageUrl = document.getElementById("form-recipe-pic").value;
-      console.log(imageUrl)
-    } else {
-      imageUrl = "../images/defaultrecipe-pic.jpeg";
-    }
+    imageUrl = "../images/defaultrecipe-pic.jpeg";
+    // if (document.getElementById("form-recipe-pic").value !== "") {
+    //   imageUrl = document.getElementById("form-recipe-pic").value;
+    //   console.log(imageUrl)
+    // } else {
+    //   imageUrl = "../images/defaultrecipe-pic.jpeg";
+    // }
 
     addRecipeSquare(recipeName, imageUrl, prepTime, ingredients, instructions);
   } catch (e) {
@@ -328,13 +390,13 @@ function openSort() {
   if (dropdownMenu.style.display === "none") {
     var dropdownMenu = document.getElementById("sortMenu");
     dropdownMenu.style.display = "block";
-    dropdownButton.style.backgroundColor = "#fdb833";
+    // dropdownButton.style.border = "4px solid #FDC34E";
     closeAdd();
     closeFilter();
   } else {
     var dropdownMenu = document.getElementById("sortMenu");
     dropdownMenu.style.display = "none";
-    dropdownButton.style.backgroundColor = "#208AAE";
+    dropdownButton.style.border = "none";
   }
 }
 
@@ -382,11 +444,11 @@ function sortRecipes(order) {
     sortMenuDesc = document.getElementById("sortMenuDesc");
 
     if (order === 'asc') {
-      sortMenuAsc.style.color = "#fdb833";
+      sortMenuAsc.style.color = "#FDC34E";
       sortMenuDesc.style.color = "white";
       return timeA - timeB;
     } else if (order === 'desc') {
-      sortMenuDesc.style.color = "#fdb833";
+      sortMenuDesc.style.color = "#FDC34E";
       sortMenuAsc.style.color = "white";
       return timeB - timeA;
     }
@@ -410,10 +472,10 @@ function openFilter() {
   var filterIcon = document.getElementById("filter-icon");
   if (x.style.display === "block") {
     x.style.display = "none";
-    filterIcon.style.color = "#208AAE";
+    filterIcon.style.color = "#166079";
   } else {
     x.style.display = "block";
-    filterIcon.style.color = "#fdb833";
+    filterIcon.style.color = "#FDC34E";
     closeAdd();
     closeSort();
     // recipeListing.style.display = "none";
@@ -422,7 +484,7 @@ function openFilter() {
 
 function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
   const [from, to] = getParsed(fromInput, toInput);
-  fillSlider(fromInput, toInput, '#C6C6C6', '#FDB833', controlSlider);
+  fillSlider(fromInput, toInput, '#C6C6C6', '#FDC34E', controlSlider);
   if (from > to) {
       fromSlider.value = to;
       fromInput.value = to;
@@ -433,7 +495,7 @@ function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
   
 function controlToInput(toSlider, fromInput, toInput, controlSlider) {
   const [from, to] = getParsed(fromInput, toInput);
-  fillSlider(fromInput, toInput, '#C6C6C6', '#FDB833', controlSlider);
+  fillSlider(fromInput, toInput, '#C6C6C6', '#FDC34E', controlSlider);
   setToggleAccessible(toInput);
   if (from <= to) {
       toSlider.value = to;
@@ -446,7 +508,7 @@ function controlToInput(toSlider, fromInput, toInput, controlSlider) {
 function controlFromSlider(fromSlider, toSlider, fromInput) {
   const [from, to] = getParsed(fromSlider, toSlider);
   try {
-    fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+    fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDC34E', toSlider);
   } catch (e) {
     console.log(e)
   }
@@ -460,7 +522,7 @@ function controlFromSlider(fromSlider, toSlider, fromInput) {
 
 function controlToSlider(fromSlider, toSlider, toInput) {
   const [from, to] = getParsed(fromSlider, toSlider);
-  fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+  fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDC34E', toSlider);
   setToggleAccessible(toSlider);
   if (from <= to) {
     toSlider.value = to;
@@ -511,7 +573,7 @@ if (Number(currentTarget.value) <= 0 ) {
 function satisfyDietaryCheckboxConditions(dietaryCheckboxes, dietaryTags) {
   console.log("satisfyDietaryCheckboxConditions");
   console.log(dietaryCheckboxes);
-  console.log(dietaryTags);
+  console.log("dietaryTags***********", dietaryTags);
   if (dietaryCheckboxes.includes("vegetarian")) {
     if (!(dietaryTags.includes("vegetarian"))) {
       return false;
@@ -629,6 +691,7 @@ function applyFilter() {
       console.log("dietaryPrefs", dietaryPrefs);
       const currDietaryPrefs = dietaryPrefs[i];
 
+      console.log("!!!!!currDietaryPrefs", currDietaryPrefs);
       if (prepTime >= minTime && prepTime <= maxTime && satisfyDietaryCheckboxConditions(dietaryCheckboxes, currDietaryPrefs)) {
         filteredRecipeSquares.push(recipeSquare);
       }
@@ -664,7 +727,7 @@ function applyFilter() {
     const fromInput = document.getElementById('fromInput');
     const toInput = document.getElementById('toInput');
     try {
-      fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDB833', toSlider);
+      fillSlider(fromSlider, toSlider, '#C6C6C6', '#FDC34E', toSlider);
     } catch (e) {
       console.log(e)
     }
