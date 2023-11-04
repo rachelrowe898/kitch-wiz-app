@@ -107,3 +107,20 @@ function toggleOtherAllergyInput() {
 function goBackToUserProfile() {
   window.location.href = "userProfile.html"; 
 }
+
+function showKeyboard() {
+  var keyboard = document.getElementById('keyboard');
+  if (keyboard.style.display === 'none') {
+      keyboard.style.display = 'block';
+  } else {
+      keyboard.style.display = 'none';
+  }
+}
+
+// Add an event listener to hide the keyboard when clicking outside of it
+document.addEventListener('click', function(event) {
+  var keyboard = document.getElementById('keyboard');
+  if (event.target !== keyboard && event.target !== document.getElementById('otherAllergy')) {
+      keyboard.style.display = 'none';
+  }
+});

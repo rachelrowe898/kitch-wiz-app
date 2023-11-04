@@ -613,11 +613,13 @@ input[type="range"] {
 }
 
 .stock-heading-text {
+  color: #635C70;
   font-size: 48px;
   margin-bottom: 20px;
 }
 
 .heading-text {
+  color: #635C70;
   font-size: 48px;
   margin-bottom: 20px;
   align-items: center;
