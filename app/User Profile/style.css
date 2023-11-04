@@ -97,10 +97,10 @@ h2 {
   }
 
 .user-profile-heading {
-    font-size: 36px;
+    font-size: 40px;
     margin: 10px;
     text-align: center;
-    color: #2C3C4B;
+    color: #635C70;
 }
 
 .user-profiles {
@@ -114,11 +114,9 @@ h2 {
     flex-direction: column;
 }
 .user-profile {
-    /* border: 2px solid black; */
     border-radius: 10px;
-    padding: 20px;
-    margin-top: 10px;
-    margin-bottom: 140px;
+    padding: 10px;
+    margin-bottom: 60px;
     cursor: pointer;
     width: 80%;
     overflow: auto;
@@ -458,4 +456,3 @@ input[type="checkbox"] {
   .profile-detail-allergies input[type="checkbox"]:active {
     transform: scale(1.1);
   }
-  
