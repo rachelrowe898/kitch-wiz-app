@@ -456,3 +456,17 @@ input[type="checkbox"] {
   .profile-detail-allergies input[type="checkbox"]:active {
     transform: scale(1.1);
   }
+
+#keyboard img {
+    max-width: 850px; 
+    max-height: 350px;
+}
+
+.keyboard-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
