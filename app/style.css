@@ -108,7 +108,7 @@ body {
 }
 
 .tab button.active {
-  background-color: #FDC34E;
+  background-color: #FDB833;
 }
 
 .tabcontent {
@@ -167,7 +167,7 @@ body {
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #166079;
+  color: #208AAE;
   cursor: pointer;
 }
 
@@ -177,6 +177,12 @@ body {
   margin-bottom: 5px;
   margin-top: 10px;
   height: 15px;
+  /* display: flex;
+  flex: 0 0 10%;
+  flex-direction: column;
+  font-size: 40px;
+  color: #208AAE;
+  cursor: pointer; */
 }
 
 #add-icon {
@@ -184,12 +190,12 @@ body {
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #166079;
+  color: #208AAE;
   cursor: pointer;
 }
 
 #recipe-section {
-  margin: 170px 10px;
+  margin: 120px 10px;
   display: flex;
   /* justify-content: auto; note: the validator says auto is not a justify-content value */
   flex-direction: column;
@@ -279,7 +285,7 @@ body {
 
 #clock-icon {
   height: 35px;
-  color: #166079;
+  color: #208AAE;
   margin: 15px 5px;
 }
 
@@ -299,7 +305,7 @@ a.fill-div {
 
 #addRecipe {
   display: none;
-  background-color: #2C3C4B;
+  background-color: #208AAE;
   height: 880px;
   margin-left: 15px;
   margin-right: 15px;
@@ -307,12 +313,11 @@ a.fill-div {
   justify-content: left;
   padding: 10px 10px;
   border-radius: 10px;
-  overflow-y: scroll;
 }
 
 #filterMenu {
   display: none;
-  background-color: #2C3C4B;
+  background-color: #208AAE;
   height: 890px;
   margin-left: 15px;
   margin-right: 15px;
@@ -327,18 +332,18 @@ a.fill-div {
   flex: 0 0 10%;
   flex-direction: row;
   cursor: pointer;
-  background-color: #2C3C4B;
+  background-color: #208AAE;
   border: none;
   color: white;
   width: 110px;
-  height: 55px;
-  padding-top: 10px;
+  height: 45px;
+  padding-top: 5px;
   margin-top: 5px;
   margin-right: 25px;
   margin-left: 10px;
   text-align: center;
   font-family: Helvetica;
-  font-size: 27px;
+  font-size: 25px;
   justify-content: space-evenly;
   border-radius: 10px;
   cursor: pointer;
@@ -401,7 +406,7 @@ input[type="text"],
 textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 25px;
@@ -454,15 +459,15 @@ input[type="submit"]:active {
   flex: 0 0 10%;
   flex-direction: row;
   flex: 0 0 50%;
-  background-color: #2C3C4B;
+  background-color: #208AAE;
   height: 200px;
-  margin-left: 260px;
+  margin-left: 300px;
   margin-right: 15px;
   color: white;
   justify-content: space-between;
   padding: 15px 15px 15px 15px;
   border-radius: 10px;
-  font-size: 27px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -473,7 +478,7 @@ input[type="submit"]:active {
   display: block;
 }
 
-.dropdown-menu a:hover {background-color: #FDC34E}
+.dropdown-menu a:hover {background-color: #FDB833}
 
 .range_container {
   display: flex;
@@ -570,9 +575,9 @@ input[type="range"] {
 
 .addMissingIngredientsButton {
   font-family: "Helvetica", sans-serif; 
-  background-color: #166079;
+  background-color: #208AAE;
   color: white;
-  border-color: #166079;
+  border-color: #208AAE;
   padding: 10px 10px;
   border-radius: 10px;
   transition: background-color 0.3s;
@@ -613,13 +618,11 @@ input[type="range"] {
 }
 
 .stock-heading-text {
-  color: #635C70;
   font-size: 48px;
   margin-bottom: 20px;
 }
 
 .heading-text {
-  color: #635C70;
   font-size: 48px;
   margin-bottom: 20px;
   align-items: center;
@@ -630,26 +633,17 @@ input[type="range"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
 }
-.stock-list input[type="text"],
-.stock-list input[type="number"],
-.stock-list input[type="date"],
-.stock-list select {
-  border: 1px solid #ccc;
-  font-size: 32px; 
-}
-
-
+/* Increase font size for label */
 .label-large {
-  font-size: 32px; 
+  font-size: 20px; /* Adjust the size as needed */
 }
 
-
+/* Increase font size and dimensions for the select */
 .dropdown-large {
-  font-size: 32px; 
-  width: 250px;
-  padding: 12px; 
+  font-size: 20px; /* Adjust the size as needed */
+  width: 150px; /* Adjust the width as needed */
+  padding: 12px; /* Adjust the padding as needed */
 }
 
 input::-webkit-outer-spin-button,
@@ -660,7 +654,6 @@ input::-webkit-inner-spin-button {
 
 #item-quantity {
   width: 200px;
-  font: Helvetica;
 }
 
 #item-input {
@@ -672,89 +665,6 @@ input::-webkit-inner-spin-button {
   outline: none;
 }
 
-#item-input2 {
-  width: 140px;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-#item-quantity2 {
-  width: 100px;
-  padding: 10px;
-  margin: 10px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-#add-item-button {
-  background-color: #2C3C4B;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 32px;
-  cursor: pointer;
-  margin: 5px;
-  transition: background-color 0.3s;
-}
-
-#list-selector-type2 {
-  width: 130px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-.ingredient-input-row {
-  display: flex;
-  flex-direction: row;
-}
-
-#add-ingredient-button {
-  background-color: #98DDA9;
-  color: #2C3C4B;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  float: right;
-  margin: 15px 20px;
-  font: Helvetica;
-  font-size: 25px;
-  font-weight: bold;
-  height: 80px;
-  width: 150px;
-  justify-content: center;
-  box-shadow: 2px 4px 2px #6ca87b;
-}
-
-#remove-ingredient-button {
-  background-color: #FFC2C2;
-  color: #2C3C4B;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  float: right;
-  margin: 15px 20px;
-  font: Helvetica;
-  font-size: 25px;
-  font-weight: bold;
-  height: 80px;
-  width: 150px;
-  justify-content: center;
-  box-shadow: 2px 4px 2px #c58c8c;
-}
-
-#remove-and-add-buttons {
-  display: flex;
-  justify-content: row center;
-}
 
 /* Style for individual items in the list */
 ul#items-list li {
@@ -766,8 +676,6 @@ ul#items-list li {
   padding: 8px;
   background-color: #fff;
   padding: 0;
-  font-size: 18px;
-  margin: 5px 0;
 }
 
 /* Style for the "Remove" button within each list item */
@@ -831,9 +739,13 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   
   border: none;
   border-radius: 5px;
-  font-size: 32px;
+  font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+#back-button:hover {
+  background-color: #2C3C4B;
 }
 /* ------------------------------------- SECTION: USER PREFERENCES  -------------------------------------*/
 
@@ -1040,24 +952,34 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 
 
 /* Start Shopping Styles */
-.shopping-section {
-  text-align: center;
-  padding: 30px;
-  margin: 350px;
-  display: flex;
-  justify-content: auto;
-  flex-direction: column;
-  width:100%;
-}
 
 .shopping-list-section {
   text-align: left;
   padding: 30px;
-  margin: 100px;
+  margin: 100px 10px 10px 10px;
   display: flex;
   justify-content: auto;
   flex-direction: column;
+  overflow: auto;
   width:100%;
+}
+
+#list-section {
+  margin: 0px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-button {
+  background-color: #2C3C4B;
+  color: white;
+  padding: 12px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
 }
 
 #create-list {
@@ -1072,9 +994,6 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 }
 
 #make-list {
-  background-color: #166079;
-  color: #635C70;
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   font-size: 20px;
@@ -1082,16 +1001,10 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   margin-top: 20px;
 }
 
-#checkbox-list {
-  display: block;
-  background-color: #635C70;
-  height: 400px;
+.saved-list-items {
+  font-size: 30px;
+  padding: 10px;
 }
-
-#item-list-form {
-  position: relative;
-}
-
 
 .shop-list-buttons {
   background-color: white;
@@ -1107,7 +1020,28 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 .checkbox-list-item {
   display: block;
   padding: 10px;
-  margin-bottom: 10px; /* Add some spacing between items */
+  margin-bottom: 10px;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+}
+
+#list-name {
+  width: 400px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+#checkbox-list {
+  display: block;
+  background-color: #635C70;
+
+  height: 600px;
 }
 
 #checkbox-modal {
@@ -1115,14 +1049,17 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-150%, -50%);
-  width: 80%;
-  max-width: 400px; 
+  transform: translate(-75%, -45%);
+  width: 100%;
+  height: 100%;
+  max-width: 650px;
+  max-height: 740px; 
   background: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   z-index: 1;
   overflow-y: auto;
+  color: white;
 }
 
 .modal-content {
@@ -1137,11 +1074,19 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   text-align: center;
 }
 
-form[add]{
-  max-width: 400px;
-  margin: 20px;
-  padding: 20px;
-  font-family: Helvetica;
+/* End of Shopping Styles */
+
+.keyboard-pop-up {
+  position: fixed;
+  bottom: -80px;
+  left: -50px;
+  width: 50%;
+  height: 0;
+  overflow-y: auto;
+  transition: height 0.3s;
 }
 
-/* End of Shopping Styles */
+.keyboard-pop-up img {
+  width: 85%;
+  height: 80%;
+}

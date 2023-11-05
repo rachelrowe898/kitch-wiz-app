@@ -28,30 +28,21 @@
               <img src="../icons/hamburger-menu.png" alt="hamburger menu">
             </a>
           </div>
-      </div>
 
-          <div class="shopping-list-section">
-            <div id="create-list">
-                <h2>Create New List</h2>
-                <form add id="item-list-form">
-                    <input id="list-name" type="text" placeholder="List Name"><br><br>
-                    <textarea id="item-list" style="height:200px" placeholder="Shopping List Ingredients (One per line)"></textarea><br>
-                    <button type="Button" class="shop-list-buttons" id="list-form-submit">Create List</button>
-                    <button type="button" class="shop-list-buttons" id="previous-lists">Recently Used Lists</button>
-                    <div id="checkbox-modal" class="hidden">
-                      <div class="modal-content">
-                          <div id="checkbox-list"></div>
-                          <button type="button" id="close-button">Complete Shopping</button>
-                          <button type="button" id="add-button">Add selected to fridge</button>
-                      </div>
-                  </div>
-                </form>
-            </div>
 
+
+          <div id="list-section">
+            <h1 class="heading-text">My Shopping Lists</h1>
+            <button id="new-list-button" class="section-button" onclick="location.href='../Shopping/newList.html';"">Create New List</button>
+            <br>
+            <button id="saved-list-button" class="section-button" onclick="location.href='../Shopping/savedLists.html';"">Saved Shopping Lists</button>
+            <br> 
+            <button id="recent-list-button" class="section-button" onclick="location.href='../Shopping/recentLists.html';"">Recently Used Shopping Lists</button>      
           </div>
 
-          </div>
+
         </div>
+      </div>
     </main>
 </body>
 </html>
