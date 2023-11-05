@@ -307,7 +307,7 @@ select {
 
 .profile-detail {
     width: 100%;
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -400,7 +400,7 @@ select {
   
 /* Styles for the group member count */
 .group-member-count {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: #333;
     margin-left: 10px;
@@ -433,7 +433,7 @@ input[type="checkbox"] {
 
 .message-display {
     font-family: Helvetica;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: white;
     background-color: #2C3C4B;
