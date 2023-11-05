@@ -630,17 +630,26 @@ input[type="range"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
 }
-/* Increase font size for label */
-.label-large {
-  font-size: 20px; /* Adjust the size as needed */
+.stock-list input[type="text"],
+.stock-list input[type="number"],
+.stock-list input[type="date"],
+.stock-list select {
+  border: 1px solid #ccc;
+  font-size: 32px; 
 }
 
-/* Increase font size and dimensions for the select */
+
+.label-large {
+  font-size: 32px; 
+}
+
+
 .dropdown-large {
-  font-size: 20px; /* Adjust the size as needed */
-  width: 150px; /* Adjust the width as needed */
-  padding: 12px; /* Adjust the padding as needed */
+  font-size: 32px; 
+  width: 250px;
+  padding: 12px; 
 }
 
 input::-webkit-outer-spin-button,
@@ -681,13 +690,13 @@ input::-webkit-inner-spin-button {
   outline: none;
 }
 
-#add-item-button, #remove-item-button {
+#add-item-button {
   background-color: #2C3C4B;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 32px;
   cursor: pointer;
   margin: 5px;
   transition: background-color 0.3s;
@@ -747,22 +756,6 @@ input::-webkit-inner-spin-button {
   justify-content: row center;
 }
 
-#add-item-button:hover, #remove-item-button:hover {
-  background-color: #2C3C4B;
-}
-
-ul#items-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-}
-
-ul#items-list li {
-  font-size: 18px;
-  margin: 5px 0;
-}
-
 /* Style for individual items in the list */
 ul#items-list li {
   display: flex;
@@ -773,6 +766,8 @@ ul#items-list li {
   padding: 8px;
   background-color: #fff;
   padding: 0;
+  font-size: 18px;
+  margin: 5px 0;
 }
 
 /* Style for the "Remove" button within each list item */
@@ -836,13 +831,9 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   
   border: none;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 32px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-#back-button:hover {
-  background-color: #2C3C4B;
 }
 /* ------------------------------------- SECTION: USER PREFERENCES  -------------------------------------*/
 
