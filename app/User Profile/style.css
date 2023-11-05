@@ -450,7 +450,7 @@ input[type="checkbox"] {
   }
   
   .profile-detail-allergies input[type="checkbox"]:active {
-    transform: scale(1.1);
+    transform: scale(1.5);
   }
 
 #keyboard img {
