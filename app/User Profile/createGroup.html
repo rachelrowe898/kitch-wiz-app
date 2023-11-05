@@ -37,19 +37,29 @@
                     <div class="user-details">
                         <div class="profile-detail">
                             <label for="food-preference">Group Name:</label>
-                            <input type="text" id="group-name" placeholder="Enter group name">
+                            <input type="text" id="group-name" placeholder="Enter group name" onclick="showKeyboardGroupName()">
 
                         </div>
                         <div class="profile-detail">
                             <label for="allergies">Group Members:</label>
-                            <input type="text" id="group-members" placeholder="Enter member usernames">
+                            <input type="text" id="group-members" placeholder="Enter member usernames" onclick="showKeyboardGroupMembers()">
                         </div>
                     </div>
                     <!-- Save button to update profile -->
                     <button class="save-profile-button" onclick="createUserGroup()">Create Group</button>
                     <button class="add-profile-button" onclick="goBackToUserGroups()">Back</button>
                 </div> 
-            </div>            
+            </div>   
+            <div class="keyboard-container" id="keyboard-container">
+                <div id="keyboard-group" style="display: none;">
+                  <img src="../images/keyboard-image.jpeg" alt="Keyboard Image Group">
+                </div>
+            </div>    
+            <div class="keyboard-container" id="keyboard-container">
+                <div id="keyboard-member" style="display: none;">
+                  <img src="../images/keyboard-image.jpeg" alt="Keyboard Image Group">
+                </div>  
+            </div>       
         </div>
     </main>
 </body>

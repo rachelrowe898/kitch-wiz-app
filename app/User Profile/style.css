@@ -458,6 +458,15 @@ input[type="checkbox"] {
     max-height: 350px;
 }
 
+#keyboard-group img {
+    max-width: 850px; 
+    max-height: 350px;
+}
+
+#keyboard-member img {
+    max-width: 850px; 
+    max-height: 350px;
+}
 .keyboard-container {
     position: fixed;
     bottom: 0;
