@@ -54,15 +54,6 @@ function openNewList() {
   }
 }
 
-document.getElementById("saved-list-button").addEventListener("click", function () {
-
-  // Save the list in localStorage
-  localStorage.setItem("savedLists", JSON.stringify(savedLists));
-  console.log(savedLists);
-  // Redirect to Page 2
-  window.location.href = "savedLists.html";
-  loadLists("savedLists", "saved-shopping-list");
-});
 
 
 function loadLists(key, listNameId) {
@@ -85,10 +76,6 @@ function loadLists(key, listNameId) {
   })
 }
 
-
-//window.addEventListener("load", function() {
-  //loadLists("previousLists", "previous-shopping-list");
-//});
 
 
 function openGroceryList() {
