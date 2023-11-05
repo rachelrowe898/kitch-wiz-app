@@ -117,10 +117,42 @@ function showKeyboard() {
   }
 }
 
+function showKeyboardGroupName() {
+  var keyboard = document.getElementById('keyboard-group');
+  if (keyboard.style.display === 'none') {
+      keyboard.style.display = 'block';
+  } else {
+      keyboard.style.display = 'none';
+  }
+}
+
+function showKeyboardGroupMembers() {
+  var keyboard = document.getElementById('keyboard-member');
+  if (keyboard.style.display === 'none') {
+      keyboard.style.display = 'block';
+  } else {
+      keyboard.style.display = 'none';
+  }
+}
+
 // Add an event listener to hide the keyboard when clicking outside of it
 document.addEventListener('click', function(event) {
   var keyboard = document.getElementById('keyboard');
   if (event.target !== keyboard && event.target !== document.getElementById('otherAllergy')) {
+      keyboard.style.display = 'none';
+  }
+});
+
+document.addEventListener('click', function(event) {
+  var keyboard = document.getElementById('keyboard-group');
+  if (event.target !== keyboard && event.target !== document.getElementById('group-name')) {
+      keyboard.style.display = 'none';
+  }
+});
+
+document.addEventListener('click', function(event) {
+  var keyboard = document.getElementById('keyboard-member');
+  if (event.target !== keyboard && event.target !== document.getElementById('group-members')) {
       keyboard.style.display = 'none';
   }
 });
