@@ -10,38 +10,59 @@ savedLists["Beef Stew"] = ["Chuck Roast 3 pound(s)", "Beef Stock 1 quart(s)", "P
 
 
 const inputFields = document.querySelectorAll("input");
-const keyboardPopUp = document.getElementById("keyboard-pop-up");
+
+function showKeyboard() {
+  var keyboard = document.getElementById('keyboard');
+
+  console.log("*** shopping keyboard", keyboard);
+
+  if (keyboard.style.display === 'none') {
+      keyboard.style.display = 'block';
+  } else {
+      keyboard.style.display = 'none';
+  }
+}
+
+// Add an event listener to hide the keyboard when clicking outside of it
+document.addEventListener('click', function(event) {
+  var keyboard = document.getElementById('keyboard');
+  if (event.target !== keyboard && event.target !== document.getElementById('list-name') && event.target !== document.getElementById('item-input') && event.target !== document.getElementById('item-quantity')) {
+      keyboard.style.display = 'none';
+  }
+});
+
 
 // Hide the keyboard pop-up by default
-keyboardPopUp.style.height = "0";
+// keyboardPopUp.style.height = "0";
 
 
-inputFields.forEach(input => {
-  input.addEventListener("focus", function () {
-      // Show the keyboard pop-up
-      keyboardPopUp.style.height = "50%"; // Adjust the height as needed
-      document.getElementById("shopping-section").style.marginBottom = "300px";
-  });
+// inputFields.forEach(input => {
+//   input.addEventListener("focus", function () {
+//       // Show the keyboard pop-up
+//       keyboardPopUp.style.display = "block";
+//       keyboardPopUp.style.height = "50%"; // Adjust the height as needed
+//       document.getElementById("shopping-section").style.marginBottom = "300px";
+//   });
 
-  input.addEventListener("blur", function () {
-      // Hide the keyboard pop-up when the input field loses focus
-      keyboardPopUp.style.height = "0";
-      document.getElementById("shopping-section").style.marginBottom = "0px";
-  });
-});
+//   input.addEventListener("blur", function () {
+//       // Hide the keyboard pop-up when the input field loses focus
+//       keyboardPopUp.style.height = "0";
+//       document.getElementById("shopping-section").style.marginBottom = "0px";
+//   });
+// });
 
 function goBackToShopping() {
   location.href = '../Shopping/shopping.html';
 }
 function openNav() {
   var x = document.getElementById("menuLinks");
-  var shoppingSection = document.getElementById("shopping-section");
+  var shoppingSection = document.getElementById("list-section");
   if (x.style.display === "block") {
     x.style.display = "none";
-    shoppingSection.style.marginTop = "100px";
+    shoppingSection.style.marginTop = "60px";
   } else {
     x.style.display = "block";
-    shoppingSection.style.marginTop = "150px";
+    shoppingSection.style.marginTop = "0px";
   }
 }
 

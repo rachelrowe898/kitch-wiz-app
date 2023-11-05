@@ -12,6 +12,7 @@
   font-size: 27px;
   background-color: #635C70;
   padding: 10px 16px 10px 0px;
+  height: 60px;
 }
 
 /* Style navigation menu links */
@@ -78,6 +79,13 @@ body {
   width: 100%;
 }
 
+.main-section-shopping {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  height: 850px;
+}
+
 .app-heading{
   overflow: hidden;
   position: fixed;
@@ -85,6 +93,11 @@ body {
   background-color: white;
   width: 640px;
   text-align: center;
+}
+
+#recipe-page-heading-text {
+  display: flex;
+  justify-content: row;
 }
 
 .tab {
@@ -136,6 +149,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 50px;
 }
 
 .recipe-page-heading {
@@ -167,7 +181,7 @@ body {
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #208AAE;
+  color: #166079;
   cursor: pointer;
 }
 
@@ -181,7 +195,7 @@ body {
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #208AAE;
+  color: #166079;
   cursor: pointer; */
 }
 
@@ -190,7 +204,7 @@ body {
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #208AAE;
+  color: #166079;
   cursor: pointer;
 }
 
@@ -285,14 +299,14 @@ body {
 
 #clock-icon {
   height: 35px;
-  color: #208AAE;
+  color: #166079;
   margin: 15px 5px;
 }
 
 .prep-time {
   /* margin: 100px 10px 0px 210px;
   position: absolute; */
-  font-size: 25px;
+  font-size: 28px;
   color:#635C70;
 }
 
@@ -305,7 +319,7 @@ a.fill-div {
 
 #addRecipe {
   display: none;
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   height: 880px;
   margin-left: 15px;
   margin-right: 15px;
@@ -317,7 +331,7 @@ a.fill-div {
 
 #filterMenu {
   display: none;
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   height: 890px;
   margin-left: 15px;
   margin-right: 15px;
@@ -332,18 +346,18 @@ a.fill-div {
   flex: 0 0 10%;
   flex-direction: row;
   cursor: pointer;
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   border: none;
   color: white;
   width: 110px;
-  height: 45px;
-  padding-top: 5px;
+  height: 55px;
+  padding-top: 10px;
   margin-top: 5px;
   margin-right: 25px;
   margin-left: 10px;
   text-align: center;
   font-family: Helvetica;
-  font-size: 25px;
+  font-size: 27px;
   justify-content: space-evenly;
   border-radius: 10px;
   cursor: pointer;
@@ -439,6 +453,28 @@ input[type="file"] {
   margin: 10px
 }
 
+#remove-ingredient-button {
+  background-color: white;
+  color: #635C70;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#add-ingredient-button {
+  background-color: white;
+  color: #635C70;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 input[type="submit"] {
   background-color: white;
   color: #635C70;
@@ -459,7 +495,7 @@ input[type="submit"]:active {
   flex: 0 0 10%;
   flex-direction: row;
   flex: 0 0 50%;
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   height: 200px;
   margin-left: 300px;
   margin-right: 15px;
@@ -575,9 +611,9 @@ input[type="range"] {
 
 .addMissingIngredientsButton {
   font-family: "Helvetica", sans-serif; 
-  background-color: #208AAE;
+  background-color: #166079;
   color: white;
-  border-color: #208AAE;
+  border-color: #166079;
   padding: 10px 10px;
   border-radius: 10px;
   transition: background-color 0.3s;
@@ -588,9 +624,6 @@ input[type="range"] {
 }
 
 /* Style the button on hover */
-.addRecipeIngredientsButton:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-}
 
 /* SECTION: KITCHEN STOCK */
 
@@ -620,12 +653,14 @@ input[type="range"] {
 .stock-heading-text {
   font-size: 48px;
   margin-bottom: 20px;
+  color: #635C70
 }
 
 .heading-text {
   font-size: 48px;
   margin-bottom: 20px;
   align-items: center;
+  color: #635C70
 }
 
 
@@ -735,13 +770,14 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   background-color: #2C3C4B;
   color: white;
   padding: 5px 10px;
-  margin: 10px;
-  
+  margin: 35px 10px;
   border: none;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 25px;
   cursor: pointer;
   transition: background-color 0.3s;
+  height: 40px;
+  width: 80px;
 }
 
 #back-button:hover {
@@ -953,21 +989,23 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 
 /* Start Shopping Styles */
 
-.shopping-list-section {
-  text-align: left;
-  padding: 30px;
-  margin: 100px 10px 10px 10px;
+.new-list-section {
   display: flex;
-  justify-content: auto;
   flex-direction: column;
-  overflow: auto;
-  width:100%;
+  margin-top: 170px;
+}
+
+.shopping-list-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
 }
 
 #list-section {
   margin: 0px 10px;
   display: flex;
   flex-direction: column;
+  margin-top: 60px;
 }
 
 .list-button {
@@ -980,6 +1018,18 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   cursor: pointer;
   margin: 10px;
   transition: 0.3s;
+}
+
+.list-square {
+  height: 150px;
+  width: 550px;
+  padding: 10px 10px;
+  border: 3px solid black;
+  margin: 30px 10px;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 5px 10px 8px #888888;
+  background-color: white; 
 }
 
 #create-list {
@@ -1039,17 +1089,16 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 
 #checkbox-list {
   display: block;
-  background-color: #635C70;
-
+  background-color: #2C3C4B;
   height: 600px;
+  font-size: 25px;
 }
 
 #checkbox-modal {
   display: none;
-  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-75%, -45%);
+  /* transform: translate(-75%, -45%); */
   width: 100%;
   height: 100%;
   max-width: 650px;
@@ -1057,7 +1106,7 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   background: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  /* z-index: 1; */
   overflow-y: auto;
   color: white;
 }
@@ -1076,7 +1125,7 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 
 /* End of Shopping Styles */
 
-.keyboard-pop-up {
+/* .keyboard-pop-up {
   position: fixed;
   bottom: -80px;
   left: -50px;
@@ -1084,9 +1133,26 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   height: 0;
   overflow-y: auto;
   transition: height 0.3s;
-}
+  display: none;
+} */
 
+#keyboard img {
+  width: 640px;
+  justify-self: center;
+  transition: height 0.3s;
+} 
+
+.keyboard-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: height 0.3s;
+}
+/* 
 .keyboard-pop-up img {
   width: 85%;
   height: 80%;
-}
+} */

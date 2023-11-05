@@ -49,7 +49,7 @@
                 <div id="addRecipe" style="display: None;">
                   <h1 style="padding: 20px; margin: 0 auto;">Add New Recipe</h1>
                   <form add id="add-ingredient-form">
-                    <input id="form-recipe-name" type="text" placeholder="Recipe Name" required onkeyup="enableSubmit()"><br>
+                    <input id="form-recipe-name" type="text" placeholder="Recipe Name" required onkeyup="enableSubmit();" onclick="showKeyboard();"><br>
                     <!-- <textarea id="form-ingredients" placeholder="Ingredients (one ingredient per line)" style="height:200px" required></textarea><br> -->
                     <!-- <p>Ingredients</p> -->
                     <h2 style="margin: 10px auto;">Ingredients</h2>
@@ -392,7 +392,10 @@
 
               <template id="recipe-page">
                 <div class="recipe-page-heading">
-                  <h2 class="recipe-name-text">Spaghetti & Meatballs</h2>
+                  <div id="recipe-page-heading-text">
+                    <button id="back-button" onclick="goBack();">Back</button>
+                    <h2 class="recipe-name-text">Spaghetti & Meatballs</h2>
+                  </div>
                   <img class="recipe-page-pic" src="../images/spaghetti-pic.jpeg" alt="spaghetti-pic">
                   <div class="recipe-page-prep-time">
                     <img id="clock-icon" src="../icons/clock-icon.png" aria-hidden="true" alt="clockicon">
@@ -437,6 +440,11 @@
               </template>
             </div>
           </div>
+          <div class="keyboard-container" id="keyboard-container">
+                <div id="keyboard-pop-up" style="display: none;">
+                  <img src="../images/keyboard.jpeg" alt="Keyboard Image">
+                </div>
+            </div>
         </div>
         
     </main>

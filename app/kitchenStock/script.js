@@ -3,10 +3,10 @@ function openNav() {
     var recipeSection = document.getElementById("recipe-section");
     if (x.style.display === "block") {
       x.style.display = "none";
-      recipeSection.style.marginTop = "150px";
+      // recipeSection.style.marginTop = "150px";
     } else {
       x.style.display = "block";
-      recipeSection.style.marginTop = "300px";
+      // recipeSection.style.marginTop = "300px";
     }
   }
 // Function to load items from local storage

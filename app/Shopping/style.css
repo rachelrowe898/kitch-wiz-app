@@ -334,21 +334,6 @@ body {
     margin-bottom: 10px; /* Add some spacing between items */
 }
 
-#checkbox-modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-150%, -50%);
-    width: 80%;
-    max-width: 400px; 
-    background: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    overflow-y: auto;
-}
-
 .modal-content {
     background: #fff;
     border: 1px solid #ccc;

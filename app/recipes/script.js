@@ -87,7 +87,6 @@ function closeSort() {
   var x = document.getElementById("sortMenu");
   var sortButton = document.getElementsByClassName("sortDropdownButton")[0];
   x.style.display = "none";
-  sortButton.style.backgroundColor = "#166079";
 }
 
 function openAdd() {
@@ -334,6 +333,20 @@ function getIngredientsText() {
   }
 
   return ingredientsText;
+}
+
+function goBack() {
+  location.href = '../recipes/recipelist.html';
+}
+
+function showKeyboard() {
+  var keyboard = document.getElementById('keyboard-pop-up');
+  console.log("******** keyboard", keyboard)
+  if (keyboard.style.display === 'none') {
+      keyboard.style.display = 'block';
+  } else {
+      keyboard.style.display = 'none';
+  }
 }
 
 function saveRecipe() {

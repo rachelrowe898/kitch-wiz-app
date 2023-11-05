@@ -206,6 +206,7 @@ h2 {
     font-size: 40px;
     color: #166079;
     margin-left: 15px;
+    margin-top: 50px;
 }
 
 #recipe-listing {
@@ -322,7 +323,7 @@ select {
 
 .profile-detail-allergies {
     width: 100%;
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 20px;
     flex-direction: column;
     font-weight: bold;
@@ -345,7 +346,7 @@ select {
     background-color: #1f81a2;
 }
 #user-groups-button {
-    background-color: #3CB371;
+    background-color: #166079;
 }
 
 .group-square {
@@ -433,6 +434,7 @@ input[type="text"] {
 
 input[type="checkbox"] {
     margin-right: 10px;
+    margin-bottom: 15px;
 }
 
 .message-display {
