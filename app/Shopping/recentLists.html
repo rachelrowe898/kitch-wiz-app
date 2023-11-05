@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchWiz</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body class="wrapper">
+    <main>
+      <div class="appBox">
+        <div class="app-heading">
+          <!-- Top Navigation Menu -->
+          <div class="topnav">
+            <a href="#home" class="active">KitchWiz</a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="menuLinks">
+              <a href="#recipes" class="nav-link" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
+              <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen</a>
+              <a href="#shopping" class="nav-link" onclick="location.href='../Shopping/shopping.html';">Shopping</a>
+              <a href="#profile" class="nav-link" onclick="location.href='../User Profile/userProfile.html';">Profile</a>
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="openNav()">
+              <img src="../icons/hamburger-menu.png" alt="hamburger menu">
+            </a>
+        </div>
+        <div class="shopping-list-section">
+            <div class="list-header">
+                <button id="back-button" onclick="goBackToShopping()">Back</button>
+                  <h2>Recently Used Shopping Lists</h2>
+            </div>
+            <ul id="saved-shopping-lists"></ul>
+              <li><button class="list-button">Dinner</button></li><br>
+              <li><button id="baking-button" class="list-button" onclick="bakeButton()">Baking</button></li><br>
+              <li><button class="list-button">Curry</button></li><br>
+              <li><button class="list-button">Cheese</button></li>
+              <div id="checkbox-modal" class="hidden">
+                <div class="modal-content">
+                    <div id="checkbox-list"></div>
+                    <button type="button" id="close-bake-button" class="list-button" onclick="closeBakeButton()">Complete Shopping</button>
+                    <button type="button" id="add-button" class="list-button">Add selected to fridge</button>
+                </div>
+              </div>
+        </div>
+
+      </div>
+    </main>
+</body>
+</html>
