@@ -1002,7 +1002,7 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 }
 
 #list-section {
-  margin: 0px 10px;
+  margin: 0px 10px 0px 10px;
   display: flex;
   flex-direction: column;
   margin-top: 60px;

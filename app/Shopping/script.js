@@ -62,7 +62,7 @@ function openNav() {
     shoppingSection.style.marginTop = "60px";
   } else {
     x.style.display = "block";
-    shoppingSection.style.marginTop = "0px";
+    shoppingSection.style.marginTop = "-14px";
   }
 }
 
