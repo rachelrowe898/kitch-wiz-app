@@ -445,8 +445,8 @@ input[type="checkbox"] {
   }
 
   .profile-detail-allergies input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
   }
   
   .profile-detail-allergies input[type="checkbox"]:active {
