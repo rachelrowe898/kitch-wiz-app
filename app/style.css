@@ -327,18 +327,18 @@ a.fill-div {
   flex: 0 0 10%;
   flex-direction: row;
   cursor: pointer;
-  background-color: #166079;
+  background-color: #2C3C4B;
   border: none;
   color: white;
   width: 110px;
-  height: 45px;
-  padding-top: 5px;
+  height: 55px;
+  padding-top: 10px;
   margin-top: 5px;
   margin-right: 25px;
   margin-left: 10px;
   text-align: center;
   font-family: Helvetica;
-  font-size: 25px;
+  font-size: 27px;
   justify-content: space-evenly;
   border-radius: 10px;
   cursor: pointer;
@@ -456,13 +456,13 @@ input[type="submit"]:active {
   flex: 0 0 50%;
   background-color: #2C3C4B;
   height: 200px;
-  margin-left: 300px;
+  margin-left: 260px;
   margin-right: 15px;
   color: white;
   justify-content: space-between;
   padding: 15px 15px 15px 15px;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: 27px;
   cursor: pointer;
 }
 
