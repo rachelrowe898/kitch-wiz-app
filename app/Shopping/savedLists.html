@@ -27,23 +27,20 @@
             <a href="javascript:void(0);" class="icon" onclick="openNav()">
               <img src="../icons/hamburger-menu.png" alt="hamburger menu">
             </a>
-          </div>
-
-
-
-          <div id="list-section">
-            <h1 class="heading-text">My Shopping Lists</h1>
-            <button id="new-list-button" class="section-button" onclick="location.href='../Shopping/newList.html';"">Create New List</button>
-            <br>
-            <button id="saved-list-button" class="section-button" onclick="location.href='../Shopping/savedLists.html';"">Saved Shopping Lists</button>
-            <br> 
-            <button id="recent-list-button" class="section-button" onclick="location.href='../Shopping/recentLists.html';"">Recently Used Shopping Lists</button>      
-          </div>
-
-
         </div>
+        <div class="shopping-list-section">
+            <div class="list-header">
+                <button id="back-button" onclick="goBackToShopping()">Back</button>
+                  <h2>Saved Shopping Lists</h2>
+              </div>
+              <ul id="saved-shopping-lists"></ul>
+                <li><button class="list-button">Chicken</button></li><br>
+                <li><button class="list-button">Noodles</button></li><br>
+                <li><button class="list-button">Beef Stew</button></li><br>
+                <li><button class="list-button">Pasta</button></li>
+
+          </div>
       </div>
     </main>
 </body>
 </html>
-

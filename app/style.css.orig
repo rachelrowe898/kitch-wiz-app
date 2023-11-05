@@ -108,7 +108,7 @@ body {
 }
 
 .tab button.active {
-  background-color: #FDB833;
+  background-color: #FDC34E;
 }
 
 .tabcontent {
@@ -167,7 +167,7 @@ body {
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #208AAE;
+  color: #166079;
   cursor: pointer;
 }
 
@@ -177,12 +177,6 @@ body {
   margin-bottom: 5px;
   margin-top: 10px;
   height: 15px;
-  /* display: flex;
-  flex: 0 0 10%;
-  flex-direction: column;
-  font-size: 40px;
-  color: #208AAE;
-  cursor: pointer; */
 }
 
 #add-icon {
@@ -190,12 +184,12 @@ body {
   flex: 0 0 10%;
   flex-direction: column;
   font-size: 40px;
-  color: #208AAE;
+  color: #166079;
   cursor: pointer;
 }
 
 #recipe-section {
-  margin: 120px 10px;
+  margin: 170px 10px;
   display: flex;
   /* justify-content: auto; note: the validator says auto is not a justify-content value */
   flex-direction: column;
@@ -285,7 +279,7 @@ body {
 
 #clock-icon {
   height: 35px;
-  color: #208AAE;
+  color: #166079;
   margin: 15px 5px;
 }
 
@@ -305,7 +299,7 @@ a.fill-div {
 
 #addRecipe {
   display: none;
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   height: 880px;
   margin-left: 15px;
   margin-right: 15px;
@@ -313,11 +307,12 @@ a.fill-div {
   justify-content: left;
   padding: 10px 10px;
   border-radius: 10px;
+  overflow-y: scroll;
 }
 
 #filterMenu {
   display: none;
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   height: 890px;
   margin-left: 15px;
   margin-right: 15px;
@@ -332,18 +327,18 @@ a.fill-div {
   flex: 0 0 10%;
   flex-direction: row;
   cursor: pointer;
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   border: none;
   color: white;
   width: 110px;
-  height: 45px;
-  padding-top: 5px;
+  height: 55px;
+  padding-top: 10px;
   margin-top: 5px;
   margin-right: 25px;
   margin-left: 10px;
   text-align: center;
   font-family: Helvetica;
-  font-size: 25px;
+  font-size: 27px;
   justify-content: space-evenly;
   border-radius: 10px;
   cursor: pointer;
@@ -406,7 +401,7 @@ input[type="text"],
 textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 25px;
@@ -459,15 +454,15 @@ input[type="submit"]:active {
   flex: 0 0 10%;
   flex-direction: row;
   flex: 0 0 50%;
-  background-color: #208AAE;
+  background-color: #2C3C4B;
   height: 200px;
-  margin-left: 300px;
+  margin-left: 260px;
   margin-right: 15px;
   color: white;
   justify-content: space-between;
   padding: 15px 15px 15px 15px;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: 27px;
   cursor: pointer;
 }
 
@@ -478,7 +473,7 @@ input[type="submit"]:active {
   display: block;
 }
 
-.dropdown-menu a:hover {background-color: #FDB833}
+.dropdown-menu a:hover {background-color: #FDC34E}
 
 .range_container {
   display: flex;
@@ -575,9 +570,9 @@ input[type="range"] {
 
 .addMissingIngredientsButton {
   font-family: "Helvetica", sans-serif; 
-  background-color: #208AAE;
+  background-color: #166079;
   color: white;
-  border-color: #208AAE;
+  border-color: #166079;
   padding: 10px 10px;
   border-radius: 10px;
   transition: background-color 0.3s;
@@ -618,11 +613,13 @@ input[type="range"] {
 }
 
 .stock-heading-text {
+  color: #635C70;
   font-size: 48px;
   margin-bottom: 20px;
 }
 
 .heading-text {
+  color: #635C70;
   font-size: 48px;
   margin-bottom: 20px;
   align-items: center;
@@ -633,17 +630,26 @@ input[type="range"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
 }
-/* Increase font size for label */
-.label-large {
-  font-size: 20px; /* Adjust the size as needed */
+.stock-list input[type="text"],
+.stock-list input[type="number"],
+.stock-list input[type="date"],
+.stock-list select {
+  border: 1px solid #ccc;
+  font-size: 32px; 
 }
 
-/* Increase font size and dimensions for the select */
+
+.label-large {
+  font-size: 32px; 
+}
+
+
 .dropdown-large {
-  font-size: 20px; /* Adjust the size as needed */
-  width: 150px; /* Adjust the width as needed */
-  padding: 12px; /* Adjust the padding as needed */
+  font-size: 32px; 
+  width: 250px;
+  padding: 12px; 
 }
 
 input::-webkit-outer-spin-button,
@@ -654,6 +660,7 @@ input::-webkit-inner-spin-button {
 
 #item-quantity {
   width: 200px;
+  font: Helvetica;
 }
 
 #item-input {
@@ -665,6 +672,89 @@ input::-webkit-inner-spin-button {
   outline: none;
 }
 
+#item-input2 {
+  width: 140px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+#item-quantity2 {
+  width: 100px;
+  padding: 10px;
+  margin: 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+#add-item-button {
+  background-color: #2C3C4B;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 32px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s;
+}
+
+#list-selector-type2 {
+  width: 130px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.ingredient-input-row {
+  display: flex;
+  flex-direction: row;
+}
+
+#add-ingredient-button {
+  background-color: #98DDA9;
+  color: #2C3C4B;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  float: right;
+  margin: 15px 20px;
+  font: Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+  height: 80px;
+  width: 150px;
+  justify-content: center;
+  box-shadow: 2px 4px 2px #6ca87b;
+}
+
+#remove-ingredient-button {
+  background-color: #FFC2C2;
+  color: #2C3C4B;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  float: right;
+  margin: 15px 20px;
+  font: Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+  height: 80px;
+  width: 150px;
+  justify-content: center;
+  box-shadow: 2px 4px 2px #c58c8c;
+}
+
+#remove-and-add-buttons {
+  display: flex;
+  justify-content: row center;
+}
 
 /* Style for individual items in the list */
 ul#items-list li {
@@ -676,6 +766,8 @@ ul#items-list li {
   padding: 8px;
   background-color: #fff;
   padding: 0;
+  font-size: 18px;
+  margin: 5px 0;
 }
 
 /* Style for the "Remove" button within each list item */
@@ -739,13 +831,9 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   
   border: none;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 32px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-#back-button:hover {
-  background-color: #2C3C4B;
 }
 /* ------------------------------------- SECTION: USER PREFERENCES  -------------------------------------*/
 
@@ -994,6 +1082,12 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 }
 
 #make-list {
+<<<<<<< Updated upstream
+  background-color: #166079;
+  color: #635C70;
+  padding: 10px 20px;
+=======
+>>>>>>> Stashed changes
   border: none;
   border-radius: 5px;
   font-size: 20px;
