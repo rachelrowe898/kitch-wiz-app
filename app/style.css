@@ -1044,6 +1044,7 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 .new-list-section {
   display: flex;
   flex-direction: column;
+  overflow: auto;
   margin-top: 170px;
 }
 
@@ -1150,7 +1151,7 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   display: none;
   top: 50%;
   left: 50%;
-  /* transform: translate(-75%, -45%); */
+  transform: translate(0%, -100%);
   width: 100%;
   height: 100%;
   max-width: 650px;
@@ -1158,7 +1159,7 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   background: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  /* z-index: 1; */
+  z-index: 1; 
   overflow-y: auto;
   color: white;
 }

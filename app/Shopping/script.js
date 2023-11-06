@@ -18,8 +18,10 @@ function showKeyboard() {
 
   if (keyboard.style.display === 'none') {
       keyboard.style.display = 'block';
+      document.getElementById("shopping-section").style.marginBottom = "300px";
   } else {
       keyboard.style.display = 'none';
+
   }
 }
 
@@ -28,6 +30,7 @@ document.addEventListener('click', function(event) {
   var keyboard = document.getElementById('keyboard');
   if (event.target !== keyboard && event.target !== document.getElementById('list-name') && event.target !== document.getElementById('item-input') && event.target !== document.getElementById('item-quantity')) {
       keyboard.style.display = 'none';
+      document.getElementById("shopping-section").style.marginBottom = "0px";
   }
 });
 
@@ -170,6 +173,7 @@ function bakeButton() {
   });
 
     // Show the modal
+    checkboxModal.style.transform = "translateY(-600px)";
     checkboxModal.style.display = "block";
 }
 
