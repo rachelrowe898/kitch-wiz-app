@@ -697,7 +697,7 @@ input[type="range"] {
 }
 
 #kitchen-stock-section, #stock-section {
-  margin: 150px 10px;
+  margin: 180px 10px;
   display: flex;
   flex-direction: column;
 }
