@@ -74,9 +74,11 @@ body {
 }
 
 .main-section {
-  overflow-x: hidden;
-  overflow-y: scroll;
+  /* overflow-x: hidden;
+  overflow-y: scroll; */
   width: 100%;
+  display: flex;
+  flex-direction:column;
 }
 
 .main-section-shopping {
@@ -209,10 +211,12 @@ body {
 }
 
 #recipe-section {
-  margin: 120px 10px;
+  margin: 120px 10px 20px 10px;
   display: flex;
   /* justify-content: auto; note: the validator says auto is not a justify-content value */
   flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .recipe-page {
@@ -320,7 +324,7 @@ a.fill-div {
 #addRecipe {
   display: none;
   background-color: #2C3C4B;
-  height: 820px;
+  height: 10000px;
   margin-left: 15px;
   margin-right: 15px;
   color: white;
@@ -453,7 +457,7 @@ input[type="file"] {
   margin: 10px
 }
 
-#item-input2 {
+.item-input2 {
   width: 140px;
   padding: 10px;
   margin: 10px 0;
@@ -462,7 +466,7 @@ input[type="file"] {
   outline: none;
 }
 
-#item-quantity2 {
+.item-quantity2 {
   width: 100px;
   padding: 10px;
   margin: 10px 10px;
@@ -697,9 +701,11 @@ input[type="range"] {
 }
 
 #kitchen-stock-section, #stock-section {
-  margin: 150px 10px;
+  margin: 180px 10px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .stock-heading-text {
@@ -864,6 +870,8 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   padding: 20px;
   margin: 10px;
   cursor: pointer;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .user-name {
@@ -1044,8 +1052,15 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 .new-list-section {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   overflow: auto;
   margin-top: 170px;
+=======
+  margin-top: 140px;
+  margin-left: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+>>>>>>> a056c3a8fb4dbb0fbdb5534993017d9ed1d9a958
 }
 
 .shopping-list-section {
@@ -1178,17 +1193,6 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 
 /* End of Shopping Styles */
 
-/* .keyboard-pop-up {
-  position: fixed;
-  bottom: -80px;
-  left: -50px;
-  width: 50%;
-  height: 0;
-  overflow-y: auto;
-  transition: height 0.3s;
-  display: none;
-} */
-
 #keyboard img {
   width: 640px;
   justify-self: center;
@@ -1198,14 +1202,12 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
 .keyboard-container {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: height 0.3s;
+  margin-top: 10px;
+  flex-basis: 40%;
+  overflow: scroll;
 }
-/* 
-.keyboard-pop-up img {
-  width: 85%;
-  height: 80%;
-} */

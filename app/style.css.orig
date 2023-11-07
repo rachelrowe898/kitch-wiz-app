@@ -672,7 +672,7 @@ input::-webkit-inner-spin-button {
   outline: none;
 }
 
-#item-input2 {
+.item-input2 {
   width: 140px;
   padding: 10px;
   margin: 10px 0;
@@ -681,7 +681,7 @@ input::-webkit-inner-spin-button {
   outline: none;
 }
 
-#item-quantity2 {
+.item-quantity2 {
   width: 100px;
   padding: 10px;
   margin: 10px 10px;
@@ -864,6 +864,8 @@ ul#freezer-items-list li button, ul#fridge-items-list li button  {
   padding: 20px;
   margin: 10px;
   cursor: pointer;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .user-name {

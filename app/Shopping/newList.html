@@ -29,6 +29,7 @@
             </a>
           </div>
         </div>
+        <div class="main-section">
           <div class="new-list-section" id="shopping-section">
             <div class="list-header">
               <button id="back-button" onclick="goBackToShopping()">Back</button>
@@ -36,11 +37,11 @@
             </div>
               <div id="make-list">
                 <div>
-                    <input type="text" id="list-name" placeholder="List Name" onclick="showKeyboard();"><br>
+                    <input type="text" id="list-name" placeholder="List Name"><br>
                     <label class="label-large">Add: </label>
-                    <input type="text" id="item-input" placeholder="Item Name" onclick="showKeyboard();">
+                    <input type="text" id="item-input" placeholder="Item Name">
                     <br>
-                    <input type="number" id="item-quantity" placeholder="Quantity" onclick="showKeyboard();">
+                    <input type="number" id="item-quantity" placeholder="Quantity">
                     <select id="list-selector-type" class="dropdown-large">
                         <option value="count">Count</option>
                         <option value="pound(s)">Pound(s)</option>
@@ -69,6 +70,7 @@
             <div id="keyboard" style="display: none;">
               <img src="../images/keyboard-image.jpeg" alt="Keyboard Image">
             </div>
+        </div>
         </div>
       </div>
     </main>
