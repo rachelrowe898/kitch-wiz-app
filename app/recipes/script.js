@@ -44,8 +44,8 @@ function addIngredientInputs() {
   const newIngredientRow = document.createElement('div');
   newIngredientRow.className = 'ingredient-input-row';
   newIngredientRow.innerHTML = `
-    <input type="text" id="item-input2" placeholder="Ingredient" required>
-    <input type="number" id="item-quantity2" placeholder="Quantity" required>
+    <input type="text" class="item-input2" placeholder="Ingredient" required>
+    <input type="number" class="item-quantity2" placeholder="Quantity" required>
     <select id="list-selector-type2" class="dropdown-large" required>
         <option value="count">Count</option>
         <option value="pounds">Pound(s)</option>
@@ -323,8 +323,8 @@ function getIngredientsText() {
   let ingredientsText = '';
 
   for (const row of ingredientRows) {
-    const ingredient = row.querySelector('#item-input2').value;
-    const quantity = row.querySelector('#item-quantity2').value;
+    const ingredient = row.querySelector('.item-input2').value;
+    const quantity = row.querySelector('.item-quantity2').value;
     const unit = row.querySelector('#list-selector-type2').value;
 
     if (ingredient && quantity && unit) {
@@ -339,15 +339,21 @@ function goBack() {
   location.href = '../recipes/recipelist.html';
 }
 
-function showKeyboard() {
-  var keyboard = document.getElementById('keyboard-pop-up');
-  console.log("******** keyboard", keyboard)
-  if (keyboard.style.display === 'none') {
-      keyboard.style.display = 'block';
-  } else {
+var keyboard = document.getElementById('keyboard');
+var recipeDiv = document.getElementById('recipe-section');
+
+// Add an event listener to hide the keyboard when clicking outside of it
+document.addEventListener('click', function(event) {
+  var keyboard = document.getElementById('keyboard');
+  if (event.target !== keyboard && event.target !== document.getElementById('form-recipe-name') && ! (Array.from(document.getElementsByClassName('item-input2')).includes(event.target)) && !(Array.from(document.getElementsByClassName('item-quantity2')).includes(event.target)) && event.target !== document.getElementById('form-instructions') && event.target !== document.getElementById('form-prep-time')) {
       keyboard.style.display = 'none';
+      recipeDiv.style.flexBasis = 'auto';
+  } else {
+    keyboard.style.display = 'block';
+    recipeDiv.style.flexBasis = '440px';
+    keyboard.style.display = '200px';
   }
-}
+});
 
 function saveRecipe() {
   try {

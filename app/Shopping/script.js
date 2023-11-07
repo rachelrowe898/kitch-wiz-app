@@ -11,23 +11,19 @@ savedLists["Beef Stew"] = ["Chuck Roast 3 pound(s)", "Beef Stock 1 quart(s)", "P
 
 const inputFields = document.querySelectorAll("input");
 
-function showKeyboard() {
-  var keyboard = document.getElementById('keyboard');
-
-  console.log("*** shopping keyboard", keyboard);
-
-  if (keyboard.style.display === 'none') {
-      keyboard.style.display = 'block';
-  } else {
-      keyboard.style.display = 'none';
-  }
-}
+var keyboard = document.getElementById('keyboard');
+var newListDiv = document.getElementsByClassName('new-list-section')[0];
 
 // Add an event listener to hide the keyboard when clicking outside of it
 document.addEventListener('click', function(event) {
   var keyboard = document.getElementById('keyboard');
   if (event.target !== keyboard && event.target !== document.getElementById('list-name') && event.target !== document.getElementById('item-input') && event.target !== document.getElementById('item-quantity')) {
       keyboard.style.display = 'none';
+      newListDiv.style.flexBasis = 'auto';
+  } else {
+    keyboard.style.display = 'block';
+    newListDiv.style.flexBasis = "40%";
+    keyboard.style.display = '40%';
   }
 });
 

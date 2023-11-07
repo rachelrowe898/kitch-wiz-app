@@ -108,51 +108,92 @@ function goBackToUserProfile() {
   window.location.href = "userProfile.html"; 
 }
 
-function showKeyboard() {
-  var keyboard = document.getElementById('keyboard');
-  if (keyboard.style.display === 'none') {
-      keyboard.style.display = 'block';
-  } else {
-      keyboard.style.display = 'none';
-  }
-}
+// function showKeyboard() {
+//   const inputFields = document.querySelectorAll("input");
+//   const keyboardPopUp = document.getElementById("keyboard");
 
-function showKeyboardGroupName() {
-  var keyboard = document.getElementById('keyboard-group');
-  if (keyboard.style.display === 'none') {
-      keyboard.style.display = 'block';
-  } else {
-      keyboard.style.display = 'none';
-  }
-}
+//   // Hide the keyboard pop-up by default
+//   keyboardPopUp.style.height = "0";
 
-function showKeyboardGroupMembers() {
-  var keyboard = document.getElementById('keyboard-member');
-  if (keyboard.style.display === 'none') {
-      keyboard.style.display = 'block';
-  } else {
-      keyboard.style.display = 'none';
-  }
-}
+
+//   inputFields.forEach(input => {
+//     input.addEventListener("focus", function () {
+//         // Show the keyboard pop-up
+//         keyboardPopUp.style.height = "50%"; // Adjust the height as needed
+//         document.getElementById("shopping-section").style.marginBottom = "300px";
+//     });
+
+//     input.addEventListener("blur", function () {
+//         // Hide the keyboard pop-up when the input field loses focus
+//         keyboardPopUp.style.height = "0";
+//         document.getElementById("shopping-section").style.marginBottom = "0px";
+//     });
+//   });
+
+//   // var keyboard = document.getElementById('keyboard');
+//   // if (keyboard.style.display === 'none') {
+//   //     keyboard.style.display = 'block';
+//   // } else {
+//   //     keyboard.style.display = 'none';
+//   // }
+// }
+
+// function showKeyboardGroupName() {
+//   var keyboard = document.getElementById('keyboard-group');
+//   if (keyboard.style.display === 'none') {
+//       keyboard.style.display = 'block';
+//   } else {
+//       keyboard.style.display = 'none';
+//   }
+// }
+
+// function showKeyboardGroupMembers() {
+//   var keyboard = document.getElementById('keyboard-member');
+//   if (keyboard.style.display === 'none') {
+//       keyboard.style.display = 'block';
+//   } else {
+//       keyboard.style.display = 'none';
+//   }
+// }
+
+// // Add an event listener to hide the keyboard when clicking outside of it
+// document.addEventListener('click', function(event) {
+//   var keyboard = document.getElementById('keyboard');
+//   if (event.target !== keyboard && event.target !== document.getElementById('otherAllergy')) {
+//       keyboard.style.display = 'none';
+//   }
+// });
+
+// document.addEventListener('click', function(event) {
+//   var keyboard = document.getElementById('keyboard-group');
+//   if (event.target !== keyboard && event.target !== document.getElementById('group-name')) {
+//       keyboard.style.display = 'none';
+//   }
+// });
+
+// document.addEventListener('click', function(event) {
+//   var keyboard = document.getElementById('keyboard-member');
+//   if (event.target !== keyboard && event.target !== document.getElementById('group-members')) {
+//       keyboard.style.display = 'none';
+//   }
+// });
+
+var keyboard = document.getElementById('keyboard');
+// var userDiv = document.getElementsByClassName('user-profile-page')[0]; 
+var userDiv = document.querySelector('.user-profile-page');
+
+console.log(userDiv);
 
 // Add an event listener to hide the keyboard when clicking outside of it
 document.addEventListener('click', function(event) {
   var keyboard = document.getElementById('keyboard');
   if (event.target !== keyboard && event.target !== document.getElementById('otherAllergy')) {
+      console.log(event.target);
       keyboard.style.display = 'none';
-  }
-});
-
-document.addEventListener('click', function(event) {
-  var keyboard = document.getElementById('keyboard-group');
-  if (event.target !== keyboard && event.target !== document.getElementById('group-name')) {
-      keyboard.style.display = 'none';
-  }
-});
-
-document.addEventListener('click', function(event) {
-  var keyboard = document.getElementById('keyboard-member');
-  if (event.target !== keyboard && event.target !== document.getElementById('group-members')) {
-      keyboard.style.display = 'none';
+      userDiv.style.flexBasis = 'auto';
+  } else {
+    keyboard.style.display = 'block';
+    userDiv.style.flexBasis = "30%";
+    keyboard.style.display = '40%';
   }
 });

@@ -120,6 +120,8 @@ h2 {
     cursor: pointer;
     width: 80%;
     overflow: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .user-name {

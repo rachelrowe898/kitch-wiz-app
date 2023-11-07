@@ -178,33 +178,50 @@ function removeItemFromLocalStorage(itemText, storageKey) {
   localStorage.setItem(storageKey, JSON.stringify(updatedItems));
 }
 
-function showKeyboard() {
+var keyboard = document.getElementById('keyboard');
+var stockDiv = document.getElementById('stock-section');
+
+// Add an event listener to hide the keyboard when clicking outside of it
+document.addEventListener('click', function(event) {
   var keyboard = document.getElementById('keyboard');
-  console.log("******** keyboard", keyboard)
-  if (keyboard.style.display === 'none') {
-      keyboard.style.display = 'block';
+  if (event.target !== keyboard && event.target !== document.getElementById('item-input') && event.target !== document.getElementById('item-quantity')) {
+      console.log(event.target);
+      keyboard.style.display = 'none';
+      stockDiv.style.flexBasis = 'auto';
   } else {
-      keyboard.style.display = 'none';
-  }
-}
-
-document.addEventListener('click', function (event) {
-  var keyboard = document.getElementById('keyboard');
-  var keyboardInputs = document.querySelectorAll('.keyboard-input');
-  var target = event.target;
-  if (keyboard.style.display === 'block') {
-    var isKeyboardInput = Array.from(keyboardInputs).some(function (keyboardInput) {
-      return keyboardInput.contains(target);
-    });
-
-    if (!isKeyboardInput && target !== keyboard) {
-      keyboard.style.display = 'none';
-    }
+    keyboard.style.display = 'block';
+    stockDiv.style.flexBasis = "39%";
+    keyboard.style.display = '40%';
   }
 });
 
-var keyboardInputs = document.querySelectorAll('.keyboard-input');
-keyboardInputs.forEach(function (keyboardInput) {
-  keyboardInput.addEventListener('click', showKeyboard);
-});
+// function showKeyboard() {
+//   var keyboard = document.getElementById('keyboard');
+//   console.log("******** keyboard", keyboard)
+//   if (keyboard.style.display === 'none') {
+//       keyboard.style.display = 'block';
+//   } else {
+//       keyboard.style.display = 'none';
+//   }
+// }
+
+// document.addEventListener('click', function (event) {
+//   var keyboard = document.getElementById('keyboard');
+//   var keyboardInputs = document.querySelectorAll('.keyboard-input');
+//   var target = event.target;
+//   if (keyboard.style.display === 'block') {
+//     var isKeyboardInput = Array.from(keyboardInputs).some(function (keyboardInput) {
+//       return keyboardInput.contains(target);
+//     });
+
+//     if (!isKeyboardInput && target !== keyboard) {
+//       keyboard.style.display = 'none';
+//     }
+//   }
+// });
+
+// var keyboardInputs = document.querySelectorAll('.keyboard-input');
+// keyboardInputs.forEach(function (keyboardInput) {
+//   keyboardInput.addEventListener('click', showKeyboard);
+// });
 
