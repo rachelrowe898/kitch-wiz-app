@@ -22,7 +22,10 @@ var allergyCheckboxes = document.querySelectorAll("input[type='checkbox'][name='
 
 // Loop through the checked allergy checkboxes and add their values to the allergies array
 for (var i = 0; i < allergyCheckboxes.length; i++) {
-  allergies.push(allergyCheckboxes[i].value);
+  // check if there's a value in the checkbox
+  if (allergyCheckboxes[i].value !== " ") {
+    allergies.push(allergyCheckboxes[i].value);
+  }
 }
 
 // Get the value of the other allergy text box, if it is checked
