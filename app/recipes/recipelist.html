@@ -11,21 +11,21 @@
     <main>
       <div class="appBox">
         <div class="app-heading">
-            <!-- Top Navigation Menu -->
-            <div class="topnav">
-              <a href="#home" class="active">KitchWiz</a>
-              <!-- Navigation links (hidden by default) -->
-              <div id="menuLinks">
-                <a href="#recipes" class="nav-link" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
-                <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen</a>
-                <a href="#shopping" class="nav-link" onclick="location.href='../Shopping/shopping.html';">Shopping</a>
-                <a href="#profile" class="nav-link" onclick="location.href='../User Profile/userProfile.html';">Profile</a>
-              </div>
-              <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-              <a href="javascript:void(0);" class="icon" onclick="openNav()">
-                <img src="../icons/hamburger-menu.png" alt="hamburger menu">
-              </a>
+          <!-- Top Navigation Menu -->
+          <div class="topnav">
+            <a href="#home" class="active">KitchWiz</a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="menuLinks">
+              <a href="#recipes" class="nav-link" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
+              <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen</a>
+              <a href="#shopping" class="nav-link" onclick="location.href='../Shopping/shopping.html';">Shopping</a>
+              <a href="#profile" class="nav-link" onclick="location.href='../User Profile/userProfile.html';">Profile</a>
             </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="openNav()">
+              <img src="../icons/hamburger-menu.png" alt="hamburger menu">
+            </a>
+          </div>
         </div>
           
           <div class="main-section">
@@ -49,14 +49,14 @@
                 <div id="addRecipe" style="display: None;">
                   <h1 style="padding: 20px; margin: 0 auto;">Add New Recipe</h1>
                   <form add id="add-ingredient-form">
-                    <input id="form-recipe-name" type="text" placeholder="Recipe Name" required onkeyup="enableSubmit();" onclick="showKeyboard();"><br>
+                    <input id="form-recipe-name" type="text" placeholder="Recipe Name" required onkeyup="enableSubmit();"><br>
                     <!-- <textarea id="form-ingredients" placeholder="Ingredients (one ingredient per line)" style="height:200px" required></textarea><br> -->
                     <!-- <p>Ingredients</p> -->
                     <h2 style="margin: 10px auto;">Ingredients</h2>
                     <div id="ingredient-inputs">
                       <div class="ingredient-input-row">
-                        <input type="text" id="item-input2" placeholder="Ingredient" required onkeyup="enableSubmit()">
-                        <input type="number" id="item-quantity2" placeholder="Quantity" required onkeyup="enableSubmit()">
+                        <input type="text" class="item-input2" placeholder="Ingredient" required onkeyup="enableSubmit()">
+                        <input type="number" class="item-quantity2" placeholder="Quantity" required onkeyup="enableSubmit()">
                         <select id="list-selector-type2" class="dropdown-large" required onkeyup="enableSubmit()">
                             <option value="count">Count</option>
                             <option value="pounds">Pound(s)</option>
@@ -439,14 +439,13 @@
                 </div>
               </template>
             </div>
-          </div>
-          <div class="keyboard-container" id="keyboard-container">
-                <div id="keyboard-pop-up" style="display: none;">
-                  <img src="../images/keyboard.jpeg" alt="Keyboard Image">
-                </div>
+            <div class="keyboard-container" id="keyboard-container">
+              <div id="keyboard" style="display: none;">
+                <img src="../images/keyboard-image.jpeg" alt="Keyboard Image">
+              </div>
             </div>
+          </div>
         </div>
-        
     </main>
     <script src="script.js"></script>
 </body>

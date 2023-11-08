@@ -120,6 +120,8 @@ h2 {
     cursor: pointer;
     width: 80%;
     overflow: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .user-name {
@@ -288,7 +290,7 @@ h2 {
 .user-profile-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
     width: 100%;
     overflow: scroll;

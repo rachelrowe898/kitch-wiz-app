@@ -90,6 +90,8 @@ body {
     padding: 20px;
     margin: 10px;
     cursor: pointer;
+    overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .user-name {
