@@ -67,9 +67,9 @@
                                     <label for="Wheat">Wheat</label><br>
                                     <input type="checkbox" id="Soy" name="allergies" value="Soy">
                                     <label for="Soy">Soy</label><br>
-                                    <input type="checkbox" id="otherAllergyCheckbox" name="allergies" value="Other">
+                                    <input type="checkbox" id="otherAllergyCheckbox" name="allergies" value=" ">
                                     <label for="otherAllergyCheckbox">Other:</label>
-                                    <input type="text" id="otherAllergy" name="otherAllergy" placeholder="Enter allergies (Algy 1, Algy 2, etc)">
+                                    <input type="text" id="otherAllergy" name="otherAllergy" placeholder="Enter allergies (Algy 1, Algy 2, etc)" onclick="showKeyboard()">                                    
                             </div>
 
                             <div class="profile-detail">
@@ -98,11 +98,11 @@
                         <button id="user-groups-button" onclick="goBackToUserGroups()">User Groups</button>
                     </div> 
                 </div>
-                <div class="keyboard-container" id="keyboard-container">
-                  <div id="keyboard" style="display: none;">
-                    <img src="../images/keyboard-image.jpeg" alt="Keyboard Image">
-                  </div>
-              </div>
+            </div>
+            <div class="keyboard-container" id="keyboard-container">
+                <div id="keyboard" style="display: none;">
+                  <img src="../images/keyboard-image.jpeg" alt="Keyboard Image">
+                </div>
             </div>
         </div>
     </main>

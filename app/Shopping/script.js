@@ -166,6 +166,7 @@ function bakeButton() {
   });
 
     // Show the modal
+    checkboxModal.style.transform = "translateY(-600px)";
     checkboxModal.style.display = "block";
 }
 
@@ -189,10 +190,10 @@ document.getElementById("add-item-button").addEventListener("click", function ()
 });
 
 document.getElementById("remove-item-button").addEventListener("click", function () {
-  const lines = nameList.value.split("\n");
+  const lines = document.getElementById("item-list").value.split("\n");
   if (lines.length > 0) {
       lines.shift(); // Remove the first line (top-most name)
-      nameList.value = lines.join("\n");
+      document.getElementById("item-list").value = lines.join("\n");
   }
 });
 
