@@ -196,12 +196,12 @@ h2 {
 
 .recipe-heading-text {
     display: flex;
-    flex: 0 0 52%;
-    padding: 5px 5px;
+    /* flex: 0 0 52%; */
+    /* padding: 5px 5px; */
     flex-direction: column;
     font-size: 48px;
     color: #635C70;
-    margin-left: 15px;
+    /* margin-left: 15px; */
     margin-top: 50px;
     align-content: center;
     align-items: center;
@@ -482,4 +482,28 @@ input[type="checkbox"] {
   
   #food-preference, #difficulty, #diet {
     width: 200px; 
+  }
+
+  #back-button {
+    background-color: #2C3C4B;
+    color: white;
+    padding: 5px 10px;
+    /* margin: 35px 100px; */
+    /* border: none; */
+    border-radius: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 40px;
+    width: 80px;
+    align-items: center;
+    align-content: center;
+  }
+
+  .stock-header {
+    /* make this centered on screen */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
   }

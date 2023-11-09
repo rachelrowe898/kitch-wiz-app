@@ -34,7 +34,10 @@
                     <h1 class="group-heading-text">User Group</h1>
                     <div id="group-listing">
                         <div class="group-header-row">
-                            <h1 class="group-title">Bob Squad</h1>
+                            <div class="stock-header">
+                                <button id="back-button" onclick="goBackToUserGroups()">Back</button>
+                                <h1 class="recipe-heading-text"><b>Bob Squad</b></h1>
+                            </div>
                             <p class="group-member-count">3 members</p>
                         </div>
                         <!-- Example group section -->
@@ -75,7 +78,7 @@
                         </div>
                         <div class = "space"></div>
                         <!-- More group sections can be added dynamically -->
-                        <button class="add-profile-button" onclick="goBackToUserGroups()">Back</button>
+                        <!-- <button class="add-profile-button" onclick="goBackToUserGroups()">Back</button> -->
                         <button class="delete-profile-button" onclick="openDeleteProfile()">Leave Group</button>
                 </div>
             </div>

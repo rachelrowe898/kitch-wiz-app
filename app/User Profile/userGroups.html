@@ -35,7 +35,10 @@
 
         <div class="main-section">
             <div id="user-profile-section">
-                <h1 class="recipe-heading-text"><b>Groups</b></h1>
+                <div class="stock-header">
+                    <button id="back-button" onclick="goBackToUserProfile()">Back</button>
+                    <h1 class="recipe-heading-text"><b>Groups</b></h1>
+                </div>
                 <div id="recipe-listing">
                     <div class="recipe-square" onclick="openUserProfile('BobSquad');" style="cursor:pointer;" id="bobSquad">
                         <img class="dish-pic" src="Bob_the_builder.jpg" alt="profile-pic">
@@ -65,7 +68,7 @@
                 </div>
                 <div class="add-delete-options">
                     <button class="add-profile-button" onclick="openAddProfile()">Create Group</button>
-                    <button class="add-profile-button" onclick="goBackToUserProfile()">Back to Profile</button>
+                    <!-- <button class="add-profile-button" onclick="goBackToUserProfile()">Back to Profile</button> -->
                 </div>
             </div>
         </div>

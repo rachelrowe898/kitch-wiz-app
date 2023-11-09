@@ -132,6 +132,13 @@ function showKeyboard() {
   inputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  var dietElement = document.getElementById('diet');
+  dietElement.addEventListener('click', function() {
+    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+});
+
 function showKeyboardGroupName() {
 var keyboard = document.getElementById('keyboard-group');
 if (keyboard.style.display === 'none') {
