@@ -458,17 +458,20 @@ input[type="checkbox"] {
   }
 
 #keyboard img {
-    max-width: 850px; 
+    width: 640px; 
+    bottom: 0;
     max-height: 350px;
 }
 
 #keyboard-group img {
-    max-width: 850px; 
+    width: 640px; 
+    bottom: 0;
     max-height: 350px;
 }
 
 #keyboard-member img {
-    max-width: 850px; 
+    width: 640px; 
+    bottom: 0;
     max-height: 350px;
 }
 .keyboard-container {
@@ -498,12 +501,15 @@ input[type="checkbox"] {
     width: 80px;
     align-items: center;
     align-content: center;
+    margin-right: 20px;
+    margin-top: 15px;
   }
 
   .stock-header {
     /* make this centered on screen */
-    margin: 0 auto;
     display: flex;
+    flex-direction: row;
     align-items: center;
     align-content: center;
+    padding: 10px;
   }

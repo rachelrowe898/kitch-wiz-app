@@ -33,7 +33,10 @@
             <div class="user-profile-page">
                 <!-- Group Information -->
                 <div class="user-profile">
-                    <h1 class="user-profile-heading">Create Group</h1>
+                  <div class="stock-header" style="display: flex; flex-direction: row">
+                    <button id="back-button" onclick="goBackToUserGroups()">Back</button>
+                    <h1 class="recipe-heading-text">Create Group</h1>
+                  </div>
                     <div class="user-details">
                         <div class="profile-detail">
                             <label for="food-preference">Group Name:</label>
@@ -47,7 +50,6 @@
                     </div>
                     <!-- Save button to update profile -->
                     <button class="save-profile-button" onclick="createUserGroup()">Create Group</button>
-                    <button class="add-profile-button" onclick="goBackToUserGroups()">Back</button>
                 </div> 
             </div>   
             <div class="keyboard-container" id="keyboard-container">
