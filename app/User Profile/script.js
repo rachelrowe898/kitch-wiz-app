@@ -112,12 +112,24 @@ window.location.href = "userProfile.html";
 }
 
 function showKeyboard() {
-var keyboard = document.getElementById('keyboard');
-if (keyboard.style.display === 'none') {
-    keyboard.style.display = 'block';
-} else {
-    keyboard.style.display = 'none';
-}
+  var keyboard = document.getElementById('keyboard');
+  var keyboardContainer = document.getElementById('keyboard-container');
+  var userProfiles = document.getElementsByClassName('user-profile');
+  if (keyboard.style.display === 'none') {
+      keyboard.style.display = 'block';
+      for (var i = 0; i < userProfiles.length; i++) {
+        userProfiles[i].style.marginBottom = '200px';
+      }
+  } else {
+      keyboard.style.display = 'none';
+      for (var i = 0; i < userProfiles.length; i++) {
+        userProfiles[i].style.marginBottom = '0';
+      }
+      keyboardContainer.style.marginBottom = '0';
+  }
+  
+  var inputElement = document.getElementById('otherAllergy');
+  inputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function showKeyboardGroupName() {
