@@ -506,29 +506,39 @@ input[type="file"] {
 }
 
 #remove-ingredient-button {
-  background-color: white;
-  color: #635C70;
-  padding: 10px 20px;
+  background-color: #FFC2C2;
+  color: #2C3C4B;
   border: none;
-  border-radius: 5px;
-  font-size: 25px;
+  padding: 10px 15px;
   cursor: pointer;
-  margin-top: 20px;
-  width: 170px;
-  margin-right: 80px;
+  border-radius: 5px;
+  float: right;
+  margin: 15px 20px;
+  font: Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+  height: 80px;
+  width: 150px;
+  justify-content: center;
+  box-shadow: 2px 4px 2px #c58c8c;
 }
 
 #add-ingredient-button {
-  background-color: white;
-  color: #635C70;
-  padding: 10px 20px;
+  background-color: #98DDA9;
+  color: #2C3C4B;
   border: none;
-  border-radius: 5px;
-  font-size: 25px;
+  padding: 10px 15px;
   cursor: pointer;
-  margin-top: 20px;
-  /* margin-right: 10px; */
-  width: 170px;
+  border-radius: 5px;
+  float: right;
+  margin: 15px 20px;
+  font: Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+  height: 80px;
+  width: 150px;
+  justify-content: center;
+  box-shadow: 2px 4px 2px #6ca87b;
 }
 
 input[type="submit"] {
