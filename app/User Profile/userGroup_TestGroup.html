@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchWiz - User Group</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
+</head>
+<body class="wrapper">
+    <main>
+        <div class="appBox">
+            <div class="app-heading">
+                <!-- Top Navigation Menu -->
+                <div class="topnav">
+                  <a href="#home" class="active">KitchWiz</a>
+                  <!-- Navigation links (hidden by default) -->
+                  <div id="menuLinks">
+                    <a href="#recipes" class="nav-link" onclick="location.href='../recipes/recipelist.html';">Recipes</a>
+                    <a href="#kitchenStock" class="nav-link" onclick="location.href='../kitchenStock/kitchenStock.html';">Kitchen</a>
+                    <a href="#shopping" class="nav-link" onclick="location.href='../Shopping/shopping.html';">Shopping</a>
+                    <a href="#profile" class="nav-link" onclick="location.href='../User Profile/userProfile.html';">Profile</a>
+                  </div>
+                  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                  <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                    <img src="../icons/hamburger-menu.png" alt="hamburger menu">
+                  </a>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <div id="user-group-section">
+                    <h1 class="group-heading-text">User Group</h1>
+                    <div id="group-listing">
+                        <div class="group-header-row">
+                            <div class="stock-header">
+                                <button id="back-button" onclick="goBackToUserGroups()">Back</button>
+                                <h1 class="recipe-heading-text"><b>Test Group</b></h1>
+                            </div>
+                            <p class="group-member-count">2 members</p>
+                        </div>
+                        <!-- Example group section -->
+                        <div class="group-square" style="cursor:pointer;">
+                            <div class="group-details">
+                                <h2 class="group-info"><u>Name</u>: User 1</h2>
+                                <div class="group-text-row">
+                                    <h3 class="group-info"><u>Cuisine</u>: American</h3>
+                                    <h3 class="group-info"><u>Allergies</u>: Peanuts</h3>
+                                    <h3 class="group-info"><u>Preparation Difficulty</u>: Easy</h3>
+                                    <h3 class="group-info"><u>Diet</u>: None</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group-square" style="cursor:pointer;">
+                            <div class="group-details">
+                                <h2 class="group-info"><u>Name</u>: User 2</h2>
+                                <div class="group-text-row">
+                                    <h3 class="group-info"><u>Cuisine</u>: Mexican</h3>
+                                    <h3 class="group-info"><u>Allergies</u>: Peanuts</h3>
+                                    <h3 class="group-info"><u>Preparation Difficulty</u>: Hard</h3>
+                                    <h3 class="group-info"><u>Diet</u>: Paleo</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class = "space"></div>
+                        <!-- More group sections can be added dynamically -->
+                        <!-- <button class="add-profile-button" onclick="goBackToUserGroups()">Back</button> -->
+                        <button class="delete-profile-button" onclick="openDeleteProfile()">Leave Group</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
