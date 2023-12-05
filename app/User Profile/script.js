@@ -79,18 +79,23 @@ window.location.href = "userGroups.html";
 }
 
 function createUserGroup() {
-const groupNameInput = document.getElementById('group-name');
-const groupMembersInput = document.getElementById('group-members');
+  // Get group name and members
+  var groupName = document.getElementById('group-name').value;
+  var groupMembers = document.getElementById('group-members').value;
 
-const groupName = groupNameInput.value;
-const groupMembers = groupMembersInput.value;
-console.log(groupName, groupMembers)
-// Update the group name in the revealed template
-var newGroupName = document.getElementById('new-group-name');
-newGroupName.textContent = groupName;
+  // Check if both group name and members are provided
+  if (groupName.trim() === '' || groupMembers.trim() === '') {
+    alert('Please enter a group name and members.');
+    return;
+  }
 
-// Redirect back to userGroups.html
-window.location.href = "userGroups.html";
+  // Display popup with group information
+  var popupMessage = `Group "${groupName}" with members ${groupMembers} is created!`;
+  alert(popupMessage);
+
+  // Reset input fields after group creation
+  document.getElementById('group-name').value = '';
+  document.getElementById('group-members').value = '';
 }
 
 // Function to enable/disable the input based on the checkbox state
