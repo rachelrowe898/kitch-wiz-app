@@ -47,9 +47,9 @@ messageDisplay.innerHTML = message;
 var userProfPage = document.querySelector(".user-profile");
 userProfPage.appendChild(messageDisplay);
 
-// setTimeout(function () {
-//   messageDisplay.style.display = "none";
-// }, 5000); 
+setTimeout(function () {
+  messageDisplay.style.display = "none";
+}, 15000); 
 }
 
 function openUserProfile(username) {
